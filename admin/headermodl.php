@@ -11,8 +11,6 @@
         }
     }
     $logo;
-    include 'classes/khatral.php';
-    include 'icarus.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -115,14 +113,4 @@
         }
     </style>
 </head>
-<?php
-    if(isset($inst) == FALSE){
-?>
 <body class=" bg-white" style="">
-    <?php
-        include 'primarynav.php';
-    ?>
-    <div class="container-fluid" >
-        <?php
-        }
-        ?>
