@@ -121,7 +121,7 @@
     <?php
         include 'primarynav.php';
     ?>
-    <div class="container-fluid">
+    <div class="container-fluid" >
         <?php
         }
         ?>

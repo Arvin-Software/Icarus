@@ -4,6 +4,7 @@ include '../header.php';
 ?>
 <br>
 <br>
+<div class="container-fluid" style="overflow:auto; height: 85vh;">
 <div class="container">
 <img src="../images/icaruslogo1ba.png" alt="Valai Logo" style="width: 300px;">
 <br>
@@ -56,4 +57,5 @@ include '../header.php';
 <h6 class="text-center">Icons in the project are the copyright of the respective owners.</h6>
 <h6 class="text-center">Components like bootstrap, jquery and other products used in this project are the copyright of the respective owners.</h6>
 <h6 class="text-center">&copy; 2021 Icarus Project. All Rights Reserved.</h6>
+</div>
 </div>
