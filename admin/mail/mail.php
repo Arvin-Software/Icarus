@@ -7,8 +7,8 @@ include '../headermodl.php';
         include 'mailnav.php';?>
         <div class="container-fluid" style="margin-top: 1%;">
             <div class="row">
-                <div class="col-lg-3 border shadow trd-blue" style="padding: 1% 1% 1% 1%; height: 90vh;">
-                    <h3 class="text-white">My emails</h3><br>
+                <div class="col-lg-3 border shadow bg-light" style="padding: 1% 1% 1% 1%; height: 90vh;">
+                    <h3 class="">My emails</h3><br>
                     <div style="overflow: auto; height: 92%;">
                         <ul class="list-group">
                             <li class="list-group-item">
@@ -162,6 +162,7 @@ include '../headermodl.php';
             }else{
                 document.getElementById("prog").style.width = count + "%";
                 // document.getElementById("prog").innerHTML = "Loading mail...( " + count + "% )";
+                window.location.href = "../development.php";
             }
             
             
