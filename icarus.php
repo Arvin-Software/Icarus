@@ -8,6 +8,11 @@ class icarus{
             ':unme'=>$_SESSION['unme']
         ));
     }
+    public static function DeleteNotice($id){
+        khatral::khquery('DELETE FROM notice_board WHERE notice_id=:id', array(
+            ':id'=>$id
+        ));
+    }
     public static function DisplayVersion(){
         echo 'v0.1';
     }

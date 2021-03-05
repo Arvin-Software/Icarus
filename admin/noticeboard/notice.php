@@ -4,12 +4,15 @@ include '../../icarus.php';
 include '../../classes/khatral.php';
 if(isset($_POST['submit'])){
     icarus::InsertNotice($_POST['titl'], $_POST['content'], $_POST['priori']);
-    echo 'successfully saved';
+    // echo 'successfully saved';
+}
+if(isset($_GET['id'])){
+    icarus::DeleteNotice($_GET['id']);
 }
 ?>
 <div id="inc1" class="" style="height: 100vh;">
     <div class="container-fluid" style="margin-top: 1%;">
-        <button data-toggle="modal" data-target="#myModal" class="btn btn-primary">New notice</button>
+        <a href="../index.php" class="btn btn-primary">Back</a>&nbsp;&nbsp;<button data-toggle="modal" data-target="#myModal" class="btn btn-success">New notice</button>&nbsp;&nbsp;<a href="notice.php" class="btn btn-info">Refresh</a>
         <div class="modal" id="myModal">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
@@ -48,45 +51,77 @@ if(isset($_POST['submit'])){
         </div>
         <br><br>
         <div class="row">
-            <div class="col-lg-3" style="">
-                <div class="card bg-primary">
-                    <div class="card-header text-white">Header</div>
-                    <div class="card-body text-center bg-white">
-                    <p class="card-text">Some text inside the first card</p>
-                    </div>
-                    <div class="card-footer text-white">Footer</div>
-                </div>
-                
+            <div class="col-lg-3 p-2 border-right" style="">
+                <h6 class="text-center">Urgent</h6><br />
+                <?php
+                    $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori ORDER BY notice_id DESC', array(
+                        ':priori'=>"3"
+                    ));
+                    foreach($ret as $p){
+                        echo '<div class="card bg-danger">
+                            <div class="card-header text-white">' . $p['notice_titl'] .'</div>
+                            <div class="card-body bg-white">
+                            ' . $p['notice_content'] . '
+                            </div>
+                            <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                        </div> <br>';
+                    }
+                    
+                ?>
             </div>
-            <div class="col-lg-3" style="">
-                <div class="card bg-success">
-                    <div class="card-header text-white">Header</div>
-                    <div class="card-body text-center bg-white">
-                    <p class="card-text">Some text inside the first card</p>
-                    </div>
-                    <div class="card-footer text-white">Footer</div>
-                </div>
-                
+            <div class="col-lg-3 p-2 border-right" style="">
+                <h6 class="text-center">High</h6><br />
+                <?php
+                    $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori ORDER BY notice_id DESC', array(
+                        ':priori'=>"2"
+                    ));
+                    foreach($ret as $p){
+                        echo '<div class="card bg-warning">
+                            <div class="card-header">' . $p['notice_titl'] .'</div>
+                            <div class="card-body bg-white">
+                            ' . $p['notice_content'] . '
+                            </div>
+                            <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                        </div> <br>';
+                    }
+                    
+                ?>
             </div>
-            <div class="col-lg-3" style="">
-                <div class="card bg-warning">
-                    <div class="card-header">Header</div>
-                    <div class="card-body text-center bg-white">
-                    <p class="card-text">Some text inside the first card</p>
-                    </div>
-                    <div class="card-footer">Footer</div>
-                </div>
-                
+            <div class="col-lg-3 p-2 border-right" style="">
+                <h6 class="text-center">Medium</h6><br />
+                <?php
+                    $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori ORDER BY notice_id DESC', array(
+                        ':priori'=>"1"
+                    ));
+                    foreach($ret as $p){
+                        echo '<div class="card bg-success">
+                            <div class="card-header text-white">' . $p['notice_titl'] .'</div>
+                            <div class="card-body bg-white">
+                            ' . $p['notice_content'] . '
+                            </div>
+                            <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                        </div> <br>';
+                    }
+                    
+                ?>
             </div>
-            <div class="col-lg-3" style="">
-                <div class="card bg-danger">
-                    <div class="card-header text-white">Header</div>
-                    <div class="card-body text-center bg-white">
-                    <p class="card-text">Some text inside the first card</p>
-                    </div>
-                    <div class="card-footer text-white">Footer</div>
-                </div>
-                
+            <div class="col-lg-3 p-2 border-right" style="">
+                <h6 class="text-center">Low</h6><br />
+                <?php
+                    $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori ORDER BY notice_id DESC', array(
+                        ':priori'=>"0"
+                    ));
+                    foreach($ret as $p){
+                        echo '<div class="card bg-primary">
+                            <div class="card-header text-white">' . $p['notice_titl'] .'</div>
+                            <div class="card-body bg-white">
+                            ' . $p['notice_content'] . '
+                            </div>
+                            <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                        </div> <br>';
+                    }
+                    
+                ?>
             </div>
         </div>
     </div>
@@ -110,22 +145,24 @@ if(isset($_POST['submit'])){
     </div>
 </div>
 <script>
-    $('#inc1').hide();
-    $('#inc').show();
-    var myVar = setInterval(myTimer, 250);
-    var count = 0;
-    function myTimer() {
-        count += 15;
-        if(count >= 100){
-            $('#inc').hide();
-            $('#inc1').show();
-        }else{
-            document.getElementById("prog").style.width = count + "%";
-            // document.getElementById("prog").innerHTML = "Loading mail...( " + count + "% )";
-            // window.location.href = "../development.php";
-        }
+    // $('#inc1').hide();
+    // $('#inc').show();
+    $('#inc').hide();
+    $('#inc1').show();
+    // var myVar = setInterval(myTimer, 250);
+    // var count = 0;
+    // function myTimer() {
+    //     count += 15;
+    //     if(count >= 100){
+    //         $('#inc').hide();
+    //         $('#inc1').show();
+    //     }else{
+    //         document.getElementById("prog").style.width = count + "%";
+    //         // document.getElementById("prog").innerHTML = "Loading mail...( " + count + "% )";
+    //         // window.location.href = "../development.php";
+    //     }
         
         
-    }
+    // }
 </script>
 </body>
