@@ -1,5 +1,13 @@
 <?php
 class icarus{
+    public static function InsertNotice($titl, $content, $priori){
+        khatral::khquery('INSERT INTO notice_board VALUES(NULL, :titl, :content, :priori, :unme, NULL)', array(
+            ':titl'=>$titl,
+            ':content'=>$content,
+            ':priori'=>$priori,
+            ':unme'=>$_SESSION['unme']
+        ));
+    }
     public static function DisplayVersion(){
         echo 'v0.1';
     }

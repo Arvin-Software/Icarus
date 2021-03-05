@@ -5,14 +5,14 @@ include '../header.php';
     <div class="container" style="margin-top: 3%;" id="inc1">
         <h3>Hi ! Welcome Admin</h3><hr>
         <div class="row" style="margin-top: 1%;">
-            <div class="col-lg-4">
+            <!-- <div class="col-lg-4">
                 <div class=" p-4 border text-center bor-ten shadow trd-blue" style="margin-top: 8%;">
                     <img src="../images/email.svg" alt="email" class="p-2" style="width: 88px;">
                     
                     <br><br>
                     <a href="mail/mail.php" class="btn btn-outline-light">Internal mail</a>
                 </div>
-            </div>
+            </div> -->
             <script>
                 function setIframe(){
                     document.getElementById('mailframe').src="mail.php";
@@ -39,6 +39,13 @@ include '../header.php';
                 </div>
             </div>
             <div class="col-lg-4">
+                <div class=" p-4 border text-center bor-ten shadow bg-warning" style="margin-top: 8%;">
+                    <img src="../images/board.svg" alt="email" class="p-2" style="width: 88px;">
+                    <br><br>
+                    <a href="noticeboard/notice.php" class="btn btn-outline-dark">Discussion board</a>
+                </div>
+            </div>
+            <!-- <div class="col-lg-4">
                 <div class=" p-4 border text-center bor-ten shadow bg-info" style="margin-top: 8%;">
                     <img src="../images/spreadsheet.svg" alt="email" class="p-2" style="width: 88px;">
                     <br><br>
@@ -51,8 +58,8 @@ include '../header.php';
                     <br><br>
                     <a href="mail.php" class="btn btn-outline-light">My notepad</a>
                 </div>
-            </div>
-            <div class="col-lg-4">
+            </div> -->
+            <!-- <div class="col-lg-4">
                 <div class="p-4 border text-center bor-ten shadow bg-warning" style="margin-top: 8%;">
                     <img src="../images/approve.svg" alt="email" class="p-2" style="width: 88px;">
                     <br><br>
@@ -65,7 +72,7 @@ include '../header.php';
                     <br><br>
                     <a href="mail.php" class="btn btn-outline-light">My appointments</a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 <div class="container-fluid bg-text bg-light" style="margin-top: 1%;" id="inc">
@@ -89,19 +96,17 @@ include '../header.php';
     <script>
         $('#inc1').hide();
         $('#inc').show();
-        var myVar = setInterval(myTimer, 20);
+        var myVar = setInterval(myTimer, 5);
         var count = 0;
         function myTimer() {
             count += 1;
-            if(count >= 100){
+            if(count >= 50){
                 document.getElementById("prog").style.width = "100%";
                 $('#inc').hide();
                 $('#inc1').show();
             }else{
                 // document.getElementById("prog").style.width = count + "%";
                 // document.getElementById("prog").innerHTML = "Loading mail...( " + count + "% )";
-            }
-            
-            
+            }    
         }
     </script>
