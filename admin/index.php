@@ -58,8 +58,8 @@ include '../header.php';
                     <br><br>
                     <a href="mail.php" class="btn btn-outline-light">My notepad</a>
                 </div>
-            </div> -->
-            <!-- <div class="col-lg-4">
+            </div>
+            <div class="col-lg-4">
                 <div class="p-4 border text-center bor-ten shadow bg-warning" style="margin-top: 8%;">
                     <img src="../images/approve.svg" alt="email" class="p-2" style="width: 88px;">
                     <br><br>

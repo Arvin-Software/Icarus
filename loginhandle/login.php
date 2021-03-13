@@ -45,51 +45,48 @@
                             <form action="login.php" method="post" autocomplete="off" style="margin-bottom: 2%; padding: 3% 3% 3% 3%;">
                                 <h4 class="" style="padding-top: 10%; margin-bottom: 5%;">Enter details</h4>
                                 <?php
-                                session_start();
-                                if(isset($_POST['submit'])){
-                                    if($_POST['unme'] == "admin" && $_POST['pass'] == "admin@2020"){
-                                        $_SESSION['unme'] = "admin";
-                                        $_SESSION['hxid'] = "hxiediscd";
-                                        header("Location: ../admin/index.php");
+                                    session_start();
+                                    include '../classes/khatral.php';
+                                    if(isset($_POST['submit'])){
+                                        $ret = khatral::khquery('SELECT * FROM user WHERE user_nm=:nm', array(
+                                            ':nm'=>$_POST['unme']
+                                        ));
+                                        $count = 0;
+                                        $id;
+                                        $typ;
+                                        $password_hashed = '';
+                                        foreach($ret as $p){
+                                            $count += 1;
+                                            $id=$p['user_id'];
+                                            $typ = $p['user_typ'];
+                                            $password_hashed = $p['user_pass'];
+                                        }
+                                        if($count > 0){
+                                            if(password_verify($_POST['pass'], $password_hashed) == TRUE){
+                                                $_SESSION['unme'] = $id ;
+                                                $_SESSION['unme_real'] = $_POST['unme'];
+                                                $_SESSION['hxid'] = "hxiediscd";
+                                                if($typ == "0"){
+                                                    $_SESSION['hxid'] = "hxiediscd";
+                                                    $_SESSION['typ'] = "0";
+                                                    header("Location: ../admin");
+                                                }else if($typ == "1"){
+                                                    $_SESSION['unme'] = "admin";
+                                                    $_SESSION['hxid'] = "hxiediscd";
+                                                    $_SESSION['typ'] = "1";
+                                                    header("Location: ../admin");
+                                                }else{
+                                                    $_SESSION['hxid'] = "hxiediscd";
+                                                    $_SESSION['typ'] = "2";
+                                                    header("Location: ../admin");
+                                                }
+                                            }
+                                        }else{
+                                            echo '<div class="alert alert-danger alert-dismissible fade show text-center">
+                                                    <strong>Username or password wrong</strong> 
+                                                    </div>';
+                                        }
                                     }
-                                }
-                                    // session_start();
-                                    // include '../classes/khatral.php';
-                                    // if(isset($_POST['submit'])){
-                                    //     $ret = khatral::khquery('SELECT * FROM user WHERE user_nm=:nm', array(
-                                    //         ':nm'=>$_POST['unme']
-                                    //     ));
-                                    //     $count = 0;
-                                    //     $id;
-                                    //     $typ;
-                                    //     $password_hashed = '';
-                                    //     foreach($ret as $p){
-                                    //         $count += 1;
-                                    //         $id=$p['user_id'];
-                                    //         $typ = $p['user_typ'];
-                                    //         $password_hashed = $p['user_pass'];
-                                    //     }
-                                    //     if($count > 0){
-                                    //         if(password_verify($_POST['pass'], $password_hashed) == TRUE){
-                                    //             $_SESSION['unme'] = $id ;
-                                    //             $_SESSION['unme_real'] = $_POST['unme'];
-                                    //             $_SESSION['hxid'] = "hxieiwccsd";
-                                    //             if($typ == "0"){
-                                    //                 header("Location: ../users/dash.php");
-                                    //             }else if($typ == "2"){
-                                    //                 $_SESSION['unme'] = "admin";
-                                    //                 $_SESSION['hxid'] = "hxieiwccsd";
-                                    //                 header("Location: ../admin/dash.php");
-                                    //             }else{
-                                    //                 header("Location: ../tech/ticket.php");
-                                    //             }
-                                    //         }
-                                    //     }else{
-                                    //         echo '<div class="alert alert-danger alert-dismissible fade show text-center">
-                                    //                 <strong>Username or password wrong</strong> 
-                                    //                 </div>';
-                                    //     }
-                                    // }
                                 ?>
                                 <div class="form-group" style=" margin-bottom: 5%;">
                                     <input type="text" id="unme" name="unme" placeholder="Username" class="form-control bg-light bor-ten" required="">

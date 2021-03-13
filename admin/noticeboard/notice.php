@@ -11,29 +11,37 @@ if(isset($_GET['id'])){
 }
 ?>
 <div id="inc1" class="" style="height: 100vh;">
-    <div class="container-fluid" style="margin-top: 1%;">
-        <a href="../index.php" class="btn btn-primary">Back</a>&nbsp;&nbsp;<button data-toggle="modal" data-target="#myModal" class="btn btn-success">New notice</button>&nbsp;&nbsp;<a href="notice.php" class="btn btn-info">Refresh</a>
+    <div class="shadow p-4 border-bottom" style="border-radius: 0px 0px 10px 10px;">
+        <img src="../../images/board.svg" alt="notice" style="width: 32px;">&nbsp;&nbsp;Notice Board<br /><br /><a href="../index.php" class="btn btn-light border border-secondary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
+        <?php
+            if($_SESSION['typ'] != "2"){
+                echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-light border  border-secondary bor-ten"><i class="far fa-file"></i>&nbsp;&nbsp;New notice</button>';
+            }
+        ?>
+    </div>
+    <div class="container-fluid" style="">
+        
+        <!-- &nbsp;&nbsp;<a href="notice.php" class="btn btn-info">Refresh</a> -->
         <div class="modal" id="myModal">
             <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                <!-- Modal body -->
-                <div class="modal-header bg-primary text-white">
+                <div class="modal-content bor-ten">
+                <div class="modal-header bg-primary text-white" style="border-radius: 10px 10px 0px 0px;">
                     <h4 class="modal-title">New notice</h4>
                     <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form action="notice.php" method="post">
                         <div class="form-group">
-                            <label for="titl">Notice Title</label>
-                            <input type="text" name="titl" id="titl" class="form-control" required="">
+                            <!-- <label for="titl">Notice Title</label> -->
+                            <input type="text" name="titl" id="titl" class="form-control bor-ten" placeholder="Notice Title" required="">
                         </div>
                         <div class="form-group">
-                            <label for="content">Notice Content</label>
-                            <textarea name="content" id="content" cols="30" rows="10" class="form-control" required=""></textarea>
+                            <!-- <label for="content">Notice Content</label> -->
+                            <textarea name="content" id="content" cols="30" rows="10" class="form-control bor-ten" required="" placeholder="Notice Title"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="priori">Priority</label>
-                            <select name="priori" id="priori" class="custom-select">
+                            <select name="priori" id="priori" class="custom-select bor-ten">
                                 <option value="0" class="text-primary">Low</option>
                                 <option value="1" class="text-success">Medium</option>
                                 <option value="2" class="text-warning">High</option>
@@ -49,7 +57,7 @@ if(isset($_GET['id'])){
                 </div>
             </div>
         </div>
-        <br><br>
+        <hr>
         <div class="row">
             <div class="col-lg-3 p-2 border-right" style="">
                 <h6 class="text-center">Urgent</h6><br />
@@ -58,13 +66,23 @@ if(isset($_GET['id'])){
                         ':priori'=>"3"
                     ));
                     foreach($ret as $p){
-                        echo '<div class="card bg-danger">
-                            <div class="card-header text-white">' . $p['notice_titl'] .'</div>
-                            <div class="card-body bg-white">
-                            ' . $p['notice_content'] . '
-                            </div>
-                            <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
-                        </div> <br>';
+                        if($_SESSION['typ'] != "2"){
+                            echo '<div class="card bg-danger">
+                                <div class="card-header text-white">' . $p['notice_titl'] .'</div>
+                                <div class="card-body bg-white">
+                                ' . $p['notice_content'] . '
+                                </div>
+                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                            </div> <br>';
+                        }else{
+                            echo '<div class="card bg-danger">
+                                <div class="card-header text-white">' . $p['notice_titl'] .'</div>
+                                <div class="card-body bg-white">
+                                ' . $p['notice_content'] . '
+                                </div>
+                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '</div>
+                            </div> <br>';
+                        }
                     }
                     
                 ?>
@@ -76,13 +94,23 @@ if(isset($_GET['id'])){
                         ':priori'=>"2"
                     ));
                     foreach($ret as $p){
-                        echo '<div class="card bg-warning">
-                            <div class="card-header">' . $p['notice_titl'] .'</div>
-                            <div class="card-body bg-white">
-                            ' . $p['notice_content'] . '
-                            </div>
-                            <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
-                        </div> <br>';
+                        if($_SESSION['typ'] != "2"){
+                            echo '<div class="card bg-warning">
+                                <div class="card-header">' . $p['notice_titl'] .'</div>
+                                <div class="card-body bg-white">
+                                ' . $p['notice_content'] . '
+                                </div>
+                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                            </div> <br>';
+                        }else{
+                            echo '<div class="card bg-warning">
+                                <div class="card-header">' . $p['notice_titl'] .'</div>
+                                <div class="card-body bg-white">
+                                ' . $p['notice_content'] . '
+                                </div>
+                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '</div>
+                            </div> <br>';
+                        }
                     }
                     
                 ?>
@@ -94,13 +122,23 @@ if(isset($_GET['id'])){
                         ':priori'=>"1"
                     ));
                     foreach($ret as $p){
-                        echo '<div class="card bg-success">
-                            <div class="card-header text-white">' . $p['notice_titl'] .'</div>
-                            <div class="card-body bg-white">
-                            ' . $p['notice_content'] . '
-                            </div>
-                            <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
-                        </div> <br>';
+                        if($_SESSION['typ'] != "2"){
+                            echo '<div class="card bg-success">
+                                <div class="card-header text-white">' . $p['notice_titl'] .'</div>
+                                <div class="card-body bg-white">
+                                ' . $p['notice_content'] . '
+                                </div>
+                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                            </div> <br>';
+                        }else{
+                            echo '<div class="card bg-success">
+                                <div class="card-header text-white">' . $p['notice_titl'] .'</div>
+                                <div class="card-body bg-white">
+                                ' . $p['notice_content'] . '
+                                </div>
+                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '</div>
+                            </div> <br>';
+                        }
                     }
                     
                 ?>
@@ -112,13 +150,23 @@ if(isset($_GET['id'])){
                         ':priori'=>"0"
                     ));
                     foreach($ret as $p){
-                        echo '<div class="card bg-primary">
+                        if($_SESSION['typ'] != "2"){
+                            echo '<div class="card bg-primary">
+                                <div class="card-header text-white">' . $p['notice_titl'] .'</div>
+                                <div class="card-body bg-white">
+                                ' . $p['notice_content'] . '
+                                </div>
+                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                            </div> <br>';
+                        }else{
+                            echo '<div class="card bg-primary">
                             <div class="card-header text-white">' . $p['notice_titl'] .'</div>
                             <div class="card-body bg-white">
                             ' . $p['notice_content'] . '
                             </div>
-                            <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                            <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '</div>
                         </div> <br>';
+                        }
                     }
                     
                 ?>

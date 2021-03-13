@@ -41,9 +41,21 @@ if($conn->query($query) == TRUE){
 }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table notice_board ' .$conn->error;
 }
+$query = 'CREATE TABLE IF NOT EXISTS user(
+    user_id             INTEGER         NOT NULL        AUTO_INCREMENT,
+    user_nm             VARCHAR(255)    NOT NULL,
+    user_pass           VARCHAR(255)    NOT NULL,
+    user_typ            VARCHAR(255)    NOT NULL,
+    PRIMARY KEY(user_id))';
+if($conn->query($query) == TRUE){
+echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table user created successfully';
+}else{
+echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table user ' . $conn->error;
+}
+
 echo '<br /><br />';
 echo '<a href="../installation/second.php" class="btn btn-primary bor-ten float-left">&lt; Previous</a>
-<a href="../installation/complete.php" class="btn btn-primary bor-ten float-right">Next &gt;</a>';
+<a href="../installation/admincreate.php" class="btn btn-primary bor-ten float-right">Next &gt;</a>';
 echo '</div>';
 echo '<div class="col-sm-4"></div>';
 ?>
