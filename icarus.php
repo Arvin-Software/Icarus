@@ -1,5 +1,11 @@
 <?php
 class icarus{
+    public static function InsertBoards($name){
+        khatral::khquery('INSERT INTO n_boards VALUES(NULL, :nm, :unm, NULL)', array(
+            ':nm'=>$name,
+            ':unm'=>$_SESSION['unme']
+        ));
+    }
     public static function InsertNotice($titl, $content, $priori){
         khatral::khquery('INSERT INTO notice_board VALUES(NULL, :titl, :content, :priori, :unme, NULL)', array(
             ':titl'=>$titl,

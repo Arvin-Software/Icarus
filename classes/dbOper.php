@@ -28,6 +28,17 @@ if($conn->connect_error){
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error connecting to database. Please check error message below<br />';
     die("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Error message : " . $conn->connect_error);
 }
+$query = 'CREATE TABLE IF NOT EXISTS n_boards(
+            board_id            INTEGER         NOT NULL        AUTO_INCREMENT,
+            board_nm            VARCHAR(255)    NOT NULL,
+            board_unm           VARCHAR(255)    NOT NULL,
+            board_timestamp     TIMESTAMP       NOT NULL,
+            PRIMARY KEY(board_id))';
+if($conn->query($query) == TRUE){
+    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table n_boards created successfully';
+}else{
+    echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table n_boards ' .$conn->error;
+}
 $query = 'CREATE TABLE IF NOT EXISTS notice_board(
             notice_id           INTEGER         NOT NULL        AUTO_INCREMENT,
             notice_titl         VARCHAR(255)    NOT NULL,
@@ -35,6 +46,7 @@ $query = 'CREATE TABLE IF NOT EXISTS notice_board(
             notice_priori       VARCHAR(2)      NOT NULL,
             notice_unm          VARCHAR(255)    NOT NULL,
             notice_timestamp    TIMESTAMP       NOT NULL,
+            notice_board_id     VARCHAR(255)    NOT NULL,
             PRIMARY KEY(notice_id))';
 if($conn->query($query) == TRUE){
     echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table notice_board created successfully';

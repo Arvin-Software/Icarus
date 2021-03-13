@@ -25,35 +25,34 @@ if(isset($_GET['id'])){
         <div class="modal" id="myModal">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content bor-ten">
-                <div class="modal-header bg-primary text-white" style="border-radius: 10px 10px 0px 0px;">
-                    <h4 class="modal-title">New notice</h4>
-                    <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form action="notice.php" method="post">
-                        <div class="form-group">
-                            <!-- <label for="titl">Notice Title</label> -->
-                            <input type="text" name="titl" id="titl" class="form-control bor-ten" placeholder="Notice Title" required="">
-                        </div>
-                        <div class="form-group">
-                            <!-- <label for="content">Notice Content</label> -->
-                            <textarea name="content" id="content" cols="30" rows="10" class="form-control bor-ten" required="" placeholder="Notice Title"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="priori">Priority</label>
-                            <select name="priori" id="priori" class="custom-select bor-ten">
-                                <option value="0" class="text-primary">Low</option>
-                                <option value="1" class="text-success">Medium</option>
-                                <option value="2" class="text-warning">High</option>
-                                <option value="3" class="text-danger">Urgent</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Save" id="submit" name="submit" class="btn btn-primary">
-                        </div>
-                    </form>
-                </div>
-
+                    <div class="modal-header bg-primary text-white" style="border-radius: 10px 10px 0px 0px;">
+                        <h4 class="modal-title">New notice</h4>
+                        <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="notice.php" method="post">
+                            <div class="form-group">
+                                <!-- <label for="titl">Notice Title</label> -->
+                                <input type="text" name="titl" id="titl" class="form-control bor-ten" placeholder="Notice Title" required="">
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="content">Notice Content</label> -->
+                                <textarea name="content" id="content" cols="30" rows="10" class="form-control bor-ten" required="" placeholder="Notice Title"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="priori">Priority</label>
+                                <select name="priori" id="priori" class="custom-select bor-ten">
+                                    <option value="0" class="text-primary">Low</option>
+                                    <option value="1" class="text-success">Medium</option>
+                                    <option value="2" class="text-warning">High</option>
+                                    <option value="3" class="text-danger">Urgent</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Save" id="submit" name="submit" class="btn btn-primary">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

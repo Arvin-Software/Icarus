@@ -35,7 +35,7 @@ include '../header.php';
                 <div class=" p-4 border text-center bor-ten shadow bg-danger" style="margin-top: 8%;">
                     <img src="../images/board.svg" alt="email" class="p-2" style="width: 88px;">
                     <br><br>
-                    <a href="noticeboard/notice.php" class="btn btn-outline-light">Notice board</a>
+                    <a href="noticeboard/boards.php" class="btn btn-outline-light">Notice board</a>
                 </div>
             </div>
             <div class="col-lg-4">
