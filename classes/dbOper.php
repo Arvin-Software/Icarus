@@ -32,6 +32,7 @@ $query = 'CREATE TABLE IF NOT EXISTS n_boards(
             board_id            INTEGER         NOT NULL        AUTO_INCREMENT,
             board_nm            VARCHAR(255)    NOT NULL,
             board_unm           VARCHAR(255)    NOT NULL,
+            board_hash          VARCHAR(255)    NOT NULL,
             board_timestamp     TIMESTAMP       NOT NULL,
             PRIMARY KEY(board_id))';
 if($conn->query($query) == TRUE){

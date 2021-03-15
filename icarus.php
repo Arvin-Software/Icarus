@@ -1,17 +1,28 @@
 <?php
 class icarus{
+    public static function generateRandomString($length = 10) {
+        
+    }
     public static function InsertBoards($name){
-        khatral::khquery('INSERT INTO n_boards VALUES(NULL, :nm, :unm, NULL)', array(
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 20; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        khatral::khquery('INSERT INTO n_boards VALUES(NULL, :nm, :unm, :hashcode, NULL)', array(
             ':nm'=>$name,
-            ':unm'=>$_SESSION['unme']
+            ':unm'=>$_SESSION['unme'],
+            ':hashcode'=>$randomString
         ));
     }
-    public static function InsertNotice($titl, $content, $priori){
-        khatral::khquery('INSERT INTO notice_board VALUES(NULL, :titl, :content, :priori, :unme, NULL)', array(
+    public static function InsertNotice($titl, $content, $priori, $noid){
+        khatral::khquery('INSERT INTO notice_board VALUES(NULL, :titl, :content, :priori, :unme, NULL, :noid)', array(
             ':titl'=>$titl,
             ':content'=>$content,
             ':priori'=>$priori,
-            ':unme'=>$_SESSION['unme']
+            ':unme'=>$_SESSION['unme'],
+            ':noid'=>$noid
         ));
     }
     public static function DeleteNotice($id){

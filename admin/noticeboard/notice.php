@@ -3,7 +3,7 @@ include '../headermodl.php';
 include '../../icarus.php';
 include '../../classes/khatral.php';
 if(isset($_POST['submit'])){
-    icarus::InsertNotice($_POST['titl'], $_POST['content'], $_POST['priori']);
+    icarus::InsertNotice($_POST['titl'], $_POST['content'], $_POST['priori'], $_GET['noid']);
     // echo 'successfully saved';
 }
 if(isset($_GET['id'])){
@@ -11,8 +11,8 @@ if(isset($_GET['id'])){
 }
 ?>
 <div id="inc1" class="" style="height: 100vh;">
-    <div class="shadow p-4 border-bottom" style="border-radius: 0px 0px 10px 10px;">
-        <img src="../../images/board.svg" alt="notice" style="width: 32px;">&nbsp;&nbsp;Notice Board<br /><br /><a href="../index.php" class="btn btn-light border border-secondary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
+    <div class="shadow p-4 border-bottom  bg-danger text-white" style="">
+        <img src="../../images/board.svg" alt="notice" style="width: 32px;">&nbsp;&nbsp;Notice Board<br /><br /><a href="boards.php" class="btn btn-light border border-secondary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
         <?php
             if($_SESSION['typ'] != "2"){
                 echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-light border  border-secondary bor-ten"><i class="far fa-file"></i>&nbsp;&nbsp;New notice</button>';
@@ -30,7 +30,7 @@ if(isset($_GET['id'])){
                         <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <form action="notice.php" method="post">
+                        <form action="notice.php?noid=<?php echo $_GET['noid']; ?>" method="post">
                             <div class="form-group">
                                 <!-- <label for="titl">Notice Title</label> -->
                                 <input type="text" name="titl" id="titl" class="form-control bor-ten" placeholder="Notice Title" required="">
@@ -61,8 +61,9 @@ if(isset($_GET['id'])){
             <div class="col-lg-3 p-2 border-right" style="">
                 <h6 class="text-center">Urgent</h6><br />
                 <?php
-                    $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori ORDER BY notice_id DESC', array(
-                        ':priori'=>"3"
+                    $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori AND notice_board_id=:noid ORDER BY notice_id DESC', array(
+                        ':priori'=>"3",
+                        ':noid'=>$_GET['noid']
                     ));
                     foreach($ret as $p){
                         if($_SESSION['typ'] != "2"){
@@ -89,8 +90,9 @@ if(isset($_GET['id'])){
             <div class="col-lg-3 p-2 border-right" style="">
                 <h6 class="text-center">High</h6><br />
                 <?php
-                    $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori ORDER BY notice_id DESC', array(
-                        ':priori'=>"2"
+                    $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori AND notice_board_id=:noid ORDER BY notice_id DESC', array(
+                        ':priori'=>"2",
+                        ':noid'=>$_GET['noid']
                     ));
                     foreach($ret as $p){
                         if($_SESSION['typ'] != "2"){
@@ -117,8 +119,9 @@ if(isset($_GET['id'])){
             <div class="col-lg-3 p-2 border-right" style="">
                 <h6 class="text-center">Medium</h6><br />
                 <?php
-                    $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori ORDER BY notice_id DESC', array(
-                        ':priori'=>"1"
+                    $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori AND notice_board_id=:noid ORDER BY notice_id DESC', array(
+                        ':priori'=>"1",
+                        ':noid'=>$_GET['noid']
                     ));
                     foreach($ret as $p){
                         if($_SESSION['typ'] != "2"){
@@ -145,8 +148,9 @@ if(isset($_GET['id'])){
             <div class="col-lg-3 p-2 border-right" style="">
                 <h6 class="text-center">Low</h6><br />
                 <?php
-                    $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori ORDER BY notice_id DESC', array(
-                        ':priori'=>"0"
+                    $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori AND notice_board_id=:noid ORDER BY notice_id DESC', array(
+                        ':priori'=>"0",
+                        ':noid'=>$_GET['noid']
                     ));
                     foreach($ret as $p){
                         if($_SESSION['typ'] != "2"){

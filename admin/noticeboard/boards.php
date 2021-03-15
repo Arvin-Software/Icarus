@@ -10,8 +10,8 @@ if(isset($_GET['id'])){
     icarus::DeleteNotice($_GET['id']);
 }
 ?>
-<div id="inc1" class="" style="height: 100vh;">
-    <div class="shadow p-4 border-bottom" style="border-radius: 0px 0px 10px 10px;">
+<div id="inc1 bg-light" class="" style="height: 100vh;">
+    <div class="shadow p-4 border-bottom bg-danger text-white" style="">
         <img src="../../images/board.svg" alt="notice" style="width: 32px;">&nbsp;&nbsp;Notice Board<br /><br /><a href="../index.php" class="btn btn-light border border-secondary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
         <?php
             if($_SESSION['typ'] != "2"){
@@ -39,9 +39,9 @@ if(isset($_GET['id'])){
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container border p-4" style="margin-top: 2%;">
 <table class="table">
-        <tr class="border-bottom">
+        <tr class="">
             <th>Board Name</th>
             <th>Actions</th>
         </tr>
@@ -51,7 +51,7 @@ if(isset($_GET['id'])){
             ));
             foreach($ret as $p){
                 $name = $p['board_nm'];
-                echo '<tr><td>' . $name . '</td></tr>';
+                echo '<tr><td>' . $name . '</td><td><a href="notice.php?noid=' . $p['board_hash'] . '">View</a></td></tr>';
             }
         ?>
 </table>
