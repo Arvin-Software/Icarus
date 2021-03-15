@@ -72,7 +72,7 @@
                                                     $_SESSION['typ'] = "0";
                                                     header("Location: ../admin");
                                                 }else if($typ == "1"){
-                                                    $_SESSION['unme'] = "admin";
+                                                    $_SESSION['unme'] = $_POST['unme'];
                                                     $_SESSION['hxid'] = "hxiediscd";
                                                     $_SESSION['typ'] = "1";
                                                     header("Location: ../admin");

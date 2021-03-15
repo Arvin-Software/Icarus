@@ -12,7 +12,7 @@ if(isset($_GET['id'])){
 ?>
 <div id="inc1 bg-light" class="" style="height: 100vh;">
     <div class="shadow p-4 border-bottom bg-danger text-white" style="">
-        <img src="../../images/board.svg" alt="notice" style="width: 32px;">&nbsp;&nbsp;Notice Board<br /><br /><a href="boards.php" class="btn btn-light border border-secondary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
+        <img src="../../images/board.svg" alt="notice" style="width: 32px;">&nbsp;&nbsp;Notice Board - <?php echo $_GET['board_nm']; ?><br /><br /><a href="boards.php" class="btn btn-light border border-secondary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
         <?php
             if($_SESSION['typ'] != "2"){
                 echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-light border  border-secondary bor-ten"><i class="far fa-file"></i>&nbsp;&nbsp;New Share</button>';
@@ -27,7 +27,7 @@ if(isset($_GET['id'])){
                     <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form action="share.php?board_nm=<?php echo $_GET['board_nm']; ?>&hash=<?php echo $_GET['hash']; ?>" method="post">
+                    <form action="share.php?board_nm=<?php echo $_GET['board_nm']; ?>&hash=<?php echo $_GET['hash']; ?>&unme=<?php echo $_GET['unme']; ?>" method="post">
                         <div class="form-group">
                             <input type="text" name="boardnm" id="boardnm" class="form-control bor-ten" placeholder="Board Name" required="" value="<?php echo $_GET['board_nm']; ?>">
                         </div>
@@ -39,7 +39,7 @@ if(isset($_GET['id'])){
                                 <?php
                                 $ret = khatral::khquerypar('SELECT * FROM user');
                                 foreach($ret as $p){
-                                    if($p['user_typ'] != '1' && $p['user_nm'] != $_SESSION['unme']){
+                                    if($p['user_typ'] != '1' && $p['user_nm'] != $_SESSION['unme'] && $p['user_nm'] != $_GET['unme']){
                                         echo '<option>' . $p['user_nm'] . '</option>';
                                     }
                                 }
@@ -68,7 +68,7 @@ if(isset($_GET['id'])){
             foreach($ret as $p){
                 $name = $p['share_b_nm'];
                 $unme = $p['share_b_unm'];
-                echo '<tr><td>' . $name . '</td><td>' . $unme . '</td><td><a href="share.php?id=' . $p['share_id'] . '&board_nm=' . $_GET['board_nm'] . '&hash=' . $_GET['hash'] . '">Delete</a></td></tr>';
+                echo '<tr><td>' . $name . '</td><td>' . $unme . '</td><td><a href="share.php?id=' . $p['share_id'] . '&board_nm=' . $_GET['board_nm'] . '&hash=' . $_GET['hash'] . '&unme=' . $_GET['unme'] . '">Delete</a></td></tr>';
             }
         ?>
 </table>

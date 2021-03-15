@@ -12,7 +12,7 @@ if(isset($_GET['id'])){
 ?>
 <div id="inc1" class="" style="height: 100vh;">
     <div class="shadow p-4 border-bottom  bg-danger text-white" style="">
-        <img src="../../images/board.svg" alt="notice" style="width: 32px;">&nbsp;&nbsp;Notice Board<br /><br /><a href="boards.php" class="btn btn-light border border-secondary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
+        <img src="../../images/board.svg" alt="notice" style="width: 32px;">&nbsp;&nbsp;Notice Board - <?php echo $_GET['board']; ?><br /><br /><a href="boards.php" class="btn btn-light border border-secondary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
         <?php
             if($_SESSION['typ'] != "2"){
                 echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-light border  border-secondary bor-ten"><i class="far fa-file"></i>&nbsp;&nbsp;New notice</button>';
@@ -30,7 +30,7 @@ if(isset($_GET['id'])){
                         <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <form action="notice.php?noid=<?php echo $_GET['noid']; ?>" method="post">
+                        <form action="notice.php?noid=<?php echo $_GET['noid']; ?>&board=<?php echo $_GET['board']; ?>" method="post">
                             <div class="form-group">
                                 <!-- <label for="titl">Notice Title</label> -->
                                 <input type="text" name="titl" id="titl" class="form-control bor-ten" placeholder="Notice Title" required="">
@@ -57,6 +57,16 @@ if(isset($_GET['id'])){
             </div>
         </div>
         <hr>
+        <?php 
+        $ret = khatral::khquery('SELECT COUNT(board_id) AS totalboard FROM n_boards WHERE board_hash=:hashcode', array(
+            ':hashcode'=>$_GET['noid']
+        ));
+        foreach($ret as $p){
+            if($p['totalboard'] < 1){
+                echo 'Sorry board not found or not shared to you';
+            }
+        }
+        ?>
         <div class="row">
             <div class="col-lg-3 p-2 border-right" style="">
                 <h6 class="text-center">Urgent</h6><br />
@@ -72,7 +82,7 @@ if(isset($_GET['id'])){
                                 <div class="card-body bg-white">
                                 ' . $p['notice_content'] . '
                                 </div>
-                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '&noid=' . $_GET['noid'] . '&board=' . $_GET['board'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
                             </div> <br>';
                         }else{
                             echo '<div class="card bg-danger">
@@ -101,7 +111,7 @@ if(isset($_GET['id'])){
                                 <div class="card-body bg-white">
                                 ' . $p['notice_content'] . '
                                 </div>
-                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '&noid=' . $_GET['noid'] . '&board=' . $_GET['board'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
                             </div> <br>';
                         }else{
                             echo '<div class="card bg-warning">
@@ -130,7 +140,7 @@ if(isset($_GET['id'])){
                                 <div class="card-body bg-white">
                                 ' . $p['notice_content'] . '
                                 </div>
-                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '&noid=' . $_GET['noid'] . '&board=' . $_GET['board'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
                             </div> <br>';
                         }else{
                             echo '<div class="card bg-success">
@@ -159,7 +169,7 @@ if(isset($_GET['id'])){
                                 <div class="card-body bg-white">
                                 ' . $p['notice_content'] . '
                                 </div>
-                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
+                                <div class="card-footer bg-white">Posted by : ' . $p['notice_unm'] . ' - ' . $p['notice_timestamp'] . '<a href="notice.php?id=' . $p['notice_id'] . '&noid=' . $_GET['noid'] . '&board=' . $_GET['board'] . '" class="btn btn-outline-danger float-right">Delete</a></div>
                             </div> <br>';
                         }else{
                             echo '<div class="card bg-primary">

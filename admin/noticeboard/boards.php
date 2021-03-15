@@ -45,23 +45,34 @@ if(isset($_GET['id'])){
     <div class="container border p-4" style="margin-top: 2%; height: 500px; overflow: auto;">
     <h3>My Noticeboards</h3>
         <table class="table">
-                <tr class="">
-                    <th>Board Name</th>
-                    <th>Actions</th>
-                </tr>
-                <?php
-                    if($_SESSION['typ'] != "1"){
-                        $ret = khatral::khquery('SELECT * FROM n_boards WHERE board_unm=:unm', array(
-                            ':unm'=>$_SESSION['unme']
-                        ));
-                    }else{
-                        $ret = khatral::khquerypar('SELECT * FROM n_boards');
+            <tr class="">
+                <th>Board Name</th>
+                <th>Actions</th>
+            </tr>
+            <?php
+                if($_SESSION['typ'] != "1"){
+                    $ret = khatral::khquery('SELECT * FROM n_boards WHERE board_unm=:unm', array(
+                        ':unm'=>$_SESSION['unme']
+                    ));
+                }else{
+                    $ret = khatral::khquerypar('SELECT * FROM n_boards');
+                }
+                foreach($ret as $p){
+                    $name = $p['board_nm'];
+                    $res = khatral::khquery('SELECT COUNT(share_id) AS totalshare FROM share_notice WHERE share_b_hash=:hashcode', array(
+                        ':hashcode'=>$p['board_hash']
+                    ));
+                    $icon = '';
+                    foreach($res as $pi){
+                        if($pi['totalshare'] >= 1){
+                            $icon = '<i class="fas fa-user-friends"></i>';
+                        }else{
+                            $icon = '';
+                        }
                     }
-                    foreach($ret as $p){
-                        $name = $p['board_nm'];
-                        echo '<tr><td>' . $name . '</td><td><a href="notice.php?noid=' . $p['board_hash'] . '">View</a>&nbsp;&nbsp;<a href="share.php?board_nm=' . $p['board_nm'] . '&hash=' . $p['board_hash'] . '">Share</a></td></tr>';
-                    }
-                ?>
+                    echo '<tr><td>' . $name . '&nbsp;&nbsp'  . $icon . '</td><td><a href="notice.php?noid=' . $p['board_hash'] . '&board=' . $p['board_nm'] . '">View</a>&nbsp;&nbsp;<a href="share.php?board_nm=' . $p['board_nm'] . '&hash=' . $p['board_hash'] . '&unme=' . $p['board_unm'] . '">Share</a></td></tr>';
+                }
+            ?>
         </table>
     </div>
     <?php
@@ -69,7 +80,7 @@ if(isset($_GET['id'])){
     if($_SESSION['typ'] != "1"){
     ?>
     <div class="container border p-4" style="margin-top: 2%; height: 500px; overflow: auto;">
-    <h3>Notice Boards Shared with me</h3>
+    <h3>Notice Boards Shared with me&nbsp;&nbsp;<i class="fas fa-user-friends"></i></h3>
         <table class="table">
                 <tr class="">
                     <th>Board Name</th>
@@ -82,7 +93,7 @@ if(isset($_GET['id'])){
                         ));
                         foreach($ret as $p){
                             $name = $p['share_b_nm'];
-                            echo '<tr><td>' . $name . '</td><td><a href="notice.php?noid=' . $p['share_b_hash'] . '">View</a></td></tr>';
+                            echo '<tr><td>' . $name . '</td><td><a href="notice.php?noid=' . $p['share_b_hash'] . '&board=' . $p['share_b_nm'] . '">View</a></td></tr>';
                         }
                     
                 ?>
