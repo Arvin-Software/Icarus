@@ -1,8 +1,5 @@
 <?php
 class icarus{
-    public static function generateRandomString($length = 10) {
-        
-    }
     public static function InsertBoards($name){
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -27,6 +24,29 @@ class icarus{
     }
     public static function DeleteNotice($id){
         khatral::khquery('DELETE FROM notice_board WHERE notice_id=:id', array(
+            ':id'=>$id
+        ));
+    }
+    public static function InsertShareNotice($name, $unme, $hashcode){
+        $ret = khatral::khquery('SELECT COUNT(share_id) AS totalshare FROM share_notice WHERE share_b_unm=:unm AND share_b_hash=:hashcode', array(
+            ':unm'=>$unme,
+            ':hashcode'=>$hashcode
+        ));
+        foreach($ret as $p){
+            if($p['totalshare'] >= 1){
+                return '1';
+            }else{
+                khatral::khquery('INSERT INTO share_notice VALUES(NULL, :nm, :unm, :hashcode, NULL)', array(
+                    ':nm'=>$name,
+                    ':unm'=>$unme,
+                    ':hashcode'=>$hashcode
+                ));  
+                return '0';
+            }
+        }
+    }
+    public static function DeleteShare($id){
+        khatral::khquery('DELETE FROM share_notice WHERE share_id=:id', array(
             ':id'=>$id
         ));
     }

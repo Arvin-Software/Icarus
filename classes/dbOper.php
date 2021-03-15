@@ -54,6 +54,18 @@ if($conn->query($query) == TRUE){
 }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table notice_board ' .$conn->error;
 }
+$query = 'CREATE TABLE IF NOT EXISTS share_notice(
+            share_id            INTEGER         NOT NULL        AUTO_INCREMENT,
+            share_b_nm          VARCHAR(255)    NOT NULL,
+            share_b_unm         VARCHAR(255)    NOT NULL,
+            share_b_hash        VARCHAR(255)    NOT NULL,
+            share_timestamp     TIMESTAMP       NOT NULL,
+            PRIMARY KEY(share_id))';
+if($conn->query($query) == TRUE){
+    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table share_notice created successfully';
+}else{
+    echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table share_notice ' .$conn->error;
+}
 $query = 'CREATE TABLE IF NOT EXISTS user(
     user_id             INTEGER         NOT NULL        AUTO_INCREMENT,
     user_nm             VARCHAR(255)    NOT NULL,

@@ -39,21 +39,56 @@ if(isset($_GET['id'])){
             </div>
         </div>
     </div>
-    <div class="container border p-4" style="margin-top: 2%;">
-<table class="table">
-        <tr class="">
-            <th>Board Name</th>
-            <th>Actions</th>
-        </tr>
-        <?php
-            $ret = khatral::khquery('SELECT * FROM n_boards WHERE board_unm=:unm', array(
-                ':unm'=>$_SESSION['unme']
-            ));
-            foreach($ret as $p){
-                $name = $p['board_nm'];
-                echo '<tr><td>' . $name . '</td><td><a href="notice.php?noid=' . $p['board_hash'] . '">View</a></td></tr>';
-            }
-        ?>
-</table>
-</div>
+    <?php
+    if($_SESSION['typ'] != "2"){
+    ?>
+    <div class="container border p-4" style="margin-top: 2%; height: 500px; overflow: auto;">
+    <h3>My Noticeboards</h3>
+        <table class="table">
+                <tr class="">
+                    <th>Board Name</th>
+                    <th>Actions</th>
+                </tr>
+                <?php
+                    if($_SESSION['typ'] != "1"){
+                        $ret = khatral::khquery('SELECT * FROM n_boards WHERE board_unm=:unm', array(
+                            ':unm'=>$_SESSION['unme']
+                        ));
+                    }else{
+                        $ret = khatral::khquerypar('SELECT * FROM n_boards');
+                    }
+                    foreach($ret as $p){
+                        $name = $p['board_nm'];
+                        echo '<tr><td>' . $name . '</td><td><a href="notice.php?noid=' . $p['board_hash'] . '">View</a>&nbsp;&nbsp;<a href="share.php?board_nm=' . $p['board_nm'] . '&hash=' . $p['board_hash'] . '">Share</a></td></tr>';
+                    }
+                ?>
+        </table>
+    </div>
+    <?php
+    }
+    if($_SESSION['typ'] != "1"){
+    ?>
+    <div class="container border p-4" style="margin-top: 2%; height: 500px; overflow: auto;">
+    <h3>Notice Boards Shared with me</h3>
+        <table class="table">
+                <tr class="">
+                    <th>Board Name</th>
+                    <th>Actions</th>
+                </tr>
+                <?php
+                    
+                        $ret = khatral::khquery('SELECT * FROM share_notice WHERE share_b_unm=:unm', array(
+                            ':unm'=>$_SESSION['unme']
+                        ));
+                        foreach($ret as $p){
+                            $name = $p['share_b_nm'];
+                            echo '<tr><td>' . $name . '</td><td><a href="notice.php?noid=' . $p['share_b_hash'] . '">View</a></td></tr>';
+                        }
+                    
+                ?>
+        </table>
+    </div>
+    <?php
+    }
+    ?>
 </div>
