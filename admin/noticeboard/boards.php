@@ -6,14 +6,13 @@ if(isset($_POST['submit'])){
     icarus::InsertBoards($_POST['boardnm']);
     // echo 'successfully saved';
 }
-if(isset($_GET['id'])){
-    icarus::DeleteNotice($_GET['id']);
-}
+
 ?>
 <div id="inc1 bg-light" class="" style="height: 100vh;">
     <div class="shadow p-4 border-bottom bg-danger text-white" style="">
         <img src="../../images/board.svg" alt="notice" style="width: 32px;">&nbsp;&nbsp;Notice Board<br /><br /><a href="../index.php" class="btn btn-light border border-secondary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
         <?php
+            
             if($_SESSION['typ'] != "2"){
                 echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-light border  border-secondary bor-ten"><i class="far fa-file"></i>&nbsp;&nbsp;New board</button>';
             }
@@ -43,6 +42,22 @@ if(isset($_GET['id'])){
     if($_SESSION['typ'] != "2"){
     ?>
     <div class="container border p-4" style="margin-top: 2%; height: 500px; overflow: auto;">
+    <?php
+    if(isset($_GET['delid'])){
+        $ret = icarus::DeleteBoards($_GET['delid']);
+        if($ret == "0"){
+            echo '<div class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Error!</strong> Please delete the notices in the board before deleting the board.
+          </div>';
+        }else{
+            echo '<div class="alert alert-success alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Success!</strong> Notice Board Deleted.
+          </div>';
+        }
+    }
+    ?>
     <h3>My Noticeboards</h3>
         <table class="table">
             <tr class="">
@@ -70,7 +85,7 @@ if(isset($_GET['id'])){
                             $icon = '';
                         }
                     }
-                    echo '<tr><td>' . $name . '&nbsp;&nbsp'  . $icon . '</td><td><a href="notice.php?noid=' . $p['board_hash'] . '&board=' . $p['board_nm'] . '">View</a>&nbsp;&nbsp;<a href="share.php?board_nm=' . $p['board_nm'] . '&hash=' . $p['board_hash'] . '&unme=' . $p['board_unm'] . '">Share</a></td></tr>';
+                    echo '<tr><td>' . $name . '&nbsp;&nbsp'  . $icon . '</td><td><a href="notice.php?noid=' . $p['board_hash'] . '&board=' . $p['board_nm'] . '">View</a>&nbsp;&nbsp;<a href="share.php?board_nm=' . $p['board_nm'] . '&hash=' . $p['board_hash'] . '&unme=' . $p['board_unm'] . '">Share</a>&nbsp;&nbsp;<a href="boards.php?delid=' . $p['board_hash'] . '" class="text-danger">Delete</a></td></tr>';
                 }
             ?>
         </table>

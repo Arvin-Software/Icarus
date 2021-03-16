@@ -13,6 +13,21 @@ class icarus{
             ':hashcode'=>$randomString
         ));
     }
+    public static function DeleteBoards($hash){
+        $ret = khatral::khquery('SELECT COUNT(notice_id) AS totalnotices FROM notice_board WHERE notice_board_id=:hashcode', array(
+            ':hashcode'=>$hash
+        ));
+        foreach($ret as $p){
+            if($p['totalnotices'] >= 1){
+                return "0";
+            }else{
+                khatral::khquery('DELETE FROM n_boards WHERE board_hash=:hashcode', array(
+                    ':hashcode'=>$hash
+                ));
+                return "1";
+            }
+        }
+    }
     public static function InsertNotice($titl, $content, $priori, $noid){
         khatral::khquery('INSERT INTO notice_board VALUES(NULL, :titl, :content, :priori, :unme, NULL, :noid)', array(
             ':titl'=>$titl,

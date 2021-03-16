@@ -3,7 +3,7 @@ $mainnav = 'components';
 include '../header.php';
 ?>
     <div class="container" style="margin-top: 3%;" id="inc1">
-        <h3>Hi ! Welcome Admin</h3><hr>
+        <h3>Hi ! Welcome <?php echo $_SESSION['unme']; ?></h3><hr>
         <div class="row" style="margin-top: 1%;">
             <!-- <div class="col-lg-4">
                 <div class=" p-4 border text-center bor-ten shadow trd-blue" style="margin-top: 8%;">
@@ -38,13 +38,13 @@ include '../header.php';
                     <a href="noticeboard/boards.php" class="btn btn-outline-light">Notice board</a>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <!-- <div class="col-lg-4">
                 <div class=" p-4 border text-center bor-ten shadow bg-warning" style="margin-top: 8%;">
                     <img src="../images/board.svg" alt="email" class="p-2" style="width: 88px;">
                     <br><br>
                     <a href="noticeboard/notice.php" class="btn btn-outline-dark">Discussion board</a>
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="col-lg-4">
                 <div class=" p-4 border text-center bor-ten shadow bg-info" style="margin-top: 8%;">
                     <img src="../images/spreadsheet.svg" alt="email" class="p-2" style="width: 88px;">
