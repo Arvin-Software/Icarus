@@ -88,7 +88,30 @@ echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table
 }else{
 echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table user ' . $conn->error;
 }
-
+$query = 'CREATE TABLE IF NOT EXISTS approval_flow(
+            flow_id         INTEGER         NOT NULL        AUTO_INCREMENT,
+            flow_nm         VARCHAR(255)    NOT NULL,
+            flow_office     VARCHAR(255)    NOT NULL,
+            flow_hash       VARCHAR(255)    NOT NULL,
+            flow_timestamp  TIMESTAMP       NOT NULL,
+            PRIMARY KEY(flow_id))';
+if($conn->query($query) == TRUE){
+    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table approval_flow created successfully';
+}else{
+    echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table approval_flow ' . $conn->error;
+}
+$query = 'CREATE TABLE IF NOT EXISTS flow_user(
+            user_id         INTEGER         NOT NULL        AUTO_INCREMENT,
+            user_nm         VARCHAR(255)    NOT NULL,
+            user_flow       VARCHAR(255)    NOT NULL,
+            user_office     VARCHAR(255)    NOT NULL,
+            PRIMARY KEY(user_id))
+            ';
+if($conn->query($query) == TRUE){
+    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table flow_user created successfully';
+}else{
+    echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table flow_user ' . $conn->error;
+}
 echo '<br /><br />';
 echo '<a href="../installation/second.php" class="btn btn-primary bor-ten float-left">&lt; Previous</a>
 <a href="../installation/admincreate.php" class="btn btn-primary bor-ten float-right">Next &gt;</a>';

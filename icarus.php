@@ -13,6 +13,35 @@ class icarus{
             ':hashcode'=>$randomString
         ));
     }
+    public static function InsertApprovalFlow($flowNm, $office){
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 10; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        khatral::khquery('INSERT INTO approval_flow VALUES(NULL, :nm, :office, :hashcode, NULL)', array(
+            ':nm'=>$flowNm,
+            ':office'=>$office,
+            ':hashcode'=>$randomString
+        ));
+    }
+    public static function InsertFlowUser($nm, $flow, $office){
+        khatral::khquery('INSERT INTO flow_user VALUES(NULL, :nm, :flow, :office)', array(
+            ':nm'=>$nm,
+            ':flow'=>$flow,
+            ':office'=>$office
+        ));
+    }
+    public static function GetFlowUsers($flow, $office){
+        return khatral::khquery('SELECT * FROM flow_user WHERE user_flow=:flow AND user_office=:office', array(
+            ':flow'=>$flow,
+            ':office'=>$office
+        ));
+    }
+    public static function GetFlowWOTParm(){
+        return khatral::khquerypar('SELECT * FROM approval_flow');
+    }
     public static function DeleteBoards($hash){
         $ret = khatral::khquery('SELECT COUNT(notice_id) AS totalnotices FROM notice_board WHERE notice_board_id=:hashcode', array(
             ':hashcode'=>$hash

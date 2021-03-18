@@ -63,7 +63,7 @@ include '../header.php';
                 <div class="p-4 border text-center bor-ten shadow" style="margin-top: 8%;">
                     <img src="../images/approve.svg" alt="email" class="p-2" style="width: 88px;">
                     <br><br>
-                    <a href="mail.php" class="btn btn-outline-primary">Approval papers</a>
+                    <a href="approval/index.php" class="btn btn-outline-primary">Approval papers</a>
                 </div>
             </div>
             <!--<div class="col-lg-4">

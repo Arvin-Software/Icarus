@@ -92,8 +92,10 @@ if(isset($_GET['id'])){
                     $role_human = "User";
                 }else if($role == "1"){
                     $role_human = "Admin";
-                }else{
+                }else if($role == "2"){
                     $role_human = "Visitor";
+                }else{
+                    $role_human = "Common person";
                 }
                 if($role != "1"){
                     echo '<tr><td><img src="../images/user.png" style="width: 32px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $p['user_office'] . '</td><td>' . $role_human . '</td><td><a href="accontrol.php?id=' . $p['user_id'] . '" class="text-danger">Delete</a></td></tr>';
