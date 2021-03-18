@@ -65,23 +65,49 @@ class icarus{
             ':id'=>$id
         ));
     }
-    public static function InsertUsers($nm, $pass, $role){
-        $ret = khatral::khquery('SELECT COUNT(user_id) AS totalusrs FROM user WHERE user_nm=:unm', array(
-            ':unm'=>$nm
+    public static function InsertUsers($nm, $pass, $role, $office){
+        $ret = khatral::khquery('SELECT COUNT(user_id) AS totalusrs FROM user WHERE user_nm=:unm AND user_office=:office', array(
+            ':unm'=>$nm,
+            ':office'=>$office
         ));
         foreach($ret as $p){
             if($p['totalusrs'] >= 1){
                 return '1';
             }else{
                 $pass_hashed = password_hash($pass, PASSWORD_DEFAULT);
-                khatral::khquery('INSERT INTO user VALUES(NULL, :nm, :pass, :typ)', array(
+                $office_set = '';
+                if($role == "1" || $role == '3'){
+                    $office_set = '';
+                }else{
+                    $office_set = $office;
+                }
+                khatral::khquery('INSERT INTO user VALUES(NULL, :nm, :pass, :typ, :office)', array(
                     ':nm'=>$nm,
                     ':pass'=>$pass_hashed,
-                    ':typ'=>$role
+                    ':typ'=>$role,
+                    ':office'=>$office_set
                 ));
                 return '0';
             }
         }
+    }
+    public static function InsertOffice($officenm){
+        $ret = khatral::khquery('SELECT COUNT(office_id) AS tot_offices FROM office WHERE office_nm=:unm', array(
+            ':unm'=>$officenm
+        ));
+        foreach($ret as $p){
+            if($p['tot_offices'] >= 1){
+                return '1';
+            }else{
+                khatral::khquery('INSERT INTO office VALUES(NULL, :nm, NULL)', array(
+                    ':nm'=>$officenm
+                ));
+                return '0';
+            }
+        }
+    }
+    public static function GetOfficeWOTParm(){
+        return khatral::khquerypar('SELECT * FROM office');
     }
     public static function DeleteUsers($id){
         khatral::khquery('DELETE FROM user WHERE user_id=:id', array(

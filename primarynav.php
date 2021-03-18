@@ -19,10 +19,10 @@ echo '<nav class="navbar navbar-expand-lg navbar-light">
       echo '</li>';
       if($_SESSION['typ'] == "1"){
         echo '<li class="nav-item">';
-        if($mainnav=="comp"){
-            echo '<a class="btn text-left btn-primary  bor-none" href="company.php"><img src="/icarus/images/enterprise.svg" class="" style="width: 28px;">&nbsp;&nbsp;Office details</a>';
+        if($mainnav=="office"){
+            echo '<a class="btn text-left btn-primary  bor-none" href="office.php"><img src="/icarus/images/enterprise.svg" class="" style="width: 28px;">&nbsp;&nbsp;Office details</a>';
         }else{
-            echo '<a class="btn text-left text-dark btn-bb bor-none" href="company.php"><img src="/icarus/images/enterprise.svg" class="" style="width: 28px;">&nbsp;&nbsp;Office details</a>';
+            echo '<a class="btn text-left text-dark btn-bb bor-none" href="office.php"><img src="/icarus/images/enterprise.svg" class="" style="width: 28px;">&nbsp;&nbsp;Office details</a>';
         }
         echo '</li><li class="nav-item">';
         if($mainnav=="access"){

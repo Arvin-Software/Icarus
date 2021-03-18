@@ -8,15 +8,24 @@ if(isset($_POST['submit'])){
 }
 
 ?>
-<div id="inc1 bg-light" class="" style="height: 100vh;">
-    <div class="shadow p-4 border-bottom bg-danger text-white" style="">
-        <img src="../../images/board.svg" alt="notice" style="width: 32px;">&nbsp;&nbsp;Notice Board<br /><br /><a href="../index.php" class="btn btn-light border border-secondary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
-        <?php
-            
-            if($_SESSION['typ'] != "2"){
-                echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-light border  border-secondary bor-ten"><i class="far fa-file"></i>&nbsp;&nbsp;New board</button>';
-            }
-        ?>
+<div id="inc1" class="" style="height: 90vh;">
+    <div class="p-4 border container bg-white" style="margin-top: 2%; ">
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
+                <?php 
+                    if($_SESSION['typ'] != "2"){
+                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary"><i class="far fa-file"></i>&nbsp;&nbsp;New board</button>';
+                    }
+                ?>
+            </div>
+            <div class="col-sm-4 text-center">
+                
+            </div>
+            <div class="col-sm-4 text-right">
+                <img src="../../images/board.svg" alt="notice" style="width: 36px;">&nbsp;&nbsp;Notice Board&nbsp;&nbsp;
+            </div>    
+        </div>    
     </div>
     <div class="modal" id="myModal">
         <div class="modal-dialog modal-md">

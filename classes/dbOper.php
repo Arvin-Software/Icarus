@@ -66,11 +66,22 @@ if($conn->query($query) == TRUE){
 }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table share_notice ' .$conn->error;
 }
+$query = 'CREATE TABLE IF NOT EXISTS office(
+            office_id           INTEGER         NOT NULL        AUTO_INCREMENT,
+            office_nm           VARCHAR(255)    NOT NULL,
+            office_timestamp    TIMESTAMP       NOT NULL,
+            PRIMARY KEY(office_id))';
+if($conn->query($query) == TRUE){
+    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table office created successfully';
+}else{
+    echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table office ' .$conn->error;
+}
 $query = 'CREATE TABLE IF NOT EXISTS user(
     user_id             INTEGER         NOT NULL        AUTO_INCREMENT,
     user_nm             VARCHAR(255)    NOT NULL,
     user_pass           VARCHAR(255)    NOT NULL,
     user_typ            VARCHAR(255)    NOT NULL,
+    user_office         VARCHAR(255)    NOT NULL,
     PRIMARY KEY(user_id))';
 if($conn->query($query) == TRUE){
 echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table user created successfully';

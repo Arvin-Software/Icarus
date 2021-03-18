@@ -32,10 +32,10 @@ include '../header.php';
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class=" p-4 border text-center bor-ten shadow bg-danger" style="margin-top: 8%;">
+                <div class=" p-4 border text-center bor-ten shadow" style="margin-top: 8%;">
                     <img src="../images/board.svg" alt="email" class="p-2" style="width: 88px;">
                     <br><br>
-                    <a href="noticeboard/boards.php" class="btn btn-outline-light">Notice board</a>
+                    <a href="noticeboard/boards.php" class="btn btn-outline-primary">Notice board</a>
                 </div>
             </div>
             <!-- <div class="col-lg-4">
@@ -58,15 +58,15 @@ include '../header.php';
                     <br><br>
                     <a href="mail.php" class="btn btn-outline-light">My notepad</a>
                 </div>
-            </div>
+            </div>-->
             <div class="col-lg-4">
-                <div class="p-4 border text-center bor-ten shadow bg-warning" style="margin-top: 8%;">
+                <div class="p-4 border text-center bor-ten shadow" style="margin-top: 8%;">
                     <img src="../images/approve.svg" alt="email" class="p-2" style="width: 88px;">
                     <br><br>
-                    <a href="mail.php" class="btn btn-outline-dark">Approval papers</a>
+                    <a href="mail.php" class="btn btn-outline-primary">Approval papers</a>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <!--<div class="col-lg-4">
                 <div class="p-4 border text-center bor-ten shadow trd-blue" style="margin-top: 8%;">
                     <img src="../images/appointmentbook.svg" alt="email" class="p-2" style="width: 88px;">
                     <br><br>

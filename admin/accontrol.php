@@ -2,7 +2,7 @@
 $mainnav = 'access';
 include '../header.php';
 if(isset($_POST['submit'])){
-    $ret = icarus::InsertUsers($_POST['unme'], $_POST['pass'], $_POST['role']);
+    $ret = icarus::InsertUsers($_POST['unme'], $_POST['pass'], $_POST['role'], $_POST['office']);
     if($ret == "0"){
       echo 'User inserted';
     }else{
@@ -21,7 +21,7 @@ if(isset($_GET['id'])){
 </div>
 <div class="modal" id="myModal">
     <div class="modal-dialog modal-md">
-        <form action="accontrol.php" method="post">
+        <form action="accontrol.php" method="post" autocomplete="off">
             <div class="modal-content bor-ten">
                 <div class="modal-header" style="border-radius: 10px 10px 0px 0px;">
                     <h4 class="modal-title"><i class="fas fa-id-card-alt"></i>&nbsp;&nbsp;New user</h4>
@@ -41,12 +41,27 @@ if(isset($_GET['id'])){
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="priori" class="col-sm-1 col-form-label"><i class="far fa-building"></i></label>
+                        <div class="col-sm-11">
+                            <select name="office" id="office" class="custom-select">
+                                <option>None</option>
+                                <?php
+                                    $ret = icarus::GetOfficeWOTParm();
+                                    foreach($ret as $p){
+                                        echo '<option>' . $p['office_nm'] . '</option>';
+                                    }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="priori" class="col-sm-1 col-form-label"><i class="fas fa-user-lock"></i></label>
                         <div class="col-sm-11">
                             <select name="role" id="role" class="custom-select">
                                 <option value="0">User</option>
                                 <option value="1">Admin</option>
                                 <option value="2">Viewer</option>
+                                <option value="3">Common Person</option>
                             </select>
                         </div>
                     </div>
@@ -64,6 +79,7 @@ if(isset($_GET['id'])){
     <table class="table">
         <tr class="border-bottom">
             <th>Username</th>
+            <th>Office</th>
             <th>Role</th>
             <th>Actions</th>
         </tr>
@@ -80,9 +96,9 @@ if(isset($_GET['id'])){
                     $role_human = "Visitor";
                 }
                 if($role != "1"){
-                    echo '<tr><td><img src="../images/user.png" style="width: 32px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $role_human . '</td><td><a href="accontrol.php?id=' . $p['user_id'] . '" class="text-danger">Delete</a></td></tr>';
+                    echo '<tr><td><img src="../images/user.png" style="width: 32px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $p['user_office'] . '</td><td>' . $role_human . '</td><td><a href="accontrol.php?id=' . $p['user_id'] . '" class="text-danger">Delete</a></td></tr>';
                 }else{
-                    echo '<tr><td><img src="../images/user.png" style="width: 32px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $role_human . '</td></tr>';
+                    echo '<tr><td><img src="../images/user.png" style="width: 32px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $p['user_office'] . '</td><td>' . $role_human . '</td></tr>';
                 }
             }
         ?>
