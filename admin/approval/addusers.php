@@ -5,6 +5,10 @@ if(isset($_POST['submit'])){
     icarus::InsertFlowUser($_POST['unme'], $_GET['id'], $_GET['office']);
     echo 'user inserted';
 }
+if(isset($_GET['delid'])){
+    icarus::DeleteFlowUser($_GET['delid']);
+    echo 'user deleted';
+}
 ?>
 <div class="p-4 container" style="border-radius: 0px 0px 10px 10px;">
     <button data-toggle="modal" data-target="#myModal" class="btn btn-primary"><i class="far fa-file"></i>&nbsp;&nbsp;Add users</button>
@@ -24,11 +28,13 @@ if(isset($_POST['submit'])){
                         <div class="col-sm-11">
                             <select name="unme" id="unme" class="custom-select">
                                 <?php
-                                    $ret = khatral::khquery('SELECT * FROM user WHERE user_office=:office', array(
-                                        ':office'=>$_GET['office']
-                                    ));
+                                    $ret = khatral::khquerypar('SELECT * FROM user');
                                     foreach($ret as $p){
-                                        echo '<option>' . $p['user_nm'] . '</option>';
+                                        if($p['user_office'] == $_GET['office']){
+                                            echo '<option>' . $p['user_nm'] . '</option>';
+                                        }else if($p['user_typ'] == "3"){
+                                            echo '<option>' . $p['user_nm'] . '</option>';
+                                        }
                                     }
                                 ?>
                             </select>
@@ -53,7 +59,7 @@ if(isset($_POST['submit'])){
         <?php
         $ret = icarus::GetFlowUsers($_GET['id'], $_GET['office']);
         foreach($ret as $p){
-            echo '<tr><td>' . $p['user_nm'] . '</td></tr>';
+            echo '<tr><td>' . $p['user_nm'] . '</td><td><a href="addusers.php?delid=' . $p['user_id'] . '&id=' . $_GET['id'] . '&office=' . $_GET['office'] . '" class="text-danger">Delete</a></tr>';
         }
         ?>
     </table>

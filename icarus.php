@@ -33,6 +33,11 @@ class icarus{
             ':office'=>$office
         ));
     }
+    public static function DeleteFlowUser($id){
+        khatral::khquery('DELETE FROM flow_user WHERE user_id=:id', array(
+            ':id'=>$id
+        ));
+    }
     public static function GetFlowUsers($flow, $office){
         return khatral::khquery('SELECT * FROM flow_user WHERE user_flow=:flow AND user_office=:office', array(
             ':flow'=>$flow,
