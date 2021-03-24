@@ -11,7 +11,7 @@ if(isset($_GET['delid'])){
 }
 ?>
 <div class="p-4 container" style="border-radius: 0px 0px 10px 10px;">
-    <button data-toggle="modal" data-target="#myModal" class="btn btn-primary"><i class="far fa-file"></i>&nbsp;&nbsp;Add users</button>
+    <a href="flow.php" class="btn btn-primary"><i class="fas fa-chevron-circle-left"></i>&nbsp;&nbsp;back</a>&nbsp;&nbsp;<button data-toggle="modal" data-target="#myModal" class="btn btn-primary"><i class="far fa-file"></i>&nbsp;&nbsp;Add users</button>
 </div>
 <div class="modal" id="myModal">
     <div class="modal-dialog modal-md">
