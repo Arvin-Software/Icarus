@@ -45,20 +45,20 @@ include '../header.php';
                     <a href="noticeboard/notice.php" class="btn btn-outline-dark">Discussion board</a>
                 </div>
             </div> -->
-            <!-- <div class="col-lg-4">
-                <div class=" p-4 border text-center bor-ten shadow bg-info" style="margin-top: 8%;">
+            <div class="col-lg-4">
+                <div class=" p-4 border text-center bor-ten shadow" style="margin-top: 8%;">
                     <img src="../images/spreadsheet.svg" alt="email" class="p-2" style="width: 88px;">
                     <br><br>
-                    <a href="mail.php" class="btn btn-outline-light">Custom sheet</a>
+                    <a href="mail.php" class="btn btn-outline-primary">Custom sheet</a>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="p-4 border text-center bor-ten shadow bg-success" style="margin-top: 8%;">
+                <div class="p-4 border text-center bor-ten shadow" style="margin-top: 8%;">
                     <img src="../images/notes.svg" alt="email" class="p-2" style="width: 88px;">
                     <br><br>
-                    <a href="mail.php" class="btn btn-outline-light">My notepad</a>
+                    <a href="mail.php" class="btn btn-outline-primary">My notepad</a>
                 </div>
-            </div>-->
+            </div>
             <div class="col-lg-4">
                 <div class="p-4 border text-center bor-ten shadow" style="margin-top: 8%;">
                     <img src="../images/approve.svg" alt="email" class="p-2" style="width: 88px;">
