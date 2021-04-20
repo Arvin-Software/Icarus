@@ -91,12 +91,12 @@
                                     }
                                 ?>
                                 <div class="form-group" style=" margin-bottom: 5%;">
-                                    <input type="text" id="unme" name="unme" placeholder="Username" class="form-control bg-light bor-ten" required="">
+                                    <input type="text" id="unme" name="unme" placeholder="Username" class="form-control bg-light" required="">
                                 </div>
                                 <div class="form-group" style="margin-bottom: 10%;">
-                                    <input type="password" placeholder="Password" class="form-control bg-light bor-ten" id="pass" name="pass" required="">
+                                    <input type="password" placeholder="Password" class="form-control bg-light" id="pass" name="pass" required="">
                                 </div>
-                                <button type="submit" id="submit" name="submit" class="btn btn-primary float-right bor-ten">Login&nbsp;&nbsp;<i class="fas fa-sign-in-alt"></i></button>
+                                <button type="submit" id="submit" name="submit" class="btn btn-primary float-right">Login&nbsp;&nbsp;<i class="fas fa-sign-in-alt"></i></button>
                             </form>
                         </div>
                     </div>

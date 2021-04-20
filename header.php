@@ -118,7 +118,7 @@
 <?php
     if(isset($inst) == FALSE){
 ?>
-<body class=" bg-white" style="">
+<body class="bg-white" style="" >
     <?php
         include 'primarynav.php';
     ?>

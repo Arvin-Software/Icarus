@@ -11,7 +11,7 @@ if(isset($_GET['id'])){
 }
 ?>
 <div id="inc1 bg-light" class="" style="height: 90vh;">
-    <div class="p-4 border container bg-white" style="margin-top: 2%;">
+    <div class="p-4 border container-fluid bg-white" style="">
         <div class="row">
             <div class="col-sm-4">
                 <a href="boards.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
@@ -64,7 +64,7 @@ if(isset($_GET['id'])){
             </div>
         </div>
     </div>
-    <div class="container border p-4" style="margin-top: 2%;">
+    <div class="container-fluid p-4" style="">
 <table class="table">
         <tr class="">
             <th>Board Name</th>

@@ -33,40 +33,38 @@ if(isset($_GET['id'])){
         
         <!-- &nbsp;&nbsp;<a href="notice.php" class="btn btn-info">Refresh</a> -->
         <div class="modal" id="myModal">
-            <div class="modal-dialog modal-xl">
+            <div class="modal-dialog modal-lg shadow" style="margin-top: 5%;">
                 <div class="modal-content bor-ten">
-                    <div class="modal-header" style="border-radius: 10px 10px 0px 0px;">
-                        <h4 class="modal-title">New notice</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
                     <div class="modal-body">
-                        <form action="notice.php?noid=<?php echo $_GET['noid']; ?>&board=<?php echo $_GET['board']; ?>" method="post">
+                        <h4 class="text-center">New notice</h4>
+                        <p class="text-center">Create a new notice and sort the priority</p>
+                        <form action="notice.php?noid=<?php echo $_GET['noid']; ?>&board=<?php echo $_GET['board']; ?>" method="post" autocomplete="off">
                             <div class="form-group">
                                 <!-- <label for="titl">Notice Title</label> -->
-                                <input type="text" name="titl" id="titl" class="form-control bor-ten" placeholder="Notice Title" required="">
+                                <input type="text" name="titl" id="titl" class="form-control" placeholder="Notice Title" required="">
                             </div>
                             <div class="form-group">
                                 <!-- <label for="content">Notice Content</label> -->
-                                <textarea name="content" id="content" cols="30" rows="10" class="form-control bor-ten" required="" placeholder="Notice Title"></textarea>
+                                <textarea name="content" id="content" cols="30" rows="10" class="form-control" required="" placeholder="Notice Title"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="priori">Priority</label>
-                                <select name="priori" id="priori" class="custom-select bor-ten">
+                                <select name="priori" id="priori" class="custom-select">
                                     <option value="0" class="text-primary">Low</option>
                                     <option value="1" class="text-success">Medium</option>
                                     <option value="2" class="text-warning">High</option>
                                     <option value="3" class="text-danger">Urgent</option>
                                 </select>
                             </div>
+                            <hr>
                             <div class="form-group">
-                                <input type="submit" value="Save" id="submit" name="submit" class="btn btn-primary float-right">
+                            <button type="submit" id="submit" name="submit" class="btn float-right text-primary"><b>Save</b></button><button type="button" class="btn float-right border-right text-primary" data-dismiss="modal">Cancel</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <hr>
         <?php 
         $ret = khatral::khquery('SELECT COUNT(board_id) AS totalboard FROM n_boards WHERE board_hash=:hashcode', array(
             ':hashcode'=>$_GET['noid']

@@ -32,45 +32,45 @@ include '../header.php';
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class=" p-4 border text-center bor-ten shadow" style="margin-top: 8%;">
+                <div class=" p-4  text-center bor-ten bg-white" style="margin-top: 8%;">
                     <img src="../images/board.svg" alt="email" class="p-2" style="width: 88px;">
-                    <br><br>
-                    <a href="noticeboard/boards.php" class="btn btn-outline-primary">Notice board</a>
+                    <br>
+                    <a href="noticeboard/boards.php" class="btn text-primary">Notice board</a>
                 </div>
             </div>
             <!-- <div class="col-lg-4">
-                <div class=" p-4 border text-center bor-ten shadow bg-warning" style="margin-top: 8%;">
+                <div class=" p-4  text-center bor-ten bg-white bg-warning" style="margin-top: 8%;">
                     <img src="../images/board.svg" alt="email" class="p-2" style="width: 88px;">
-                    <br><br>
-                    <a href="noticeboard/notice.php" class="btn btn-outline-dark">Discussion board</a>
+                    <br>
+                    <a href="noticeboard/notice.php" class="btn text-dark">Discussion board</a>
                 </div>
             </div> -->
             <div class="col-lg-4">
-                <div class=" p-4 border text-center bor-ten shadow" style="margin-top: 8%;">
+                <div class=" p-4  text-center bor-ten bg-white bg-white" style="margin-top: 8%;">
                     <img src="../images/spreadsheet.svg" alt="email" class="p-2" style="width: 88px;">
-                    <br><br>
-                    <a href="mail.php" class="btn btn-outline-primary">Custom sheet</a>
+                    <br>
+                    <a href="mail.php" class="btn text-primary">Custom sheet</a>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="p-4 border text-center bor-ten shadow" style="margin-top: 8%;">
+                <div class="p-4  text-center bor-ten bg-white" style="margin-top: 8%;">
                     <img src="../images/notes.svg" alt="email" class="p-2" style="width: 88px;">
-                    <br><br>
-                    <a href="mail.php" class="btn btn-outline-primary">My notepad</a>
+                    <br>
+                    <a href="mail.php" class="btn text-primary">My notepad</a>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="p-4 border text-center bor-ten shadow" style="margin-top: 8%;">
+                <div class="p-4  text-center bor-ten bg-white" style="margin-top: 8%;">
                     <img src="../images/approve.svg" alt="email" class="p-2" style="width: 88px;">
-                    <br><br>
-                    <a href="approval/index.php" class="btn btn-outline-primary">Approval papers</a>
+                    <br>
+                    <a href="approval/index.php" class="btn text-primary">Approval papers</a>
                 </div>
             </div>
             <!--<div class="col-lg-4">
-                <div class="p-4 border text-center bor-ten shadow trd-blue" style="margin-top: 8%;">
+                <div class="p-4  text-center bor-ten bg-white trd-blue" style="margin-top: 8%;">
                     <img src="../images/appointmentbook.svg" alt="email" class="p-2" style="width: 88px;">
-                    <br><br>
-                    <a href="mail.php" class="btn btn-outline-light">My appointments</a>
+                    <br>
+                    <a href="mail.php" class="btn text-light">My appointments</a>
                 </div>
             </div> -->
         </div>
