@@ -26,9 +26,9 @@ echo '<nav class="navbar navbar-expand-lg navbar-light">
         }
         echo '</li><li class="nav-item">';
         if($mainnav=="access"){
-          echo '<a class="btn text-left btn-primary  bor-none" href="accontrol.php"><img src="/icarus/images/connection.svg" class="" style="width: 28px;">&nbsp;&nbsp;Access control</a>';
+          echo '<a class="btn text-left btn-primary  bor-none" href="accontrol.php">Access control</a>';
         }else{
-          echo '<a class="btn text-left text-dark bor-none" href="accontrol.php"><img src="/icarus/images/connection.svg" class="" style="width: 28px;">&nbsp;&nbsp;Access control</a>';
+          echo '<a class="btn text-left text-dark bor-none" href="accontrol.php">Access control</a>';
         }
         echo '</li>';
       }
@@ -40,9 +40,9 @@ echo '<nav class="navbar navbar-expand-lg navbar-light">
       }
       echo '</li><li class="nav-item">';
       if($mainnav=="logout"){
-        echo '<a class="btn text-left btn-primary  bor-none" href="../loginhandle/logout.php"><img src="/icarus/images/logout.svg" class="" style="width: 28px;">&nbsp;&nbsp;Logout session</a>';
+        echo '<a class="btn text-left btn-primary  bor-none" href="../loginhandle/logout.php">Logout session</a>';
       }else{
-        echo '<a class="btn text-left text-dark bor-none" href="../loginhandle/logout.php"><img src="/icarus/images/logout.svg" class="" style="width: 28px;">&nbsp;&nbsp;Logout session</a>';
+        echo '<a class="btn text-left text-dark bor-none" href="../loginhandle/logout.php">Logout session</a>';
       }
       echo '</li>
     </ul>

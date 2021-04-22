@@ -16,7 +16,28 @@ if(isset($_GET['id'])){
     }
 }
 ?>
-
+<style>
+    textarea:focus, 
+            textarea.form-control:focus, 
+            input.form-control:focus, 
+            input[type=text]:focus, 
+            input[type=password]:focus, 
+            input[type=email]:focus, 
+            input[type=number]:focus, 
+            .custom-select:focus,
+            .btn:focus,
+            [type=text].form-control:focus, 
+            [type=password].form-control:focus, 
+            [type=email].form-control:focus, 
+            [type=tel].form-control:focus, 
+            [contenteditable].form-control:focus {
+            box-shadow: inset 0 -1px 0 #fff;
+            background-color: #f6f6f6;
+            }
+            .form-control:hover{
+                background-color: #f6f6f6;
+            }
+</style>
 <div class="modal" id="myModal">
     <div class="modal-dialog modal-md shadow" style="margin-top: 10%;">
         <form action="office.php" method="post" autocomplete="off">
@@ -28,7 +49,7 @@ if(isset($_GET['id'])){
                     <div class="form-group row border" >
                         
                         <label for="titl" class="col-sm-1 col-form-label "><i class="far fa-building"></i></label>
-                        <div class="col-sm-11">
+                        <div class="col-sm-11" style=" padding-right: 0px;">
                             <input type="text" name="unme" id="unme" class="form-control" style="border: none;" required="" placeholder="Office Name">
                         </div>
                     </div>
@@ -43,8 +64,8 @@ if(isset($_GET['id'])){
     </div>
 </div>
 <div class="container-fluid" style="margin-top: 1%; padding-top: 1%; height: 88vh;">
-<div class="container text-center border-bottom" style="margin-bottom: 2%;">
-    <button data-toggle="modal" data-target="#myModal" class="btn text-primary" style="font-size: 24px; margin-bottom: 2%;"><i class="fas fa-plus"></i></button><button data-toggle="modal" data-target="#myModal2" class="btn text-primary" style="font-size: 24px; margin-bottom: 2%;"><i class="far fa-question-circle"></i></button>
+<div class="container border-bottom" style="margin-bottom: 2%;">
+    <button data-toggle="modal" data-target="#myModal" class="btn text-primary" style=" margin-bottom: 2%;"><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button><button data-toggle="modal" data-target="#myModal2" class="btn text-primary" style=" margin-bottom: 2%;"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</button>
 </div>
 <h3 class="text-center" style="font-size: 32px; margin-bottom: 5%;">My offices</h3>
     <div class="container">
@@ -56,7 +77,7 @@ if(isset($_GET['id'])){
             <?php
                 $ret = icarus::GetOfficeWOTParm();
                 foreach($ret as $p){
-                        echo '<tr><td><img src="../images/office.svg" style="width: 24px;">&nbsp;&nbsp;' . $p['office_nm'] . '</td><td><a href="office.php?id=' . $p['office_id'] . '" class="text-danger">Delete</a></td></tr>';
+                        echo '<tr><td><img src="../images/enterprise.svg" style="width: 24px;">&nbsp;&nbsp;' . $p['office_nm'] . '</td><td><a href="office.php?id=' . $p['office_id'] . '" class="text-danger">Delete</a></td></tr>';
                 }
             ?>
         </table>

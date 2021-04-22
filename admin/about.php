@@ -53,8 +53,8 @@ include '../header.php';
 <iframe src="../LICENSE" frameborder="0" class="border bg-white" style="width: 100%; height: 40vh;"></iframe>
 <hr>
 <h6 class="text-center">Icarus is a open source software which is licensed under GNU GPL v3 License</h6>
+<h6 class="text-center">Icons are open source and can be downloaded and modified and released under GNU GPL v3 License</h6>
 <h6 class="text-center">Icarus Logo, Icarus Name, Softview Name, Khatral name are the properties of Arvin Soft.</h6>
-<h6 class="text-center">Icons in the project are the copyright of the respective owners.</h6>
 <h6 class="text-center">Components like bootstrap, jquery and other products used in this project are the copyright of the respective owners.</h6>
 <h6 class="text-center">&copy; 2021 Icarus Project. All Rights Reserved.</h6>
 </div>

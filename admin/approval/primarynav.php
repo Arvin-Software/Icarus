@@ -13,20 +13,20 @@ echo '<nav class="navbar navbar-expand-lg navbar-light">
     echo '<li class="nav-item">';
     
     if($mainnav=="paper"){
-        echo '<a class="btn text-left btn-outline-primary  bor-none" href="index.php"><img src="/icarus/images/newfile.svg" class="" style="width: 20px;">&nbsp;&nbsp;Approval papers</a>';
+        echo '<a class="btn text-left btn-outline-primary  bor-none" href="index.php">Approval papers</a>';
     }else{
-        echo '<a class="btn text-left text-dark bor-none" href="index.php"><img src="/icarus/images/newfile.svg" class="" style="width: 20px;">&nbsp;&nbsp;Approval papers</a>';
+        echo '<a class="btn text-left text-dark bor-none" href="index.php">Approval papers</a>';
     }
     echo '</li>';
     if($_SESSION['typ'] == "1"){
         echo '<li class="nav-item">';
         if($mainnav=="flow"){
-            echo '<a class="btn text-left btn-outline-primary  bor-none" href="flow.php"><img src="/icarus/images/flow.svg" class="" style="width: 20px;">&nbsp;&nbsp;Flowgroups and flow</a>';
+            echo '<a class="btn text-left btn-outline-primary  bor-none" href="flow.php">Flowgroups and flow</a>';
         }else{
-            echo '<a class="btn text-left text-dark btn-bb bor-none" href="flow.php"><img src="/icarus/images/flow.svg" class="" style="width: 20px;">&nbsp;&nbsp;Flowgroups and flow</a>';
+            echo '<a class="btn text-left text-dark btn-bb bor-none" href="flow.php">Flowgroups and flow</a>';
         }
     }
-    echo '</li><li class="nav-item"><a class="btn text-left text-dark bor-none" href="../index.php"><img src="/icarus/images/undo.svg" class="" style="width: 20px;">&nbsp;&nbsp;Back</a>';
+    echo '</li><li class="nav-item"><a class="btn text-left text-dark bor-none" href="../index.php">Back</a>';
     echo '</li>
     </ul>
   </div>

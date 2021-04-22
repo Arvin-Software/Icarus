@@ -65,9 +65,9 @@ if(isset($_GET['id'])){
         </div>
     </div>
     <div class="container-fluid p-4" style="">
+    <h3>Shared with</h3>
 <table class="table">
         <tr class="">
-            <th>Board Name</th>
             <th>Username</th>
             <th>Actions</th>
         </tr>
@@ -78,7 +78,7 @@ if(isset($_GET['id'])){
             foreach($ret as $p){
                 $name = $p['share_b_nm'];
                 $unme = $p['share_b_unm'];
-                echo '<tr><td>' . $name . '</td><td>' . $unme . '</td><td><a href="share.php?id=' . $p['share_id'] . '&board_nm=' . $_GET['board_nm'] . '&hash=' . $_GET['hash'] . '&unme=' . $_GET['unme'] . '">Delete</a></td></tr>';
+                echo '<tr><td>' . $unme . '</td><td><a href="share.php?id=' . $p['share_id'] . '&board_nm=' . $_GET['board_nm'] . '&hash=' . $_GET['hash'] . '&unme=' . $_GET['unme'] . '">Delete</a></td></tr>';
             }
         ?>
 </table>

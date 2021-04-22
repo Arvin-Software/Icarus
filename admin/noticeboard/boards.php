@@ -8,22 +8,59 @@ if(isset($_POST['submit'])){
 }
 
 ?>
+<style>
+    textarea:focus, 
+            textarea.form-control:focus, 
+            input.form-control:focus, 
+            input[type=text]:focus, 
+            input[type=password]:focus, 
+            input[type=email]:focus, 
+            input[type=number]:focus, 
+            .custom-select:focus,
+            .btn:focus,
+            [type=text].form-control:focus, 
+            [type=password].form-control:focus, 
+            [type=email].form-control:focus, 
+            [type=tel].form-control:focus, 
+            [contenteditable].form-control:focus {
+            box-shadow: inset 0 -1px 0 #fff;
+            background-color: #f6f6f6;
+            }
+            .form-control:hover{
+                background-color: #f6f6f6;
+            }
+            .folder{
+                background: #fff;
+                padding: 1% 1% 1% 1%;
+                border-radius: 10px 10px 10px 10px;
+            }
+            .folder:hover{
+                background-color: #f6f6f6;
+            }
+</style>
 <div id="inc1" class="" style="height: 90vh;">
     <div class="p-4 border container-fluid bg-white" style="">
         <div class="row">
             <div class="col-sm-4">
+                
+                
+                
+                
+            </div>
+            <div class="col-sm-4 text-center">
+                <h3 style="margin-top: 2%;">Notice Board</h3>
+                <div  style="margin-top: 5%;">
                 <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
                 <?php 
                     if($_SESSION['typ'] != "2"){
-                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary"><i class="far fa-file"></i>&nbsp;&nbsp;New board</button>';
+                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></button>&nbsp;&nbsp;';
                     }
                 ?>
-            </div>
-            <div class="col-sm-4 text-center">
-                
+                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>&nbsp;&nbsp;
+                </div>
             </div>
             <div class="col-sm-4 text-right">
-                <img src="../../images/board.svg" alt="notice" style="width: 36px;">&nbsp;&nbsp;Notice Board&nbsp;&nbsp;
+                
             </div>    
         </div>    
     </div>
@@ -39,7 +76,7 @@ if(isset($_POST['submit'])){
                         </div>
                         
                         <div class="form-group">
-                            <button type="submit" id="submit" name="submit" class="btn float-right text-primary"><b>Save</b></button><button type="button" class="btn float-right  border-right text-primary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" id="submit" name="submit" class="btn float-right text-primary"><b>Create</b></button><button type="button" class="btn float-right  border-right text-primary" data-dismiss="modal">Cancel</button>
                         </div>
                     </form>
                 </div>
@@ -66,7 +103,10 @@ if(isset($_POST['submit'])){
         }
     }
     ?>
-    <h3>My Noticeboards</h3>
+    <!-- <div style="margin-top: 2%;" class="container text-center">
+    <h3 class="text-center">My Noticeboards</h3>
+    
+    </div> -->
         <div class="row" style="margin-top: 2%;">
             <?php
                 if($_SESSION['typ'] != "1"){
@@ -89,11 +129,11 @@ if(isset($_POST['submit'])){
                             $icon = '';
                         }
                     }
-                    echo '<div class="col-sm-2">';
-                    echo '<img class="mx-auto d-block" src="../../images/board.svg" style="width: 108px;">';
+                    echo '<div class="col-sm-2 folder ">';
+                    echo '<a href="notice.php?noid=' . $p['board_hash'] . '&board=' . $p['board_nm'] . '" class="text-center text-dark" style="text-decoration: none;"><img class="mx-auto d-block" src="../../images/signboard.svg" style="width: 68px;">';
                     echo '<h6 class="text-center" style="margin-top: 5%;">' . $name . '&nbsp;&nbsp'  . $icon . '</h6>';
                     echo '<div class="text-center"><a href="notice.php?noid=' . $p['board_hash'] . '&board=' . $p['board_nm'] . '">View</a>&nbsp;&nbsp;<a href="share.php?board_nm=' . $p['board_nm'] . '&hash=' . $p['board_hash'] . '&unme=' . $p['board_unm'] . '">Share</a>&nbsp;&nbsp;<a href="boards.php?delid=' . $p['board_hash'] . '" class="text-danger">Delete</a></div>';
-                    echo '</div>';
+                    echo '</a></div>';
                 }  
             ?>
         </div>

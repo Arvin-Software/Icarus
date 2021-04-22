@@ -150,10 +150,10 @@ class icarus{
         return "1";
     }
     public static function DisplayVersion(){
-        echo 'v0.1';
+        echo 'v0.1.1';
     }
     public static function DisplayVerBuild(){
-        echo 'v0.1 build28022021121210am-r12';
+        echo 'v0.1.1 build23042021031020am-r20';
     }
     public static function DisplayKhatralVersion(){
         echo '0.0.6-r845';
