@@ -70,7 +70,7 @@ include '../header.php';
             </div> -->
             <div class="col-lg-4">
                 <div class=" p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
-                    <a href="mail.php" class="btn text-primary bor-ten text-dark"><img src="../images/invoice.svg" alt="email" class="p-4" style="width: 128px;">
+                    <a href="invoice/index.php" class="btn text-primary bor-ten text-dark"><img src="../images/invoice.svg" alt="email" class="p-4" style="width: 128px;">
                     <br>
                     Invoice generator</a>
                 </div>

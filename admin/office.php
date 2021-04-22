@@ -64,10 +64,11 @@ if(isset($_GET['id'])){
     </div>
 </div>
 <div class="container-fluid" style="margin-top: 1%; padding-top: 1%; height: 88vh;">
-<div class="container border-bottom" style="margin-bottom: 2%;">
-    <button data-toggle="modal" data-target="#myModal" class="btn text-primary" style=" margin-bottom: 2%;"><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button><button data-toggle="modal" data-target="#myModal2" class="btn text-primary" style=" margin-bottom: 2%;"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</button>
+<div class="container text-center" style="margin-bottom: 2%;">
+    <h3 class="text-center" style="font-size: 32px; margin-bottom: 2%;">My offices</h3>
+    <button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary rounded-circle" style=" margin-bottom: 2%;"><i class="fas fa-plus"></i></button>&nbsp;&nbsp;<button data-toggle="modal" data-target="#myModal2" class="btn btn-outline-primary rounded-circle" style=" margin-bottom: 2%;"><i class="far fa-question-circle"></i></button>
 </div>
-<h3 class="text-center" style="font-size: 32px; margin-bottom: 5%;">My offices</h3>
+
     <div class="container">
         <table class="table">
             <tr class="border-bottom">
