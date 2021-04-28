@@ -141,6 +141,7 @@
                     <div class="col-xl-4"></div>
                 </div>  
                 <h6 class="text-center fixed-bottom" style="">
+                    <img src="../images/logo.svg" alt="cblogo" style="width: 32px;"> powered by clerklybooks lite
                     <p class="text-dark">&copy; 2021 Icarus. All Rights Reserved.
                 </h6>
             </div>
