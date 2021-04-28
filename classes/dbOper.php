@@ -33,6 +33,7 @@ $query = 'CREATE TABLE IF NOT EXISTS n_boards(
             board_nm            VARCHAR(255)    NOT NULL,
             board_unm           VARCHAR(255)    NOT NULL,
             board_hash          VARCHAR(255)    NOT NULL,
+            board_office        VARCHAR(255)    NOT NULL,
             board_timestamp     TIMESTAMP       NOT NULL,
             PRIMARY KEY(board_id))';
 if($conn->query($query) == TRUE){
@@ -112,6 +113,92 @@ if($conn->query($query) == TRUE){
 }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table flow_user ' . $conn->error;
 }
+$query = 'CREATE TABLE IF NOT EXISTS entryso(
+    entryid             INTEGER         NOT NULL            AUTO_INCREMENT,
+    dt                  DATE            NOT NULL,
+    custnm              VARCHAR(255)    NOT NULL,
+    sono                VARCHAR(255)    NOT NULL,
+    invno               VARCHAR(255)    NOT NULL,
+    validity            VARCHAR(255)    NOT NULL,
+    stat                VARCHAR(255)    NOT NULL,
+    inst                VARCHAR(255)    NOT NULL,
+    PRIMARY KEY(entryid))
+    ';
+if($conn->query($query) == TRUE){
+echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table entryso created successfully';
+}else{
+echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table entryso ' . $conn->error;
+}
+$query = 'CREATE TABLE IF NOT EXISTS itemsso(
+    itemid              INTEGER             NOT NULL        AUTO_INCREMENT,
+    itemnm              VARCHAR(255)        NOT NULL,
+    hsn                 VARCHAR(255)        NOT NULL,
+    quant               VARCHAR(255)        NOT NULL,
+    rte                 VARCHAR(255)        NOT NULL,
+    cgst                VARCHAR(255)        NOT NULL,
+    sgst                VARCHAR(255)        NOT NULL,
+    tot                 VARCHAR(255)        NOT NULL,
+    entrypo             VARCHAR(255)        NOT NULL,
+    PRIMARY KEY(itemid))';
+if($conn->query($query) == TRUE){
+echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table itemsso created successfully';
+}else{
+echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table itemsso ' . $conn->error;
+}
+$query = 'CREATE TABLE IF NOT EXISTS totandtaxso(
+    totid           INTEGER         NOT NULL        AUTO_INCREMENT,
+    fright          VARCHAR(255)    NOT NULL,
+    discounts       VARCHAR(255)    NOT NULL,
+    terms           VARCHAR(255)    NOT NULL,
+    poid            VARCHAR(255)    NOT NULL,
+    PRIMARY KEY(totid))';
+if($conn->query($query) == TRUE){
+echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table totandtaxso created successfully';
+}else{
+echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table totandtaxso ' . $conn->error;
+}
+$query = 'CREATE TABLE IF NOT EXISTS mtrlsales(
+    mtrl_id			INTEGER			NOT NULL			AUTO_INCREMENT,
+    code            VARCHAR(255)    NOT NULL,
+    mtrl_nm			VARCHAR(255)	NOT NULL,
+    hsncode         VARCHAR(255)    NOT NULL,
+    rate            VARCHAR(255)    NOT NULL,
+    cgst            VARCHAR(255)    NOT NULL,
+    sgst            VARCHAR(255)    NOT NULL,
+    open_bal        VARCHAR(255)    NOT NULL,
+    loc             VARCHAR(255)    NOT NULL,
+    usr				VARCHAR(255)	NOT NULL,
+    PRIMARY KEY(mtrl_id))';
+if($conn->query($query) == TRUE){
+    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table mtrlsales created successfully';
+    }else{
+    echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table mtrlsales ' . $conn->error;
+    }
+$query = 'CREATE TABLE IF NOT EXISTS cont_list(
+    listid          INTEGER         NOT NULL    AUTO_INCREMENT,
+    cont_nm         VARCHAR(255)    NOT NULL,
+    cont_email      VARCHAR(255)    NOT NULL,
+    cont_phone      VARCHAR(255)    NOT NULL,
+    cont_addr       VARCHAR(255)    NOT NULL,
+    cont_gst        VARCHAR(255)    NOT NULL,
+    stcd			VARCHAR(255)	NOT NULL,
+    cons_nm         VARCHAR(255)    NOT NULL,
+    cons_email      VARCHAR(255)    NOT NULL,
+    cons_phone      VARCHAR(255)    NOT NULL,
+    cons_addr       VARCHAR(255)    NOT NULL,
+    cons_gst        VARCHAR(255)    NOT NULL,
+    conscd			VARCHAR(255)	NOT NULL,
+    bankdet         VARCHAR(255)    NOT NULL,
+    bankifsc        VARCHAR(255)    NOT NULL,
+    otherbankdet    LONGTEXT        NOT NULL,
+    acc             VARCHAR(255)    NOT NULL,
+    typ             VARCHAR(255)    NOT NULL,
+    PRIMARY KEY(listid))';
+if($conn->query($query) == TRUE){
+echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table cont_list created successfully';
+}else{
+echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table cont_list ' . $conn->error;
+}    
 echo '<br /><br />';
 echo '<a href="../installation/second.php" class="btn btn-primary bor-ten float-left">&lt; Previous</a>
 <a href="../installation/admincreate.php" class="btn btn-primary bor-ten float-right">Next &gt;</a>';

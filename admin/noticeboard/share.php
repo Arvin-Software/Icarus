@@ -47,7 +47,7 @@ if(isset($_GET['id'])){
                         <div class="form-group">
                             <select name="unme" id="unme" class="custom-select">
                                 <?php
-                                $ret = khatral::khquerypar('SELECT * FROM user');
+                                $ret = khatral::khquery('SELECT * FROM user WHERE user_office = :office', array(':office'=>$_SESSION['office']));
                                 foreach($ret as $p){
                                     if($p['user_typ'] != '1' && $p['user_nm'] != $_SESSION['unme'] && $p['user_nm'] != $_GET['unme']){
                                         echo '<option>' . $p['user_nm'] . '</option>';

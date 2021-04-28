@@ -98,9 +98,9 @@ if(isset($_GET['id'])){
                     $role_human = "Common person";
                 }
                 if($role != "1"){
-                    echo '<tr><td><img src="../images/user.png" style="width: 32px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $p['user_office'] . '</td><td>' . $role_human . '</td><td><a href="accontrol.php?id=' . $p['user_id'] . '" class="text-danger">Delete</a></td></tr>';
+                    echo '<tr><td><img src="../images/userfair.svg" style="width: 28px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $p['user_office'] . '</td><td>' . $role_human . '</td><td><a href="accontrol.php?id=' . $p['user_id'] . '" class="text-danger">Delete</a></td></tr>';
                 }else{
-                    echo '<tr><td><img src="../images/user.png" style="width: 32px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $p['user_office'] . '</td><td>' . $role_human . '</td></tr>';
+                    echo '<tr><td><img src="../images/userfair.svg" style="width: 28px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $p['user_office'] . '</td><td>' . $role_human . '</td></tr>';
                 }
             }
         ?>

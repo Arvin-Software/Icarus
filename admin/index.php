@@ -109,7 +109,7 @@ include '../header.php';
                     <br> -->
                     <!--<label class="text-light" id="progressx" name="progressx">Loading mail...</label> -->
                     <div class="progress bg-light">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:100%" id="prog" name="prog"></div>
+                        <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width:100%" id="prog" name="prog"></div>
                     </div>
                 </div>
             </div>

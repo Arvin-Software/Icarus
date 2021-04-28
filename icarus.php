@@ -7,10 +7,11 @@ class icarus{
         for ($i = 0; $i < 20; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
-        khatral::khquery('INSERT INTO n_boards VALUES(NULL, :nm, :unm, :hashcode, NULL)', array(
+        khatral::khquery('INSERT INTO n_boards VALUES(NULL, :nm, :unm, :hashcode, :office, NULL)', array(
             ':nm'=>$name,
             ':unm'=>$_SESSION['unme'],
-            ':hashcode'=>$randomString
+            ':hashcode'=>$randomString,
+            ':office'=>$_SESSION['office']
         ));
     }
     public static function InsertApprovalFlow($flowNm, $office){
@@ -100,9 +101,8 @@ class icarus{
         ));
     }
     public static function InsertUsers($nm, $pass, $role, $office){
-        $ret = khatral::khquery('SELECT COUNT(user_id) AS totalusrs FROM user WHERE user_nm=:unm AND user_office=:office', array(
-            ':unm'=>$nm,
-            ':office'=>$office
+        $ret = khatral::khquery('SELECT COUNT(user_id) AS totalusrs FROM user WHERE user_nm=:unm', array(
+            ':unm'=>$nm
         ));
         foreach($ret as $p){
             if($p['totalusrs'] >= 1){
@@ -148,6 +148,19 @@ class icarus{
             ':id'=>$id
         ));
         return "1";
+    }
+    public static function insertmtrlsales($code, $mtrlnm, $hsn, $rate, $cgst, $sgst, $openbal, $loc){
+        khatral::khquery('INSERT INTO mtrlsales VALUES(NULL, :code, :mtrl_nm, :hsncode, :rate, :cgst, :sgst, :open_bal, :loc, :usr)', array(
+            ':code'=>$code,
+            ':mtrl_nm'=>$mtrlnm,
+            ':hsncode'=>$hsn,
+            ':rate'=>$rate,
+            ':cgst'=>$cgst,
+            ':sgst'=>$sgst,
+            ':open_bal'=>$openbal,
+            ':loc'=>$loc,
+            ':usr'=>$_SESSION['office']
+        ));
     }
     public static function DisplayVersion(){
         echo 'v0.1.1';

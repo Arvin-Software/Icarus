@@ -48,6 +48,7 @@ if(isset($_POST['submit'])){
                 
             </div>
             <div class="col-sm-4 text-center">
+            <img src="../../images/invoice.svg" alt="inventory" style="width: 48px;">
                 <h3 style="margin-top: 2%;">Invoice generator</h3><br>
                 <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
                 <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>
@@ -57,28 +58,38 @@ if(isset($_POST['submit'])){
             </div>    
         </div>    
     </div>
+    <div class="container">
         <div class="row" style="margin-top: 0%;">
             <div class="col-lg-4">
                 <div class=" p-4  text-center bor-ten text-dark bg-white" style="">
-                    <a href="invoice/index.php" class="btn text-primary bor-ten text-dark"><img src="../../images/invoice.svg" alt="email" class="p-4" style="width: 128px;">
+                    <a href="invoice/index.php" class="btn text-primary bor-ten text-dark"><img src="../../images/invoiceadd.svg" alt="email" class="p-4" style="width: 128px;">
                     <br>
                     New Invoice</a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class=" p-4  text-center bor-ten text-dark bg-white" style="">
-                    <a href="invoice/index.php" class="btn text-primary bor-ten text-dark"><img src="../../images/invoice.svg" alt="email" class="p-4" style="width: 128px;">
+                    <a href="inventory.php" class="btn text-primary bor-ten text-dark"><img src="../../images/inventory.svg" alt="email" class="p-4" style="width: 128px;">
                     <br>
                     Inventory</a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class=" p-4  text-center bor-ten text-dark bg-white" style="">
-                    <a href="invoice/index.php" class="btn text-primary bor-ten text-dark"><img src="../../images/invoice.svg" alt="email" class="p-4" style="width: 128px;">
+                    <a href="customer.php" class="btn text-primary bor-ten text-dark"><img src="../../images/customer.svg" alt="email" class="p-4" style="width: 128px;">
+                    <br>
+                    Customers</a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class=" p-4  text-center bor-ten text-dark bg-white" style="">
+                    <a href="invoice/index.php" class="btn text-primary bor-ten text-dark"><img src="../../images/settings.svg" alt="email" class="p-4" style="width: 128px;">
                     <br>
                     Settings</a>
                 </div>
             </div>
+            
         </div>
+    </div>
     </div>
 </div>
