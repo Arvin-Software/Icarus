@@ -6,7 +6,7 @@ include '../header.php';
 <br>
 <div class="container-fluid" style="overflow:auto; height: 85vh;">
 <div class="container">
-<img src="../images/icaruslogo1ba.png" alt="Valai Logo" style="width: 300px;">
+<h1><img src="../images/icaruslogo1ba.png" alt="Valai Logo" style="width: 300px;"> + <img src="../images/logo.svg" alt="logo" style="width: 70px;">&nbsp;Clerkly books lite</h1>
 <br>
 <h3 class="float-right"><?php echo icarus::DisplayVersion(); ?></h3>
 <p>
@@ -26,6 +26,10 @@ include '../header.php';
     <tr>
         <td>Icarus Server</td>
         <td><?php icarus::DisplayVerBuild(); ?></td>
+    </tr>
+    <tr>
+        <td>Clerkly books lite</td>
+        <td>v1.0 build 29042021034920am</td>
     </tr>
     <tr>
         <td>Softview CSS</td>
@@ -55,6 +59,7 @@ include '../header.php';
 <h6 class="text-center">Icarus is a open source software which is licensed under GNU GPL v3 License</h6>
 <h6 class="text-center">Icons are open source and can be downloaded and modified and released under GNU GPL v3 License</h6>
 <h6 class="text-center">Icarus Logo, Icarus Name, Softview Name, Khatral name are the properties of Arvin Soft.</h6>
+<h6 class="text-center">Clerklybooks Logo, Clerklybooks Name are the properties of Arvin Soft.</h6>
 <h6 class="text-center">Components like bootstrap, jquery and other products used in this project are the copyright of the respective owners.</h6>
 <h6 class="text-center">&copy; 2021 Icarus Project. All Rights Reserved.</h6>
 </div>
