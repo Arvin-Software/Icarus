@@ -68,6 +68,9 @@ include '../header.php';
                     <a href="noticeboard/notice.php" class="btn text-dark">Discussion board</a>
                 </div>
             </div> -->
+            <?php
+            if($_SESSION['typ'] != "1"){
+            ?>
             <div class="col-lg-4">
                 <div class=" p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
                     <a href="invoice/index.php" class="btn text-primary bor-ten text-dark"><img src="../images/invoice.svg" alt="email" class="p-4" style="width: 128px;">
@@ -75,6 +78,19 @@ include '../header.php';
                     Invoice generator</a>
                 </div>
             </div>
+            <?php
+            }else{
+                ?>
+                <div class="col-lg-4" style="opacity: 0.5;">
+                <div class=" p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
+                    <a href="#" class="btn text-primary bor-ten text-dark"><img src="../images/invoice.svg" alt="email" class="p-4" style="width: 128px;">
+                    <br>
+                    Invoice generator</a>
+                </div>
+            </div>
+                <?php
+            }
+            ?>
             <div class="col-lg-4">
                 <div class="p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
                     <a href="mail.php" class="btn text-primary bor-ten text-dark"><img src="../images/notes.svg" alt="email" class="p-4" style="width: 128px;">

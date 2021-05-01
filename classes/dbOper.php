@@ -198,7 +198,33 @@ if($conn->query($query) == TRUE){
 echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table cont_list created successfully';
 }else{
 echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table cont_list ' . $conn->error;
-}    
+}
+$query = 'CREATE TABLE IF NOT EXISTS comp_info(
+    id              INTEGER             NOT NULL        AUTO_INCREMENT,
+    ref_id          INTEGER             NOT NULL,
+    mail_nm         VARCHAR(255)        NOT NULL,
+    finyearfrom     DATE                NOT NULL,
+    finyearto       DATE                NOT NULL,
+    gstno           VARCHAR(255)        NOT NULL,
+    addr            VARCHAR(255)        NOT NULL,
+    country         VARCHAR(255)        NOT NULL,
+    stat            VARCHAR(255)        NOT NULL,
+    city            VARCHAR(255)        NOT NULL,
+    pin             VARCHAR(255)        NOT NULL,
+    curr            VARCHAR(255)        NOT NULL,
+    email           VARCHAR(255)        NOT NULL,
+    phno            VARCHAR(255)        NOT NULL,
+    web             VARCHAR(255)        NOT NULL,
+    typofb          VARCHAR(255)        NOT NULL,
+    logo            VARCHAR(255)        NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(ref_id) REFERENCES office(office_id)
+    )';
+if($conn->query($query) == TRUE){
+echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table comp_info created successfully';
+}else{
+echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table comp_info ' . $conn->error;
+}
 echo '<br /><br />';
 echo '<a href="../installation/second.php" class="btn btn-primary bor-ten float-left">&lt; Previous</a>
 <a href="../installation/admincreate.php" class="btn btn-primary bor-ten float-right">Next &gt;</a>';

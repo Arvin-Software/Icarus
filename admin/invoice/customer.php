@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
             }
 </style>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 border container-fluid bg-white" style="">
+    <div class="p-4 container-fluid bg-white" style="">
         <div class="row">
             <div class="col-sm-4">
                 
@@ -72,7 +72,7 @@ if(isset($_POST['submit'])){
             </div>
             <div class="col-sm-4 text-center">
                 <img src="../../images/customer.svg" alt="inventory" style="width: 48px;">
-                <h3 style="margin-top: 2%;">Inventory</h3><br>
+                <h3 style="margin-top: 2%;">Customers</h3><br>
                 <a href="index.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
                 <?php 
                     if($_SESSION['typ'] != "2" && $_SESSION['typ'] != '1'){
@@ -194,7 +194,7 @@ if(isset($_POST['submit'])){
         </div>
     </div>
     <div class="container" style="margin-top: 2%;">
-    <table class="table table-striped border" id="tablex" style="border-collapse: separate; border-spacing: 0px;">
+    <table class="table table-borderless border" id="tablex" style="border-collapse: separate; border-spacing: 0px;">
     <thead>
                 <tr class="bg-primary text-white">
                     <!-- <th style="width: 50px;">Sl.no</th> -->
@@ -210,14 +210,14 @@ if(isset($_POST['submit'])){
                        ':typ'=>'c'
                    ));
                    foreach($ret as $p){
-                       echo '<tr><td>' . $p['cont_nm'] . '</td></tr>';
+                       echo '<tr><td>' . $p['cont_nm'] . '</td><td><a href="#" class="btn btn-outline-danger  rounded-circle" style=""><i class="far fa-trash-alt"></i></a></td></tr>';
                    }
                 }else{
                     $ret = khatral::khquery('SELECT * FROM cont_list WHERE typ=:typ', array(
                         ':typ'=>'c'
                     ));
                     foreach($ret as $p){
-                        echo '<tr><td>' . $p['cont_nm'] . '</td></tr>';
+                        echo '<tr><td>' . $p['cont_nm'] . '</td><td><a href="#" class="btn btn-outline-danger  rounded-circle" style=""><i class="far fa-trash-alt"></i></a></td></tr>';
                     }
                 }
                 ?>

@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
             }
 </style>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 border container-fluid bg-white" style="">
+    <div class="p-4 container-fluid bg-white" style="">
         <div class="row">
             <div class="col-sm-4">
                 
@@ -132,7 +132,7 @@ if(isset($_POST['submit'])){
         </div>
     </div>
     <div class="container" style="margin-top: 2%;">
-        <table class="table table-striped table-bordered" id="table" style="">
+        <table class="table border table-borderless" id="table" style="">
             <thead>
                 <tr class="bg-primary text-white">
                     <!-- <th style="width: 50px;">Sl.no</th> -->
@@ -152,14 +152,14 @@ if(isset($_POST['submit'])){
                     $count = 0;
                     foreach($ret as $p){
                         $count= $count + 1;
-                        echo '<tr><td>' . $p['code'] . '</td><td>' . $p['mtrl_nm'] . '</td><td>&#8377;&nbsp;' . $p['rate'] . '</td><td>' . $p['cgst'] . ' %</td><td>' . $p['sgst'] . ' %</td><td style="text-align: center;"><a href="mtrl.php?id=' . $p['mtrl_id'] . '&nm=' . $p['mtrl_nm'] . '" class="btn btn-outline-danger" style=""><i class="far fa-trash-alt"></i></a></td></tr>';
+                        echo '<tr><td>' . $p['code'] . '</td><td>' . $p['mtrl_nm'] . '</td><td>&#8377;&nbsp;' . $p['rate'] . '</td><td>' . $p['cgst'] . ' %</td><td>' . $p['sgst'] . ' %</td><td style="text-align: center;"><a href="mtrl.php?id=' . $p['mtrl_id'] . '&nm=' . $p['mtrl_nm'] . '" class="btn btn-outline-danger  rounded-circle" style=""><i class="far fa-trash-alt"></i></a></td></tr>';
                     }
                     }else{
                         $ret = khatral::khquerypar('SELECT * FROM mtrlsales');
                         $count = 0;
                         foreach($ret as $p){
                             $count= $count + 1;
-                            echo '<tr><td>' . $p['code'] . '</td><td>' . $p['mtrl_nm'] . '</td><td>&#8377;&nbsp;' . $p['rate'] . '</td><td>' . $p['cgst'] . ' %</td><td>' . $p['sgst'] . ' %</td><td style="text-align: center;"><a href="mtrl.php?id=' . $p['mtrl_id'] . '&nm=' . $p['mtrl_nm'] . '" class="btn btn-outline-danger" style=""><i class="far fa-trash-alt"></i></a></td><td>' . $p['usr'] . '</td></tr>';
+                            echo '<tr><td>' . $p['code'] . '</td><td>' . $p['mtrl_nm'] . '</td><td>&#8377;&nbsp;' . $p['rate'] . '</td><td>' . $p['cgst'] . ' %</td><td>' . $p['sgst'] . ' %</td><td style="text-align: center;"><a href="mtrl.php?id=' . $p['mtrl_id'] . '&nm=' . $p['mtrl_nm'] . '" class="btn btn-outline-danger  rounded-circle" style=""><i class="far fa-trash-alt"></i></a></td><td>' . $p['usr'] . '</td></tr>';
                         }
                     }
                     
