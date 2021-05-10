@@ -1,7 +1,12 @@
 <?php
 echo '<div class="bg-white shadow">';
 echo '<div class=" container">';
-echo '<nav class="navbar navbar-expand-lg navbar-light">
+if($_SESSION['typ'] != "1"){
+  echo '<nav class="navbar navbar-expand-lg navbar-light" style=" margin-left: 23%;">';
+}else{
+  echo '<nav class="navbar navbar-expand-lg navbar-light">';
+}
+echo '
   <!-- Brand -->
   <img src="/icarus/images/icaruslogo1ba.png" class="mx-auto d-block" style="background-color: #fff; width: 98px;" alt="logo">
   <!-- Toggler/collapsibe Button -->

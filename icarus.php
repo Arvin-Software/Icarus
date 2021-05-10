@@ -193,6 +193,63 @@ class icarus{
             ':poid'=>$poid
         ));
     }
+    public static function insertWebsite($webnm, $offnm){
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 25; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        khatral::khquery('INSERT INTO website VALUES(NULL, :hashcode, :nm, :unm, :inst)', array(
+            ':hashcode'=>$randomString,
+            ':nm'=>$webnm,
+            ':unm'=>$_SESSION['unme'],
+            ':inst'=>$offnm
+        ));
+
+    }
+    public static function insertPages($pagenm, $pagepath, $pagewebhash, $prodnm, $prodver, $proddown, $type){
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < 12; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        if($type == "0"){
+            khatral::khquery('INSERT INTO home_page VALUES(NULL, :nm, :hashcode, :paths, :webhash)', array(
+                ':nm'=>$pagenm,
+                ':hashcode'=>$randomString,
+                ':paths'=>$pagepath,
+                ':webhash'=>$pagewebhash
+            ));
+        }else{
+            khatral::khquery('INSERT INTO product_page VALUES(NULL, :nm, :hashcode, :paths, :webhash, :prodnm, :prodver, :proddown)', array(
+                ':nm'=>$pagenm,
+                ':hashcode'=>$randomString,
+                ':paths'=>$pagepath,
+                ':webhash'=>$pagewebhash,
+                ':prodnm'=>$prodnm,
+                ':prodver'=>$prodver,
+                ':proddown'=>$proddown
+            ));
+        }
+    }
+    public static function GetWebsite(){
+        return khatral::khquerypar('SELECT * FROM website');
+    }
+    public static function GetPage($type){
+        if($type == "0"){
+            return khatral::khquerypar('SELECT * FROM home_page');
+        }else{
+            return khatral::khquerypar('SELECT * FROM product_page');
+        }
+    }
+    public static function GetProdQuery($webhash, $pagehash){
+        return khatral::khquery('SELECT * FROM product_page WHERE page_hash=:pagehash AND page_web_hash=:webhash', array(
+            ':pagehash'=>$pagehash,
+            ':webhash'=>$webhash
+        ));
+    }
     public static function DisplayVersion(){
         echo 'v0.1.1';
     }

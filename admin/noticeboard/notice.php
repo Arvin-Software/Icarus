@@ -10,22 +10,60 @@ if(isset($_GET['id'])){
     icarus::DeleteNotice($_GET['id']);
 }
 ?>
+<style>
+    textarea:focus, 
+            textarea.form-control:focus, 
+            input.form-control:focus, 
+            input[type=text]:focus, 
+            input[type=password]:focus, 
+            input[type=email]:focus, 
+            input[type=number]:focus, 
+            .custom-select:focus,
+            .btn:focus,
+            [type=text].form-control:focus, 
+            [type=password].form-control:focus, 
+            [type=email].form-control:focus, 
+            [type=tel].form-control:focus, 
+            [contenteditable].form-control:focus {
+            box-shadow: inset 0 -1px 0 #fff;
+            background-color: #f6f6f6;
+            }
+            .form-control:hover{
+                background-color: #f6f6f6;
+            }
+            .folder{
+                background: #fff;
+                padding: 1% 1% 1% 1%;
+                border-radius: 10px 10px 10px 10px;
+            }
+            .folder:hover{
+                background-color: #f6f6f6;
+            }
+</style>
 <div id="inc1" class="" style="height: 100vh;">
-    <div class="p-4 border bg-white" style="">
+<div class="p-4 shadow container-fluid bg-white" style="">
         <div class="row">
             <div class="col-sm-4">
+                
+                
+                
+                
+            </div>
+            <div class="col-sm-4 text-center">
+                <h3 style="margin-top: 2%;">Notice Board - <?php echo $_GET['board']; ?></h3>
+                <div  style="margin-top: 5%;">
+                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
                 <a href="boards.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
                 <?php 
                     if($_SESSION['typ'] != "2"){
-                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary"><i class="far fa-file"></i>&nbsp;&nbsp;New notice</button>';
+                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></button>&nbsp;&nbsp;';
                     }
                 ?>
-            </div>
-            <div class="col-sm-4 text-center">
-                
+                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>&nbsp;&nbsp;
+                </div>
             </div>
             <div class="col-sm-4 text-right">
-                <img src="../../images/board.svg" alt="notice" style="width: 36px;">&nbsp;&nbsp;Notice Board - <?php echo $_GET['board']; ?>&nbsp;&nbsp;
+                
             </div>    
         </div>    
     </div>

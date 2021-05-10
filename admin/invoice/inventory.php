@@ -53,6 +53,7 @@ if(isset($_POST['submit'])){
             <div class="col-sm-4 text-center">
                 <img src="../../images/inventory.svg" alt="inventory" style="width: 48px;">
                 <h3 style="margin-top: 2%;">Inventory</h3><br>
+                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
                 <a href="index.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
                 <?php 
                     if($_SESSION['typ'] != "2" && $_SESSION['typ'] != '1'){

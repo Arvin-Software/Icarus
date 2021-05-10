@@ -6,11 +6,11 @@ include '../header.php';
 <br>
 <div class="container-fluid" style="overflow:auto; height: 85vh;">
 <div class="container">
-<h1><img src="../images/icaruslogo1ba.png" alt="Valai Logo" style="width: 300px;"> + <img src="../images/logo.svg" alt="logo" style="width: 70px;">&nbsp;Clerkly books lite</h1>
+<h1 class="text-center"><img src="../images/icaruslogo1ba.png" alt="Valai Logo" style="width: 300px;"> + <img src="../images/logo.svg" alt="logo" style="width: 70px;">&nbsp;Clerkly books lite</h1>
 <br>
 <h3 class="float-right"><?php echo icarus::DisplayVersion(); ?></h3>
-<p>
-    Automate your company's work flow and other tasks
+<p class="text-center">
+<br>
 </p>
 <hr>
 <h5>Components of Icarus</h5>

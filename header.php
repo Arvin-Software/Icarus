@@ -113,6 +113,34 @@
         .bor-twen{
             border-radius: 20px 20px 20px 20px;
         }
+        textarea:focus, 
+            textarea.form-control:focus, 
+            input.form-control:focus, 
+            input[type=text]:focus, 
+            input[type=password]:focus, 
+            input[type=email]:focus, 
+            input[type=number]:focus, 
+            .custom-select:focus,
+            .btn:focus,
+            [type=text].form-control:focus, 
+            [type=password].form-control:focus, 
+            [type=email].form-control:focus, 
+            [type=tel].form-control:focus, 
+            [contenteditable].form-control:focus {
+            box-shadow: inset 0 -1px 0 #fff;
+            background-color: #f6f6f6;
+            }
+            .form-control:hover{
+                background-color: #f6f6f6;
+            }
+            .folder{
+                background: #fff;
+                padding: 1% 1% 1% 1%;
+                border-radius: 10px 10px 10px 10px;
+            }
+            .folder:hover{
+                background-color: #f6f6f6;
+            }
     </style>
 </head>
 <?php

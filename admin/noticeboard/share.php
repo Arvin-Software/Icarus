@@ -11,21 +11,25 @@ if(isset($_GET['id'])){
 }
 ?>
 <div id="inc1 bg-light" class="" style="height: 90vh;">
-    <div class="p-4 border container-fluid bg-white" style="">
+<div class="p-4 container-fluid bg-white" style="">
         <div class="row">
             <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4 text-center">
+                <h3 style="margin-top: 2%;">Share Board</h3>
+                <div  style="margin-top: 5%;">
+                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
                 <a href="boards.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
                 <?php 
                     if($_SESSION['typ'] != "2"){
-                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary"><i class="far fa-file"></i>&nbsp;&nbsp;New share</button>';
+                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></button>&nbsp;&nbsp;';
                     }
                 ?>
-            </div>
-            <div class="col-sm-4 text-center">
-                
+                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>&nbsp;&nbsp;
+                </div>
             </div>
             <div class="col-sm-4 text-right">
-                <img src="../../images/board.svg" alt="notice" style="width: 36px;">&nbsp;&nbsp;Notice Board - <?php echo $_GET['board_nm']; ?>&nbsp;&nbsp;
+                
             </div>    
         </div>    
     </div>
@@ -39,10 +43,10 @@ if(isset($_GET['id'])){
                 <div class="modal-body">
                     <form action="share.php?board_nm=<?php echo $_GET['board_nm']; ?>&hash=<?php echo $_GET['hash']; ?>&unme=<?php echo $_GET['unme']; ?>" method="post">
                         <div class="form-group">
-                            <input type="text" name="boardnm" id="boardnm" class="form-control bor-ten" placeholder="Board Name" required="" value="<?php echo $_GET['board_nm']; ?>">
+                            <input type="text" name="boardnm" id="boardnm" class="form-control bor-ten" style="display: none;" placeholder="Board Name" required="" value="<?php echo $_GET['board_nm']; ?>">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="hashcode" id="hashcode" class="form-control bor-ten" value="<?php echo $_GET['hash']; ?>">
+                            <input type="text" name="hashcode" id="hashcode" class="form-control bor-ten" style="display: none;" value="<?php echo $_GET['hash']; ?>">
                         </div>
                         <div class="form-group">
                             <select name="unme" id="unme" class="custom-select">
@@ -64,10 +68,9 @@ if(isset($_GET['id'])){
             </div>
         </div>
     </div>
-    <div class="container-fluid p-4" style="">
-    <h3>Shared with</h3>
-<table class="table">
-        <tr class="">
+    <div class="container p-4" style="">
+<table class="table table-borderless border">
+        <tr class="bg-primary text-white">
             <th>Username</th>
             <th>Actions</th>
         </tr>
@@ -78,7 +81,7 @@ if(isset($_GET['id'])){
             foreach($ret as $p){
                 $name = $p['share_b_nm'];
                 $unme = $p['share_b_unm'];
-                echo '<tr><td>' . $unme . '</td><td><a href="share.php?id=' . $p['share_id'] . '&board_nm=' . $_GET['board_nm'] . '&hash=' . $_GET['hash'] . '&unme=' . $_GET['unme'] . '">Delete</a></td></tr>';
+                echo '<tr><td>' . $unme . '</td><td><a href="share.php?id=' . $p['share_id'] . '&board_nm=' . $_GET['board_nm'] . '&hash=' . $_GET['hash'] . '&unme=' . $_GET['unme'] . '" class="btn btn-outline-danger  rounded-circle"><i class="far fa-trash-alt"></i></a></td></tr>';
             }
         ?>
 </table>

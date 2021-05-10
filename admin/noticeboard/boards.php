@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
             }
 </style>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 border container-fluid bg-white" style="">
+    <div class="p-4 shadow container-fluid bg-white" style="">
         <div class="row">
             <div class="col-sm-4">
                 
@@ -50,7 +50,7 @@ if(isset($_POST['submit'])){
             <div class="col-sm-4 text-center">
                 <h3 style="margin-top: 2%;">Notice Board</h3>
                 <div  style="margin-top: 5%;">
-                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
+                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
                 <?php 
                     if($_SESSION['typ'] != "2"){
                         echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></button>&nbsp;&nbsp;';
@@ -143,19 +143,19 @@ if(isset($_POST['submit'])){
     if($_SESSION['typ'] != "1"){
     ?>
     <div class="container-fluid border p-4" style="margin-top: 2%; height: 500px; overflow: auto;">
-        <h3>Shared boards&nbsp;&nbsp;<i class="fas fa-user-friends"></i></h3>
-        <div class="row" style="margin-top: 2%;">
+        <h3 class="text-center"><i class="fas fa-user-friends"></i>&nbsp;&nbsp;Shared boards</h3>
+        <div class="row" style="margin-top: 5%;">
                 <?php        
                     $ret = khatral::khquery('SELECT * FROM share_notice WHERE share_b_unm=:unm', array(
                         ':unm'=>$_SESSION['unme']
                     ));
                     foreach($ret as $p){
                         $name = $p['share_b_nm'];
-                        echo '<div class="col-sm-2">';
-                        echo '<img class="mx-auto d-block" src="../../images/board.svg" style="width: 108px;">';
-                        echo '<h6 class="text-center" style="margin-top: 5%;">' . $name . '</h6>';
+                        echo '<div class="col-sm-2 folder">';
+                        echo '<a href="notice.php?noid=' . $p['share_b_hash'] . '&board=' . $p['share_b_nm'] . '" class="text-center text-dark" style="text-decoration: none;"><img class="mx-auto d-block" src="../../images/signboard.svg" style="width: 108px;">';
+                        echo '<h6 class="text-center" style="margin-top: 5%;"><i class="fas fa-user-friends"></i>&nbsp;&nbsp;' . $name . '</h6>';
                         echo '<div class="text-center"><a href="notice.php?noid=' . $p['share_b_hash'] . '&board=' . $p['share_b_nm'] . '">View</a></div>';
-                        echo '</div>';
+                        echo '</a></div>';
                     }
                 
                 ?>

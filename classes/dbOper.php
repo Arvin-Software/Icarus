@@ -6,8 +6,8 @@ echo '<body class="bg-light">';
 echo '<div class="container-fluid" style="margin-top: 5%;">
      <div class="row">
         <div class="col-sm-4"></div>
-        <div class="col-sm-4 bg-white shadow border p-4" style="border-radius: 20px 20px 20px 20px;">';
-echo '<h3><img src="../images/icaruslogo1ba.png" style="width: 128px;">&nbsp;- Paperless office suite</h3>';
+        <div class="col-sm-4 bg-white shadow border" style="border-radius: 20px 20px 20px 20px; padding: 2% 2% 2% 2%;">';
+echo '<img src="../images/icaruslogo1ba.png" class="d-block mx-auto" style="width: 128px; margin-bottom: 5%;">';
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -22,7 +22,7 @@ if ($conn->connect_error) {
     
 }
 
-echo '<img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Database Connected successfully';
+echo '<img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Database Connected successfully';
 $conn = new mysqli($servername, $username, $password, "icarus");
 if($conn->connect_error){
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error connecting to database. Please check error message below<br />';
@@ -37,7 +37,7 @@ $query = 'CREATE TABLE IF NOT EXISTS n_boards(
             board_timestamp     TIMESTAMP       NOT NULL,
             PRIMARY KEY(board_id))';
 if($conn->query($query) == TRUE){
-    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table n_boards created successfully';
+    echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table n_boards created successfully';
 }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table n_boards ' .$conn->error;
 }
@@ -51,7 +51,7 @@ $query = 'CREATE TABLE IF NOT EXISTS notice_board(
             notice_board_id     VARCHAR(255)    NOT NULL,
             PRIMARY KEY(notice_id))';
 if($conn->query($query) == TRUE){
-    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table notice_board created successfully';
+    echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table notice_board created successfully';
 }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table notice_board ' .$conn->error;
 }
@@ -63,7 +63,7 @@ $query = 'CREATE TABLE IF NOT EXISTS share_notice(
             share_timestamp     TIMESTAMP       NOT NULL,
             PRIMARY KEY(share_id))';
 if($conn->query($query) == TRUE){
-    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table share_notice created successfully';
+    echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table share_notice created successfully';
 }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table share_notice ' .$conn->error;
 }
@@ -73,7 +73,7 @@ $query = 'CREATE TABLE IF NOT EXISTS office(
             office_timestamp    TIMESTAMP       NOT NULL,
             PRIMARY KEY(office_id))';
 if($conn->query($query) == TRUE){
-    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table office created successfully';
+    echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table office created successfully';
 }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table office ' .$conn->error;
 }
@@ -85,7 +85,7 @@ $query = 'CREATE TABLE IF NOT EXISTS user(
     user_office         VARCHAR(255)    NOT NULL,
     PRIMARY KEY(user_id))';
 if($conn->query($query) == TRUE){
-echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table user created successfully';
+echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table user created successfully';
 }else{
 echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table user ' . $conn->error;
 }
@@ -97,7 +97,7 @@ $query = 'CREATE TABLE IF NOT EXISTS approval_flow(
             flow_timestamp  TIMESTAMP       NOT NULL,
             PRIMARY KEY(flow_id))';
 if($conn->query($query) == TRUE){
-    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table approval_flow created successfully';
+    echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table approval_flow created successfully';
 }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table approval_flow ' . $conn->error;
 }
@@ -109,7 +109,7 @@ $query = 'CREATE TABLE IF NOT EXISTS flow_user(
             PRIMARY KEY(user_id))
             ';
 if($conn->query($query) == TRUE){
-    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table flow_user created successfully';
+    echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table flow_user created successfully';
 }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table flow_user ' . $conn->error;
 }
@@ -125,7 +125,7 @@ $query = 'CREATE TABLE IF NOT EXISTS entryso(
     PRIMARY KEY(entryid))
     ';
 if($conn->query($query) == TRUE){
-echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table entryso created successfully';
+echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table entryso created successfully';
 }else{
 echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table entryso ' . $conn->error;
 }
@@ -141,7 +141,7 @@ $query = 'CREATE TABLE IF NOT EXISTS itemsso(
     entrypo             VARCHAR(255)        NOT NULL,
     PRIMARY KEY(itemid))';
 if($conn->query($query) == TRUE){
-echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table itemsso created successfully';
+echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table itemsso created successfully';
 }else{
 echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table itemsso ' . $conn->error;
 }
@@ -153,7 +153,7 @@ $query = 'CREATE TABLE IF NOT EXISTS totandtaxso(
     poid            VARCHAR(255)    NOT NULL,
     PRIMARY KEY(totid))';
 if($conn->query($query) == TRUE){
-echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table totandtaxso created successfully';
+echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table totandtaxso created successfully';
 }else{
 echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table totandtaxso ' . $conn->error;
 }
@@ -170,7 +170,7 @@ $query = 'CREATE TABLE IF NOT EXISTS mtrlsales(
     usr				VARCHAR(255)	NOT NULL,
     PRIMARY KEY(mtrl_id))';
 if($conn->query($query) == TRUE){
-    echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table mtrlsales created successfully';
+    echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table mtrlsales created successfully';
     }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table mtrlsales ' . $conn->error;
     }
@@ -195,7 +195,7 @@ $query = 'CREATE TABLE IF NOT EXISTS cont_list(
     typ             VARCHAR(255)    NOT NULL,
     PRIMARY KEY(listid))';
 if($conn->query($query) == TRUE){
-echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table cont_list created successfully';
+echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table cont_list created successfully';
 }else{
 echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table cont_list ' . $conn->error;
 }
@@ -221,9 +221,48 @@ $query = 'CREATE TABLE IF NOT EXISTS comp_info(
     FOREIGN KEY(ref_id) REFERENCES office(office_id)
     )';
 if($conn->query($query) == TRUE){
-echo '<br /><img src="../images/tick.png" style="width: 22px;">&nbsp;&nbsp;Table comp_info created successfully';
+echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table comp_info created successfully';
 }else{
 echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table comp_info ' . $conn->error;
+}
+$query = 'CREATE TABLE IF NOT EXISTS website(
+            web_id          INTEGER         NOT NULL        AUTO_INCREMENT,
+            web_hash        VARCHAR(255)    NOT NULL,
+            web_nm          VARCHAR(255)    NOT NULL,
+            web_unm         VARCHAR(255)    NOT NULL,
+            web_inst        VARCHAR(255)    NOT NULL,
+            PRIMARY KEY(web_id))';
+if($conn->query($query) == TRUE){
+echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table website created successfully';
+}else{
+echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table website ' . $conn->error;
+}
+$query = 'CREATE TABLE IF NOT EXISTS home_page(
+            page_id         INTEGER         NOT NULL        AUTO_INCREMENT,
+            page_nm         VARCHAR(255)    NOT NULL,
+            page_hash       VARCHAR(255)    NOT NULL,
+            page_path       VARCHAR(255)    NOT NULL,
+            page_web_hash   VARCHAR(255)    NOT NULL,
+            PRIMARY KEY(page_id))';
+if($conn->query($query) == TRUE){
+echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table home_page created successfully';
+}else{
+echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table home_page ' . $conn->error;
+}
+$query = 'CREATE TABLE IF NOT EXISTS product_page(
+    page_id             INTEGER         NOT NULL        AUTO_INCREMENT,
+    page_nm             VARCHAR(255)    NOT NULL,
+    page_hash           VARCHAR(255)    NOT NULL,
+    page_path           VARCHAR(255)    NOT NULL,
+    page_web_hash       VARCHAR(255)    NOT NULL,
+    page_prod_nm        VARCHAR(255)    NOT NULL,
+    page_prod_ver       VARCHAR(255)    NOT NULL,
+    page_prod_down_link VARCHAR(255)    NOT NULL,
+    PRIMARY KEY(page_id))';
+if($conn->query($query) == TRUE){
+echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table product_page created successfully';
+}else{
+echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table product_page ' . $conn->error;
 }
 echo '<br /><br />';
 echo '<a href="../installation/second.php" class="btn btn-primary bor-ten float-left">&lt; Previous</a>

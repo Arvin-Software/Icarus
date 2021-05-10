@@ -82,12 +82,19 @@ include '../header.php';
             }else{
                 ?>
                 <div class="col-lg-4" style="opacity: 0.5;">
-                <div class=" p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
-                    <a href="#" class="btn text-primary bor-ten text-dark"><img src="../images/invoice.svg" alt="email" class="p-4" style="width: 128px;">
-                    <br>
-                    Invoice generator</a>
+                    <div class=" p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
+                        <a href="#" class="btn text-primary bor-ten text-dark"><img src="../images/invoice.svg" alt="email" class="p-4" style="width: 128px;">
+                        <br>
+                        Invoice generator</a>
+                    </div>
                 </div>
-            </div>
+                <div class="col-lg-4">
+                    <div class=" p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
+                        <a href="website" class="btn text-primary bor-ten text-dark"><img src="../images/code.svg" alt="email" class="p-4" style="width: 128px;">
+                        <br>
+                        Website manager</a>
+                    </div>
+                </div>
                 <?php
             }
             ?>

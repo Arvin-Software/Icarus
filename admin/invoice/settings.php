@@ -45,6 +45,7 @@ include '../../classes/khatral.php';
             <div class="col-sm-4 text-center">
                 <img src="../../images/settings.svg" alt="inventory" style="width: 48px;">
                 <h3 style="margin-top: 2%;">Settings</h3><br>
+                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
                 <a href="index.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
                 <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>
             </div>
