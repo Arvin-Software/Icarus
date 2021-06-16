@@ -74,7 +74,7 @@ include '../headermodl.php';
             </div>
             <div class="col-sm-4 text-center">
                 <img src="../../images/invoiceadd.svg" alt="inventory" style="width: 48px;">
-                <h3 style="margin-top: 2%;">Inventory</h3><br>
+                <h3 style="margin-top: 2%;">New Invoice</h3><br>
                 <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
                 <a href="index.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
                 <?php 
