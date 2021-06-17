@@ -162,8 +162,9 @@ class icarus{
             ':usr'=>$_SESSION['office']
         ));
     }
-    public static function insertEntrySo($dt, $custnm, $sono, $invno, $valid, $stat){
-        khatral::khquery('INSERT INTO entryso VALUES(NULL, :dt, :custnm, :sono, :invno, :valid, :stat, :inst)', array(
+    public static function insertEntrySo($dt, $finyear, $custnm, $sono, $invno, $valid, $stat){
+        khatral::khquery('INSERT INTO entryso VALUES(NULL,:fin, :dt,  :custnm, :sono, :invno, :valid, :stat, :inst)', array(
+            ':fin'=>$finyear,
             ':dt'=>$dt,
             ':custnm'=>$custnm,
             ':sono'=>$sono,
@@ -233,6 +234,12 @@ class icarus{
                 ':proddown'=>$proddown
             ));
         }
+    }
+    public static function insertFinYear($from_to, $inst){
+        khatral::khquery('INSERT INTO fin_year VALUES(NULL, :year_from, :inst)', array(
+            ':year_from'=>$from_to,
+            ':inst'=>$inst
+        ));
     }
     public static function GetWebsite(){
         return khatral::khquerypar('SELECT * FROM website');

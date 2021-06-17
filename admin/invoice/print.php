@@ -28,7 +28,7 @@
 }
     </style>
 </head>
-<body class="container-fluid border" style="height: 1380px;" onload="sumx();">
+<body class="container-fluid" style="height: 1380px;" onload="sumx();">
 <h3 class="text-center" style="margin: 1% 0% 1% 0%;"><?php echo $_GET['stat']; ?></h3>
 <?php
             session_start();

@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
             }
 </style>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 shadow container-fluid bg-white" style="margin-bottom: 2%;">
+    <div class="p-4 container-fluid bg-white" style="margin-bottom: 2%;">
         <div class="row">
             <div class="col-sm-4">
                 
@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
                 
             </div>
             <div class="col-sm-4 text-center">
-            <!-- <img src="../../images/invoice.svg" alt="inventory" style="width: 48px;"> -->
+            <img src="../../images/invoice.svg" alt="inventory" style="width: 48px;">
                 <h3 style="margin-top: 2%;">Invoice generator</h3><br>
                 <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
                 <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>
@@ -59,10 +59,11 @@ if(isset($_POST['submit'])){
         </div>    
     </div>
     <div class="container">
+    <hr>
         <div class="row" style="margin-top: 0%;">
             <div class="col-lg-4">
                 <div class=" p-4  text-center bor-ten text-dark bg-white" style="">
-                    <a href="invoice.php" class="btn text-primary bor-ten text-dark"><img src="../../images/invoiceadd.svg" alt="email" class="p-4" style="width: 128px;">
+                    <a href="finyear.php" class="btn text-primary bor-ten text-dark"><img src="../../images/invoiceadd.svg" alt="email" class="p-4" style="width: 128px;">
                     <br>
                     New Invoice</a>
                 </div>

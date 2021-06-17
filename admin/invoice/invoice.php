@@ -76,10 +76,10 @@ include '../headermodl.php';
                 <img src="../../images/invoiceadd.svg" alt="inventory" style="width: 48px;">
                 <h3 style="margin-top: 2%;">New Invoice</h3><br>
                 <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
-                <a href="index.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
+                <a href="finyear.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
                 <?php 
                     if($_SESSION['typ'] != "2" && $_SESSION['typ'] != '1'){
-                        echo '<a href="new.php" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></a>&nbsp;&nbsp;';
+                        echo '<a href="new.php?year=' . $_GET['year'] . '" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></a>&nbsp;&nbsp;';
                     }
                 ?>
                 <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>
@@ -93,7 +93,7 @@ include '../headermodl.php';
     <div class="container bor-none" style="padding-top: 2%; width: 98vw; background-color: #FFFFFF;">
         <!-- <h4><i class="fas fa-file-invoice"></i>&nbsp;Sales Order</h4> -->
         
-        <div class="bg-white" style="padding: 0% 0% 0% 0%;">
+        <div class="bg-white table-responsive" style="padding: 0% 0% 0% 0%;">
         
         <table class="table table-borderless border">
             <tr class="bg-primary text-white" style="background-color: rgba(255, 247, 224, 1);">
@@ -106,7 +106,7 @@ include '../headermodl.php';
             </tr>
             
             <?php
-                $ret = khatral::khquery('SELECT * FROM entryso WHERE inst=:inst', array(':inst'=>$_SESSION['office']));
+                $ret = khatral::khquery('SELECT * FROM entryso WHERE inst=:inst AND fin_year_id=:yearsz', array(':inst'=>$_SESSION['office'], ':yearsz'=>$_GET['year']));
                 $count = 0;
                 foreach($ret as $p){
                     $count = $count + 1;
@@ -121,9 +121,9 @@ include '../headermodl.php';
                     }
                     echo '<td><h4><span class="badge badge-warning">' . $p['stat'] . '</span></h4></td>';
                     if($p['stat'] == "Invoice"){
-                        echo '<td><a href="view.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-eye"></i></a><a href="po.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '&typ=dc" style="" class="btn btn-outline-dark rounded-circle">Generate / View DC</a></td>';
+                        echo '<td class=""><a href="edit.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="view.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '&year=' . $_GET['year'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-eye"></i></a></td>';
                     }else{
-                    echo '<td class=""><a href="edit.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="view.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-eye"></i></a></td>';
+                    echo '<td class=""><a href="edit.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="view.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '&year=' . $_GET['year'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-eye"></i></a></td>';
                     }
                     echo '</tr>';
                 }

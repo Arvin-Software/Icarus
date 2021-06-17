@@ -45,7 +45,7 @@ include '../../classes/khatral.php';
             <div class="col-sm-4 text-center">
                 <img src="../../images/invoice.svg" alt="inventory" style="width: 48px;">
                 <h3 style="margin-top: 2%;">View/Print</h3><br>
-                <a href="invoice.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
+                <a href="invoice.php?year=<?php echo $_GET['year']; ?>" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
                 <button type="button" onclick="PrintDiv();" class="btn btn-outline-primary  rounded-circle"><i class="fas fa-print"></i></button>&nbsp;&nbsp;
                 <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>
             </div>
@@ -60,4 +60,4 @@ include '../../classes/khatral.php';
         }
     </script>
 <div class="container-fluid" style="width: 98vw; background-color: #FFFFFF;">
-<iframe class="border-0" src="print.php?id=<?php echo $_GET['id']; ?>&stat=<?php echo $_GET['stat']; ?>" id="printf" name="printf" style="height: 75vh; width: 100%;"></iframe>
+<iframe class="border-0" src="print.php?id=<?php echo $_GET['id']; ?>&stat=<?php echo $_GET['stat']; ?>" id="printf" name="printf" style="height: 75vh; width: 100%; overflow: auto;"></iframe>

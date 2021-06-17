@@ -113,8 +113,19 @@ if($conn->query($query) == TRUE){
 }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table flow_user ' . $conn->error;
 }
+$query = 'CREATE TABLE IF NOT EXISTS fin_year(
+            year_id         INTEGER         NOT NULL    AUTO_INCREMENT,
+            year_from_to    VARCHAR(255)    NOT NULL,
+            year_inst       VARCHAR(255)    NOT NULL,
+            PRIMARY KEY(year_id))';
+if($conn->query($query) == TRUE){
+    echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table fin_year created successfully';
+}else{
+    echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table fin_year ' . $conn->error;
+}
 $query = 'CREATE TABLE IF NOT EXISTS entryso(
     entryid             INTEGER         NOT NULL            AUTO_INCREMENT,
+    fin_year_id         VARCHAR(255)    NOT NULL,
     dt                  DATE            NOT NULL,
     custnm              VARCHAR(255)    NOT NULL,
     sono                VARCHAR(255)    NOT NULL,

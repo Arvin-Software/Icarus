@@ -65,8 +65,8 @@ include '../../classes/khatral.php';
         :email, :phno, :web, :typofb, :logo)', array(
             ':ref_id'=>$_POST['refid'],
             ':mail_nm'=>$_POST['nm'],
-            ':finyearfr' =>$_POST['dt'],
-            ':finyearto'=>$_POST['dtend'],
+            ':finyearfr' =>"",
+            ':finyearto'=>"",
             ':gstno'=>$_POST['gst'],
             ':addr'=>$_POST['addr'],
             ':country'=>$_POST['count'],
@@ -130,7 +130,7 @@ include '../../classes/khatral.php';
                 <input type="text" name="nm" id="nm" style="border: none;" class="form-control" required="" value="<?php echo $_SESSION['office']; ?>">
             </div>
         </div>
-        <div class="form-group row border">
+        <!-- <div class="form-group row border">
             <label for="unm" class="col-sm-4 col-form-label border-right">Financial year start</label>
             <div class="col-sm-4" style="padding-right: 0px; padding-left:0px; border-radius: 0px 0px 0px 0px;">
                 <input type="date" name="dt" id="dt" style="border: none;" class="form-control" required="" value="<?php echo $finyear; ?>">
@@ -141,7 +141,7 @@ include '../../classes/khatral.php';
             <div class="col-sm-4" style="padding-right: 0px; padding-left:0px; border-radius: 0px 0px 0px 0px;">
                 <input type="date" name="dtend" id="dtend" style="border: none;" class="form-control" required="" value="<?php echo $finyearend; ?>">
             </div>
-        </div>
+        </div> -->
         <div class="form-group row border">
             <label for="unm" class="col-sm-4 col-form-label border-right">GST number</label>
             <div class="col-sm-8" style="padding-right: 0px; padding-left:0px; border-radius: 0px 0px 0px 0px;">

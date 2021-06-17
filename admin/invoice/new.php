@@ -46,7 +46,7 @@
             <div class="col-sm-4 text-center">
                 <!-- <img src="../../images/invoiceadd.svg" alt="inventory" style="width: 48px;"> -->
                 <h3 style="margin-top: 2%;">New invoice</h3><br>
-                <a href="invoice.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
+                <a href="invoice.php?year=<?php echo $_GET['year']; ?>" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
                 <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>
             </div>
             <div class="col-sm-4 text-right">
@@ -63,11 +63,11 @@
           if(isset($_POST['submit'])){
             // inventor::insertGIN($_POST['ginno'], $_POST['dt'], $_POST['grsno'], $_POST['dept']);
             if($_POST['stat'] == "Sales Order"){
-                icarus::insertEntrySo($_POST['dt'], $_POST['dept'], $_POST['pono'], '', $_POST['valid'], $_POST['stat']);
+                icarus::insertEntrySo($_POST['dt'], $_GET['year'], $_POST['dept'], $_POST['pono'], '', $_POST['valid'], $_POST['stat']);
             }else if($_POST['stat'] == "Invoice"){
-                icarus::insertEntrySo($_POST['dt'], $_POST['dept'], '', $_POST['pono'], $_POST['valid'], $_POST['stat']);
+                icarus::insertEntrySo($_POST['dt'], $_GET['year'], $_POST['dept'], '', $_POST['pono'], $_POST['valid'], $_POST['stat']);
             }else{
-                icarus::insertEntrySo($_POST['dt'], $_POST['dept'], $_POST['pono'], '', $_POST['valid'], $_POST['stat']);
+                icarus::insertEntrySo($_POST['dt'], $_GET['year'], $_POST['dept'], $_POST['pono'], '', $_POST['valid'], $_POST['stat']);
             }
             
             // icarus::insertdet($_POST['dt'], $_POST['supnm'], $_POST['invno'], $_POST['dcno'], $_SESSION['instnm']);
@@ -98,7 +98,7 @@
     <div class="container bor-ten p-4 border" style="padding-top: 2%; width: 97vw; background-color: #FFFFFF;">
 
         <h2 class="float-right">Total : <input type="text" id="totl" name="totl" class="" disabled="" style="font-size: 32px; text-align: right; width: 10em;background-color: #fff; border:none;" value="0.0"></h2><br> <br>
-        <form action="new.php" method="post" class="bg-white bor-ten " style="" autocomplete="off">
+        <form action="new.php?year=<?php echo $_GET['year']; ?>" method="post" class="bg-white bor-ten " style="" autocomplete="off">
         <div class="container" style="padding: 2% 2% 2% 2%;">
             <div class="form-group row border">
                 <label for="unm" class="col-sm-4 col-form-label border-right">Date</label>
