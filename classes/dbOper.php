@@ -168,6 +168,16 @@ echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table
 }else{
 echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table totandtaxso ' . $conn->error;
 }
+$query = 'CREATE TABLE IF NOT EXISTS print_temp_so(
+            temp_id         INTEGER         NOT NULL        AUTO_INCREMENT,
+            temp_file       VARCHAR(255)    NOT NULL,
+            off_nm          VARCHAR(255)    NOT NULL,
+            PRIMARY KEY(temp_id))';
+if($conn->query($query) == TRUE){
+    echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table print_temp_so created successfully';
+    }else{
+    echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table print_temp_so ' . $conn->error;
+    }
 $query = 'CREATE TABLE IF NOT EXISTS mtrlsales(
     mtrl_id			INTEGER			NOT NULL			AUTO_INCREMENT,
     code            VARCHAR(255)    NOT NULL,

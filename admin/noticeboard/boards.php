@@ -39,17 +39,18 @@ if(isset($_POST['submit'])){
             }
 </style>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 shadow container-fluid bg-white" style="">
+    <div class="p-4 shadow container-fluid bg-white soft-bor-ten" style="width: 98%;">
         <div class="row">
             <div class="col-sm-4">
-                
+            
                 
                 
                 
             </div>
             <div class="col-sm-4 text-center">
-                <h3 style="margin-top: 2%;">Notice Board</h3>
-                <div  style="margin-top: 5%;">
+            <!-- <img src="../../images/signboard.svg" style="width: 48px;"> -->
+                <!-- <h3 style="margin-top: 2%;">Notice Board</h3> -->
+                <div  style="margin-top: 0%;">
                 <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
                 <?php 
                     if($_SESSION['typ'] != "2"){
@@ -86,7 +87,9 @@ if(isset($_POST['submit'])){
     <?php
     if($_SESSION['typ'] != "2"){
     ?>
-    <div class="container-fluid p-4" style="height: 500px; overflow: auto;">
+    <div class="container border bg-white soft-bor-ten shadow" style="padding: 5% 5% 5% 5%; margin-top: 2%; height: 70vh; overflow: auto;">
+    <h3 class="text-center">My boards</h3>
+    <hr>
     <?php
     if(isset($_GET['delid'])){
         $ret = icarus::DeleteBoards($_GET['delid']);
@@ -129,7 +132,7 @@ if(isset($_POST['submit'])){
                             $icon = '';
                         }
                     }
-                    echo '<div class="col-sm-2 folder ">';
+                    echo '<div class="col-sm-4 folder" style="margin-bottom: 5%;">';
                     echo '<a href="notice.php?noid=' . $p['board_hash'] . '&board=' . $p['board_nm'] . '" class="text-center text-dark" style="text-decoration: none;"><img class="mx-auto d-block" src="../../images/signboard.svg" style="width: 68px;">';
                     echo '<h6 class="text-center" style="margin-top: 5%;">' . $name . '&nbsp;&nbsp'  . $icon . '</h6>';
                     echo '<div class="text-center"><a href="notice.php?noid=' . $p['board_hash'] . '&board=' . $p['board_nm'] . '">View</a>&nbsp;&nbsp;<a href="share.php?board_nm=' . $p['board_nm'] . '&hash=' . $p['board_hash'] . '&unme=' . $p['board_unm'] . '">Share</a>&nbsp;&nbsp;<a href="boards.php?delid=' . $p['board_hash'] . '" class="text-danger">Delete</a></div>';
@@ -142,8 +145,9 @@ if(isset($_POST['submit'])){
     }
     if($_SESSION['typ'] != "1"){
     ?>
-    <div class="container-fluid border p-4" style="margin-top: 2%; height: 500px; overflow: auto;">
+    <div class="container bg-white shadow soft-bor-ten border" style="padding: 5% 5% 5% 5%; margin-top: 2%; height: 500px; overflow: auto;">
         <h3 class="text-center"><i class="fas fa-user-friends"></i>&nbsp;&nbsp;Shared boards</h3>
+        <hr>
         <div class="row" style="margin-top: 5%;">
                 <?php        
                     $ret = khatral::khquery('SELECT * FROM share_notice WHERE share_b_unm=:unm', array(

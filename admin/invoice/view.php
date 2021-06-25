@@ -60,4 +60,13 @@ include '../../classes/khatral.php';
         }
     </script>
 <div class="container-fluid" style="width: 98vw; background-color: #FFFFFF;">
-<iframe class="border-0" src="print.php?id=<?php echo $_GET['id']; ?>&stat=<?php echo $_GET['stat']; ?>" id="printf" name="printf" style="height: 75vh; width: 100%; overflow: auto;"></iframe>
+<?php
+$filnm = '';
+$ret = khatral::khquery('SELECT * FROM print_temp_so WHERE off_nm=:offnm', array(
+    ':offnm'=>$_SESSION['office']
+));
+foreach($ret as $p){
+    $filnm = $p['temp_file'];
+}
+?>
+<iframe class="border-0" src="../../printtemp/<?php echo $filnm; ?>?id=<?php echo $_GET['id']; ?>&stat=<?php echo $_GET['stat']; ?>" id="printf" name="printf" style="height: 75vh; width: 100%; overflow: auto;"></iframe>

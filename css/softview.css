@@ -7,3 +7,9 @@
 .prog-fore{
     background-color: #E7E7E7;
 }
+.soft-bor-ten{
+    border-radius: 10px 10px 10px 10px;
+}
+.soft-bor-twen{
+    border-radius: 20px 20px 20px 20px;
+}

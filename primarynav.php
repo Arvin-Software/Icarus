@@ -1,10 +1,10 @@
 <?php
-echo '<div class="bg-white shadow">';
+echo '<div class="bg-white shadow soft-bor-ten" style="width: 98%; margin-left: 1%;">';
 echo '<div class=" container">';
 if($_SESSION['typ'] != "1"){
   echo '<nav class="navbar navbar-expand-lg navbar-light" style=" margin-left: 23%;">';
 }else{
-  echo '<nav class="navbar navbar-expand-lg navbar-light">';
+  echo '<nav class="navbar navbar-expand-lg navbar-light" style="margin-left: 5%;">';
 }
 echo '
   <!-- Brand -->

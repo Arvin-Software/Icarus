@@ -146,7 +146,7 @@
 <?php
     if(isset($inst) == FALSE){
 ?>
-<body class="bg-white" style="" >
+<body class="bg-light" style="" >
     <?php
         include 'primarynav.php';
     ?>

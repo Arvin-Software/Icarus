@@ -24,10 +24,10 @@ include '../header.php';
                 background-color: #f6f6f6;
             }
 </style>
-    <div class="container" style="margin-top: 3%;" id="inc1">
+    <div class="container bg-white border shadow soft-bor-ten" style="margin-top: 2%; padding: 5% 5% 5% 5%;" id="inc1">
         <h3 class="text-center" style="margin-bottom: 5%;">Hi ! Welcome <?php echo $_SESSION['unme']; ?></h3>
         <hr>
-        <div class="row" style="margin-top: 2%;">
+        <div class="row" style="margin-top: 0%;">
             <!-- <div class="col-lg-4">
                 <div class=" p-4 border text-center bor-ten shadow trd-blue" style="margin-top: 8%;">
                     <img src="../images/email.svg" alt="email" class="p-2" style="width: 88px;">
@@ -56,14 +56,14 @@ include '../header.php';
             </div>
             <div class="col-lg-4">
                 <div class=" p-4  text-center bor-ten bg-white" style="margin-top: 8%;">
-                    <a href="noticeboard/boards.php" class="btn text-primary bor-ten text-dark"><img src="../images/signboard.svg" alt="email" class="p-4" style="width: 128px;">
+                    <a href="noticeboard/boards.php" class="btn text-primary bor-ten text-dark"><img src="../images/signboard.svg" alt="email" class="p-4" style="width: 108px;">
                     <br>
                     Notice board</a>
                 </div>
             </div>
             <!-- <div class="col-lg-4">
                 <div class=" p-4  text-center bor-ten text-dark bg-white bg-warning" style="margin-top: 8%;">
-                    <img src="../images/board.svg" alt="email" class="p-4" style="width: 128px;">
+                    <img src="../images/board.svg" alt="email" class="p-4" style="width: 108px;">
                     <br>
                     <a href="noticeboard/notice.php" class="btn text-dark">Discussion board</a>
                 </div>
@@ -73,7 +73,7 @@ include '../header.php';
             ?>
             <div class="col-lg-4">
                 <div class=" p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
-                    <a href="invoice/index.php" class="btn text-primary bor-ten text-dark"><img src="../images/invoice.svg" alt="email" class="p-4" style="width: 128px;">
+                    <a href="invoice/index.php" class="btn text-primary bor-ten text-dark"><img src="../images/invoice.svg" alt="email" class="p-4" style="width: 108px;">
                     <br>
                     Invoice generator</a>
                 </div>
@@ -83,14 +83,14 @@ include '../header.php';
                 ?>
                 <div class="col-lg-4" style="opacity: 0.5;">
                     <div class=" p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
-                        <a href="#" class="btn text-primary bor-ten text-dark"><img src="../images/invoice.svg" alt="email" class="p-4" style="width: 128px;">
+                        <a href="#" class="btn text-primary bor-ten text-dark"><img src="../images/invoice.svg" alt="email" class="p-4" style="width: 108px;">
                         <br>
                         Invoice generator</a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class=" p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
-                        <a href="website" class="btn text-primary bor-ten text-dark"><img src="../images/code.svg" alt="email" class="p-4" style="width: 128px;">
+                        <a href="website" class="btn text-primary bor-ten text-dark"><img src="../images/code.svg" alt="email" class="p-4" style="width: 108px;">
                         <br>
                         Website manager</a>
                     </div>
@@ -100,14 +100,21 @@ include '../header.php';
             ?>
             <div class="col-lg-4">
                 <div class="p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
-                    <a href="mail.php" class="btn text-primary bor-ten text-dark"><img src="../images/notes.svg" alt="email" class="p-4" style="width: 128px;">
+                    <a href="mail.php" class="btn text-primary bor-ten text-dark"><img src="../images/notes.svg" alt="email" class="p-4" style="width: 108px;">
                     <br>
                     My notepad</a>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
-                    <a href="approval/index.php" class="btn text-primary bor-ten text-dark"><img src="../images/approvalpapers.svg" alt="email" class="p-4" style="width: 128px;">
+                    <a href="mail.php" class="btn text-primary bor-ten text-dark"><img src="../images/notes.svg" alt="email" class="p-4" style="width: 108px;">
+                    <br>
+                    Custom sheets</a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
+                    <a href="approval/index.php" class="btn text-primary bor-ten text-dark"><img src="../images/approvalpapers.svg" alt="email" class="p-4" style="width: 108px;">
                     <br>
                     Approval papers</a>
                 </div>

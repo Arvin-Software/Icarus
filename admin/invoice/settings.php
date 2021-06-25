@@ -57,30 +57,45 @@ include '../../classes/khatral.php';
 <div class="container">
     <?php
     if(isset($_POST['submit'])){
-        date_default_timezone_set('Asia/Kolkata');
-        $date = date('dmYhis', time());
-        $date1 = date('d/m/Y h:i:s', time());
-        khatral::khquery('INSERT INTO comp_info VALUES(NULL, :ref_id, :mail_nm, :finyearfr, :finyearto, :gstno,
-        :addr, :country, :stat, :city, :pin, :curr,
-        :email, :phno, :web, :typofb, :logo)', array(
-            ':ref_id'=>$_POST['refid'],
-            ':mail_nm'=>$_POST['nm'],
-            ':finyearfr' =>"",
-            ':finyearto'=>"",
-            ':gstno'=>$_POST['gst'],
-            ':addr'=>$_POST['addr'],
-            ':country'=>$_POST['count'],
-            ':stat'=>$_POST['stat'],
-            ':city'=>$_POST['city'],
-            ':pin'=>$_POST['pin'],
-            ':curr'=>$_POST['curr'],
-            ':email'=>$_POST['email'],
-            ':phno'=>$_POST['phno'],
-            ':web'=>$_POST['web'],
-            ':typofb'=>$_SESSION['office'],
-            ':logo'=>'',
-        ));
-        echo 'Company details saved';
+        if(isset($_FILES['fileToUpload1'])){
+            $target_dir = '../../printtemp/';
+            $target_file = basename($_FILES["fileToUpload1"]["name"]);
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+            date_default_timezone_set('Asia/Kolkata');
+            $date = date('dmYhis', time());
+            $date1 = date('d/m/Y h:i:s', time());
+            if($imageFileType == "php"){
+                khatral::khquery('INSERT INTO comp_info VALUES(NULL, :ref_id, :mail_nm, :finyearfr, :finyearto, :gstno,
+                :addr, :country, :stat, :city, :pin, :curr,
+                :email, :phno, :web, :typofb, :logo)', array(
+                    ':ref_id'=>$_POST['refid'],
+                    ':mail_nm'=>$_POST['nm'],
+                    ':finyearfr' =>"",
+                    ':finyearto'=>"",
+                    ':gstno'=>$_POST['gst'],
+                    ':addr'=>$_POST['addr'],
+                    ':country'=>$_POST['count'],
+                    ':stat'=>$_POST['stat'],
+                    ':city'=>$_POST['city'],
+                    ':pin'=>$_POST['pin'],
+                    ':curr'=>$_POST['curr'],
+                    ':email'=>$_POST['email'],
+                    ':phno'=>$_POST['phno'],
+                    ':web'=>$_POST['web'],
+                    ':typofb'=>$_SESSION['office'],
+                    ':logo'=>'',
+                ));
+                khatral::khquery('DELETE FROM print_temp_so WHERE off_nm=:offnm', array(
+                    ':offnm'=>$_SESSION['office']
+                ));
+                khatral::khquery('INSERT INTO print_temp_so VALUES(NULL, :fil, :offnm)', array(
+                    ':fil'=>$date . '.php',
+                    ':offnm'=>$_SESSION['office']
+                ));
+                move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], "../../printtemp/" . $date . '.php');
+                echo 'Company details saved';
+            }
+        }
     }
     $ret = khatral::khquery('SELECT * FROM comp_info WHERE typofb=:office', array(':office'=>$_SESSION['office']));
     $nm = '';
@@ -112,7 +127,7 @@ include '../../classes/khatral.php';
         $web = $p['web'];
     }
     ?>
-    <form action="settings.php" method="post" autocomplete="off">
+    <form action="settings.php" method="post" autocomplete="off" enctype="multipart/form-data">
         <?php
             $res = khatral::khquery('SELECT * FROM office WHERE office_nm=:nm', array(
                 ':nm'=>$_SESSION['office']
@@ -243,6 +258,24 @@ include '../../classes/khatral.php';
             <label for="unm" class="col-sm-4 col-form-label border-right">Website</label>
             <div class="col-sm-8" style="padding-right: 0px; padding-left:0px; border-radius: 0px 0px 0px 0px;">
                 <input type="text" name="web" id="web" style="border: none;" class="form-control" required="" value="<?php echo $web; ?>">
+            </div>
+        </div>
+        <div class="form-group row border">    
+            <label for="unm" class="col-sm-4 col-form-label border-right">Invoice Template<b class="text-danger">&nbsp;Only .php files supported</b></label>
+            <div class="col-sm-8" style="padding-right: 0px; padding-left:0px; border-radius: 0px 0px 0px 0px;">
+                
+                <div class="custom-file">
+                    
+                    <input type="file" class="custom-file-input" style="border: none;" name="fileToUpload1" id="fileToUpload1" required="">
+                    <label class="custom-file-label" for="fileToUpload1" required="">Choose file</label>
+                </div>
+                <script>
+                    // Add the following code if you want the name of the file appear on select
+                    $(".custom-file-input").on("change", function() {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                    });
+                </script>
             </div>
         </div>
         <input type="submit" value="Save details" id="submit" name="submit" class="btn btn-outline-primary">

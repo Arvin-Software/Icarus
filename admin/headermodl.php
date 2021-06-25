@@ -114,4 +114,4 @@
         }
     </style>
 </head>
-<body class=" bg-white" style="">
+<body class="" style="">
