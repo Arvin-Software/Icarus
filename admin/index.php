@@ -133,13 +133,13 @@ include '../header.php';
             <div class="col-md-4"></div>
             <div class="col-md-4 my-auto">      
                 <div class="container bg-white shadow text-center bor-ten" style="height: 100%; padding: 10% 10% 10% 10%;">
-                    <img class="d-block mx-auto" src="../images/icaruslogo1ba.png"  style="width: 50%; margin-bottom: 8%;">    
+                    <img class="d-block mx-auto" src="../images/icaruslogo1ba.png"  style="width: 20%; margin-bottom: 8%;">    
                     <!-- <div class="spinner-border text-primary"></div> -->
                     <!-- <br><br>
                     <br> -->
                     <!--<label class="text-light" id="progressx" name="progressx">Loading mail...</label> -->
                     <div class="progress bg-light">
-                        <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" style="width:100%" id="prog" name="prog"></div>
+                        <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" style="width:100%" id="prog" name="prog"></div>
                     </div>
                 </div>
             </div>

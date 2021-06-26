@@ -22,7 +22,7 @@
 </head>
 <body class="bg-white">
     <div class="text-center" style="margin-top: 15%;">
-    <img class="d-block mx-auto" src="images/icaruslogo1ba.png"  style="width: 300px; margin-bottom: 0%;">
+    <img class="d-block mx-auto" src="images/icaruslogo1ba.png"  style="width: 100px; margin-bottom: 0%;">
         <div id="inc" style="margin-top: 2%;">
         
         <div class="spinner-border text-primary"></div><br><br>Loading...

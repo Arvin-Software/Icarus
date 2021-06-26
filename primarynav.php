@@ -8,7 +8,7 @@ if($_SESSION['typ'] != "1"){
 }
 echo '
   <!-- Brand -->
-  <img src="/icarus/images/icaruslogo1ba.png" class="mx-auto d-block" style="background-color: #fff; width: 98px;" alt="logo">
+  <img src="/icarus/images/icaruslogo1ba.png" class="mx-auto d-block" style="background-color: #fff; width: 48px;" alt="logo">
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>

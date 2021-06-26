@@ -6,7 +6,7 @@ include '../header.php';
 <br>
 <div class="container-fluid" style="overflow:auto; height: 85vh;">
 <div class="container">
-<h1 class="text-center"><img src="../images/icaruslogo1ba.png" alt="Valai Logo" style="width: 300px;"> + <img src="../images/logo.svg" alt="logo" style="width: 70px;">&nbsp;Clerkly books lite</h1>
+<h1 class="text-center"><img src="../images/icaruslogo1ba.png" alt="Valai Logo" style="width: 100px;"> + <img src="../images/logo.svg" alt="logo" style="width: 70px;">&nbsp;Clerkly books lite</h1>
 <br>
 <h3 class="float-right"><?php echo icarus::DisplayVersion(); ?></h3>
 <p class="text-center">
@@ -49,9 +49,6 @@ include '../header.php';
         <td>View GitHub Page</td>
     </tr>
 </table>
-<hr>
-<h3>PHP Configuration</h3>
-<iframe src="phpinfo.php" frameborder="0" class="border bg-white" style="width: 100%; height: 40vh;"></iframe>
 <hr>
 <h3>License GNU GPL v3.0</h3>
 <iframe src="../LICENSE" frameborder="0" class="border bg-white" style="width: 100%; height: 40vh;"></iframe>
