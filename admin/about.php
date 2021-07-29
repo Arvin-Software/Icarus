@@ -4,20 +4,18 @@ include '../header.php';
 ?>
 <br>
 <br>
-<div class="container-fluid" style="overflow:auto; height: 85vh;">
-<div class="container">
-<h1 class="text-center"><img src="../images/icaruslogo1ba.png" alt="Valai Logo" style="width: 100px;"> + <img src="../images/logo.svg" alt="logo" style="width: 70px;">&nbsp;Clerkly books lite</h1>
+<div class="container-fluid" style="">
+<h1 class=""><img src="../images/icaruslogo1ba.png" alt="Valai Logo" style="width: 48px;"> + <img src="../images/logo.svg" alt="logo" style="width: 50px;">&nbsp;Clerkly books lite</h1>
 <br>
-<h3 class="float-right"><?php echo icarus::DisplayVersion(); ?></h3>
-<p class="text-center">
-<br>
-</p>
-<hr>
 <h5>Components of Icarus</h5>
-<table class="table table-bordered">
+<table class="table table-bordered" style="width: 50%;">
     <tr>
         <th>Component</th>
         <th>Version</th>
+    </tr>
+    <tr>
+        <td>Version</td>
+        <td><?php echo icarus::DisplayVersion(); ?></td>
     </tr>
     <tr>
         <td>Bootstrap</td>
@@ -49,15 +47,13 @@ include '../header.php';
         <td>View GitHub Page</td>
     </tr>
 </table>
-<hr>
 <h3>License GNU GPL v3.0</h3>
-<iframe src="../LICENSE" frameborder="0" class="border bg-white" style="width: 100%; height: 40vh;"></iframe>
-<hr>
-<h6 class="text-center">Icarus is a open source software which is licensed under GNU GPL v3 License</h6>
-<h6 class="text-center">Icons are open source and can be downloaded and modified and released under GNU GPL v3 License</h6>
-<h6 class="text-center">Icarus Logo, Icarus Name, Softview Name, Khatral name are the properties of Arvin Soft.</h6>
-<h6 class="text-center">Clerklybooks Logo, Clerklybooks Name are the properties of Arvin Soft.</h6>
-<h6 class="text-center">Components like bootstrap, jquery and other products used in this project are the copyright of the respective owners.</h6>
-<h6 class="text-center">&copy; 2021 Icarus Project. All Rights Reserved.</h6>
-</div>
+<iframe src="../LICENSE" frameborder="0" class="border bg-white" style="width: 50%; height: 40vh;"></iframe>
+<br><br>
+<p class="">Icarus is a open source software which is licensed under GNU GPL v3 License
+<br />Icons are open source and can be downloaded and modified and released under GNU GPL v3 License
+<br />Icarus Logo, Icarus Name, Softview Name, Khatral name are the properties of Arvin Soft.
+<br />Clerklybooks Logo, Clerklybooks Name are the properties of Arvin Soft.
+<br />Components like bootstrap, jquery and other products used in this project are the copyright of the respective owners.
+<br />&copy; 2021 Icarus Project. All Rights Reserved.</p>
 </div>

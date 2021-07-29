@@ -16,8 +16,8 @@ if(isset($_GET['id'])){
     }
 }
 ?>
-<div class="p-4 container" style="border-radius: 0px 0px 10px 10px;">
-    <button data-toggle="modal" data-target="#myModal" class="btn btn-primary"><i class="far fa-file"></i>&nbsp;&nbsp;New user</button>
+<div class="container-fluid bg-light border-bottom">
+    <button data-toggle="modal" data-target="#myModal" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button><button data-toggle="modal" data-target="#myModal2" class="btn btn-light" style=""><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</button>
 </div>
 <div class="modal" id="myModal">
     <div class="modal-dialog modal-md">
@@ -75,8 +75,9 @@ if(isset($_GET['id'])){
         </form>
     </div>
 </div>
-<div class="container" style="margin-top: 1%;">
-    <table class="table">
+
+<div class="container-fluid" style="margin-top: 1%;">
+    <table class="table table-bordered">
         <tr class="border-bottom">
             <th>Username</th>
             <th>Office</th>

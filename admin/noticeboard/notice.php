@@ -41,33 +41,30 @@ if(isset($_GET['id'])){
             }
 </style>
 <div id="inc1" class="" style="height: 100vh;">
-<div class="p-4 shadow container-fluid bg-white" style="">
+    <div class="bg-primary text-white p-2">
+        <h6 style=""><img src="../../images/signboard.svg" style="width: 28px;">&nbsp;&nbsp;Notice Board - <?php echo $_GET['board']; ?></h6>
+    </div>
+<div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
-                
-                
-                
-                
-            </div>
-            <div class="col-sm-4 text-center">
-                <h3 style="margin-top: 2%;">Notice Board - <?php echo $_GET['board']; ?></h3>
-                <div  style="margin-top: 5%;">
-                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
-                <a href="boards.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
+                <a href="../index.php" class="btn btn-light"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
+                <a href="boards.php" class="btn btn-light"><i class="far fa-arrow-alt-circle-left"></i>&nbsp;&nbsp;Back</a>
                 <?php 
                     if($_SESSION['typ'] != "2"){
-                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></button>&nbsp;&nbsp;';
+                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button>';
                     }
                 ?>
-                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>&nbsp;&nbsp;
-                </div>
+                <a href="#" class="btn btn-light"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</a>
+            </div>
+            <div class="col-sm-4 text-center">
+              
             </div>
             <div class="col-sm-4 text-right">
                 
             </div>    
         </div>    
     </div>
-    <div class="container-fluid" style="">
+    <div class="container-fluid border" style="margin-top: 0%;">
         
         <!-- &nbsp;&nbsp;<a href="notice.php" class="btn btn-info">Refresh</a> -->
         <div class="modal" id="myModal">
@@ -115,7 +112,7 @@ if(isset($_GET['id'])){
         ?>
         <div class="row">
             <div class="col-lg-3 p-2 border-right" style="">
-                <h6 class="text-center">Urgent</h6><br />
+                <h6 class="text-center p-2" style="border-left: 15px solid #dc3545;">Urgent</h6><br />
                 <?php
                     $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori AND notice_board_id=:noid ORDER BY notice_id DESC', array(
                         ':priori'=>"3",
@@ -144,7 +141,7 @@ if(isset($_GET['id'])){
                 ?>
             </div>
             <div class="col-lg-3 p-2 border-right" style="">
-                <h6 class="text-center">High</h6><br />
+                <h6 class="text-center p-2" style="border-left: 15px solid #ffc107;">High</h6><br />
                 <?php
                     $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori AND notice_board_id=:noid ORDER BY notice_id DESC', array(
                         ':priori'=>"2",
@@ -173,7 +170,7 @@ if(isset($_GET['id'])){
                 ?>
             </div>
             <div class="col-lg-3 p-2 border-right" style="">
-                <h6 class="text-center">Medium</h6><br />
+                <h6 class="text-center p-2" style="border-left: 15px solid #28a745;">Medium</h6><br />
                 <?php
                     $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori AND notice_board_id=:noid ORDER BY notice_id DESC', array(
                         ':priori'=>"1",
@@ -202,7 +199,7 @@ if(isset($_GET['id'])){
                 ?>
             </div>
             <div class="col-lg-3 p-2 border-right" style="">
-                <h6 class="text-center">Low</h6><br />
+                <h6 class="text-center p-2" style="border-left: 15px solid #007bff;">Low</h6><br />
                 <?php
                     $ret = khatral::khquery('SELECT * FROM notice_board WHERE notice_priori=:priori AND notice_board_id=:noid ORDER BY notice_id DESC', array(
                         ':priori'=>"0",

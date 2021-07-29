@@ -39,26 +39,42 @@ if(isset($_POST['submit'])){
             }
 </style>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 shadow container-fluid bg-white soft-bor-ten" style="width: 98%;">
+    <?php
+        if(isset($_GET['delid'])){
+            $ret = icarus::DeleteBoards($_GET['delid']);
+            if($ret == "0"){
+                echo '<div class="alert alert-danger alert-dismissible fade show" style="border-radius: 0px; margin: 0px;">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Error!</strong> Please delete the notices in the board before deleting the board.
+            </div>';
+            }else{
+                echo '<div class="alert alert-success alert-dismissible fade show"  style="border-radius: 0px; margin: 0px;">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Success!</strong> Notice Board Deleted.
+            </div>';
+            }
+        }
+    ?>
+    <div class="bg-primary text-white p-2">
+        <h6 style=""><img src="../../images/signboard.svg" style="width: 28px;">&nbsp;&nbsp;Notice Board</h6>
+    </div>
+    <div class="shadow container-fluid bg-light soft-bor-ten" style="">
         <div class="row">
             <div class="col-sm-4">
-            
-                
-                
-                
+                <div  style="margin-top: 0%;">
+                    <a href="../index.php" class="btn btn-light"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
+                    <?php 
+                        if($_SESSION['typ'] != "2"){
+                            echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button>';
+                        }
+                    ?>
+                    <a href="#" class="btn btn-light"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</a>
+                </div>
             </div>
-            <div class="col-sm-4 text-center">
+            <div class="col-sm-4">
             <!-- <img src="../../images/signboard.svg" style="width: 48px;"> -->
                 <!-- <h3 style="margin-top: 2%;">Notice Board</h3> -->
-                <div  style="margin-top: 0%;">
-                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
-                <?php 
-                    if($_SESSION['typ'] != "2"){
-                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></button>&nbsp;&nbsp;';
-                    }
-                ?>
-                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>&nbsp;&nbsp;
-                </div>
+                
             </div>
             <div class="col-sm-4 text-right">
                 
@@ -87,25 +103,8 @@ if(isset($_POST['submit'])){
     <?php
     if($_SESSION['typ'] != "2"){
     ?>
-    <div class="container border bg-white soft-bor-ten shadow" style="padding: 5% 5% 5% 5%; margin-top: 2%; height: 70vh; overflow: auto;">
-    <h3 class="text-center">My boards</h3>
-    <hr>
-    <?php
-    if(isset($_GET['delid'])){
-        $ret = icarus::DeleteBoards($_GET['delid']);
-        if($ret == "0"){
-            echo '<div class="alert alert-danger alert-dismissible fade show">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Error!</strong> Please delete the notices in the board before deleting the board.
-          </div>';
-        }else{
-            echo '<div class="alert alert-success alert-dismissible fade show">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Success!</strong> Notice Board Deleted.
-          </div>';
-        }
-    }
-    ?>
+    <div class="container-fluid border bg-white" style="margin-top: 0%; height: 70vh; overflow: auto;">
+    
     <!-- <div style="margin-top: 2%;" class="container text-center">
     <h3 class="text-center">My Noticeboards</h3>
     
@@ -132,7 +131,7 @@ if(isset($_POST['submit'])){
                             $icon = '';
                         }
                     }
-                    echo '<div class="col-sm-4 folder" style="margin-bottom: 5%;">';
+                    echo '<div class="col-sm-3 folder" style="margin-bottom: 5%;">';
                     echo '<a href="notice.php?noid=' . $p['board_hash'] . '&board=' . $p['board_nm'] . '" class="text-center text-dark" style="text-decoration: none;"><img class="mx-auto d-block" src="../../images/signboard.svg" style="width: 68px;">';
                     echo '<h6 class="text-center" style="margin-top: 5%;">' . $name . '&nbsp;&nbsp'  . $icon . '</h6>';
                     echo '<div class="text-center"><a href="notice.php?noid=' . $p['board_hash'] . '&board=' . $p['board_nm'] . '">View</a>&nbsp;&nbsp;<a href="share.php?board_nm=' . $p['board_nm'] . '&hash=' . $p['board_hash'] . '&unme=' . $p['board_unm'] . '">Share</a>&nbsp;&nbsp;<a href="boards.php?delid=' . $p['board_hash'] . '" class="text-danger">Delete</a></div>';
@@ -145,7 +144,7 @@ if(isset($_POST['submit'])){
     }
     if($_SESSION['typ'] != "1"){
     ?>
-    <div class="container bg-white shadow soft-bor-ten border" style="padding: 5% 5% 5% 5%; margin-top: 2%; height: 500px; overflow: auto;">
+    <div class="container-fluid bg-white shadow soft-bor-ten border" style="padding: 5% 5% 5% 5%; margin-top: 2%; height: 500px; overflow: auto;">
         <h3 class="text-center"><i class="fas fa-user-friends"></i>&nbsp;&nbsp;Shared boards</h3>
         <hr>
         <div class="row" style="margin-top: 5%;">

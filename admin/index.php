@@ -24,9 +24,7 @@ include '../header.php';
                 background-color: #f6f6f6;
             }
 </style>
-    <div class="container bg-white border shadow soft-bor-ten" style="margin-top: 2%; padding: 5% 5% 5% 5%;" id="inc1">
-        <h3 class="text-center" style="margin-bottom: 5%;">Hi ! Welcome <?php echo $_SESSION['unme']; ?></h3>
-        <hr>
+    <div class="container-fluid bg-white" id="inc1">
         <div class="row" style="margin-top: 0%;">
             <!-- <div class="col-lg-4">
                 <div class=" p-4 border text-center bor-ten shadow trd-blue" style="margin-top: 8%;">
@@ -98,27 +96,27 @@ include '../header.php';
                 <?php
             }
             ?>
-            <div class="col-lg-4">
+            <!-- <div class="col-lg-4">
                 <div class="p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
                     <a href="mail.php" class="btn text-primary bor-ten text-dark"><img src="../images/notes.svg" alt="email" class="p-4" style="width: 108px;">
                     <br>
                     My notepad</a>
                 </div>
-            </div>
+            </div>-->
             <div class="col-lg-4">
                 <div class="p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
                     <a href="mail.php" class="btn text-primary bor-ten text-dark"><img src="../images/notes.svg" alt="email" class="p-4" style="width: 108px;">
                     <br>
-                    Custom sheets</a>
+                    Custom modules</a>
                 </div>
-            </div>
-            <div class="col-lg-4">
+            </div> 
+            <!-- <div class="col-lg-4">
                 <div class="p-4  text-center bor-ten text-dark bg-white" style="margin-top: 8%;">
                     <a href="approval/index.php" class="btn text-primary bor-ten text-dark"><img src="../images/approvalpapers.svg" alt="email" class="p-4" style="width: 108px;">
                     <br>
                     Approval papers</a>
                 </div>
-            </div>
+            </div> -->
             <!--<div class="col-lg-4">
                 <div class="p-4  text-center bor-ten bg-white trd-blue" style="margin-top: 8%;">
                     <img src="../images/appointmentbook.svg" alt="email" class="p-2" style="width: 88px;">
@@ -128,11 +126,11 @@ include '../header.php';
             </div> -->
         </div>
     </div>
-<div class="container-fluid bg-text bg-light" style="margin-top: 1%;" id="inc">
+<div class="container-fluid bg-text" style="margin-top: 1%;" id="inc">
         <div class="row" style="height: 90vh; margin-top: 0%;">
             <div class="col-md-4"></div>
             <div class="col-md-4 my-auto">      
-                <div class="container bg-white shadow text-center bor-ten" style="height: 100%; padding: 10% 10% 10% 10%;">
+                <div class="container bg-white border text-center" style="height: 100%; padding: 10% 10% 10% 10%;">
                     <img class="d-block mx-auto" src="../images/icaruslogo1ba.png"  style="width: 20%; margin-bottom: 8%;">    
                     <!-- <div class="spinner-border text-primary"></div> -->
                     <!-- <br><br>

@@ -42,7 +42,7 @@
                 padding-bottom: 15px;
                 width: 100%;
                 
-                border-radius: 20px 20px 20px 20px;
+                
             }
             .navbar-collapse.collapsing {
                 
@@ -53,7 +53,7 @@
                 left: -100%;
                 
                 z-index: 1;
-                border-radius: 20px 20px 20px 20px;
+                
             }
             .navbar-collapse.show {
                 
@@ -64,7 +64,7 @@
                 -o-transition: left 0.2s ease-in;
                 -moz-transition: left 0.2s ease-in;
                 transition: left 0.2s ease-in;
-                border-radius: 20px 20px 20px 20px;
+                
             }
         }
         .bg-grad{
@@ -146,11 +146,14 @@
 <?php
     if(isset($inst) == FALSE){
 ?>
-<body class="bg-light" style="" >
+<body class="" style="" >
+    <div class="bg-primary text-white p-2">
+        <h6 style="">👋 Welcome <?php echo $_SESSION['unme']; ?> to Icarus</h6>
+    </div>
     <?php
         include 'primarynav.php';
     ?>
-    <div class="container-fluid" >
+    <div class="container-fluid" style="padding: 0px;">
         <?php
         }
         ?>

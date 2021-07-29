@@ -59,7 +59,7 @@
                 <div class="row" style="height: 80vh; margin-top: 3%;">
                     <div class="col-xl-4"></div>
                     <div class="col-xl-4 my-auto">      
-                        <div class="container bg-white border shadow bor-twen" style="height: 100%; padding: 8% 8% 8% 8%;">
+                        <div class="container bg-white border shadow" style="border-radius: 7px 7px 7px 7px; height: 100%; padding: 8% 8% 8% 8%;">
                             <div class="margin-bottom: 5%;">  
                                 <img src="../images/icaruslogohead.png" class="mx-auto d-block" style="width: 100px; margin: 5% 5% 5% 5%;">
                                 <h1 class="text-center">Icarus</h1>

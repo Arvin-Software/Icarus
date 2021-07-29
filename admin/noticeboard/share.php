@@ -11,22 +11,23 @@ if(isset($_GET['id'])){
 }
 ?>
 <div id="inc1 bg-light" class="" style="height: 90vh;">
-<div class="p-4 container-fluid bg-white" style="">
+    <div class="bg-primary text-white p-2">
+        <h6 style=""><img src="../../images/signboard.svg" style="width: 28px;">&nbsp;&nbsp;Share Notice Board</h6>
+    </div>
+<div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
-            </div>
-            <div class="col-sm-4 text-center">
-                <h3 style="margin-top: 2%;">Share Board</h3>
-                <div  style="margin-top: 5%;">
-                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
-                <a href="boards.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
+                <a href="../index.php" class="btn btn-light"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
+                <a href="boards.php" class="btn btn-light"><i class="far fa-arrow-alt-circle-left">&nbsp;&nbsp;Back</i></a>
                 <?php 
                     if($_SESSION['typ'] != "2"){
-                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></button>&nbsp;&nbsp;';
+                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button>';
                     }
                 ?>
-                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>&nbsp;&nbsp;
-                </div>
+                <a href="#" class="btn btn-light"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</a>
+            </div>
+            <div class="col-sm-4 text-center">
+                
             </div>
             <div class="col-sm-4 text-right">
                 
@@ -68,9 +69,9 @@ if(isset($_GET['id'])){
             </div>
         </div>
     </div>
-    <div class="container p-4" style="">
-<table class="table table-borderless border">
-        <tr class="bg-primary text-white">
+    <div class="container-fluid" style="padding: 0px;">
+<table class="table table-bordered border">
+        <tr class="">
             <th>Username</th>
             <th>Actions</th>
         </tr>

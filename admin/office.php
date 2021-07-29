@@ -63,14 +63,11 @@ if(isset($_GET['id'])){
         </form>
     </div>
 </div>
-<div class="container-fluid" style="margin-top: 1%; padding-top: 1%; height: 88vh;">
-<div class="container text-center" style="margin-bottom: 2%;">
-    <h3 class="text-center" style="font-size: 32px; margin-bottom: 2%;">My offices</h3>
-    <button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary rounded-circle" style=" margin-bottom: 2%;"><i class="fas fa-plus"></i></button>&nbsp;&nbsp;<button data-toggle="modal" data-target="#myModal2" class="btn btn-outline-primary rounded-circle" style=" margin-bottom: 2%;"><i class="far fa-question-circle"></i></button>
+<div class="container-fluid bg-light border-bottom">
+    <button data-toggle="modal" data-target="#myModal" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button><button data-toggle="modal" data-target="#myModal2" class="btn btn-light" style=""><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</button>
 </div>
-
-    <div class="container">
-        <table class="table">
+<div class="container-fluid" style="margin-top: 0%; padding-top: 1%;">
+        <table class="table table-bordered">
             <tr class="border-bottom">
                 <th>Office Name</th>
                 <th>Actions</th>
@@ -82,5 +79,4 @@ if(isset($_GET['id'])){
                 }
             ?>
         </table>
-    </div>
 </div>
