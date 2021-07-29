@@ -258,10 +258,10 @@ class icarus{
         ));
     }
     public static function DisplayVersion(){
-        echo 'v0.1a1';
+        echo 'v0.1a2';
     }
     public static function DisplayVerBuild(){
-        echo 'v0.1a1 build29072021083640pm-r30';
+        echo 'v0.1a2 build29072021083640pm-r30';
     }
     public static function DisplayKhatralVersion(){
         echo '0.0.6-r845';
