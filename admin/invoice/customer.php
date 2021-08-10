@@ -62,25 +62,24 @@ if(isset($_POST['submit'])){
             }
 </style>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 container-fluid bg-white" style="">
+    <div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
-                
+            <a href="index.php" class="btn btn-light"><i class="far fa-arrow-alt-circle-left"></i>&nbsp;&nbsp;Back</a>&nbsp;&nbsp;
+                <?php 
+                    if($_SESSION['typ'] != "2" && $_SESSION['typ'] != '1'){
+                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button>&nbsp;&nbsp;';
+                    }
+                ?>
+                <a href="#" class="btn btn-light"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</a>
                 
                 
                 
             </div>
             <div class="col-sm-4 text-center">
-                <img src="../../images/customer.svg" alt="inventory" style="width: 48px;">
-                <h3 style="margin-top: 2%;">Customers</h3><br>
-                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
-                <a href="index.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
-                <?php 
-                    if($_SESSION['typ'] != "2" && $_SESSION['typ'] != '1'){
-                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></button>&nbsp;&nbsp;';
-                    }
-                ?>
-                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>
+                
+                <!-- <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp; -->
+                
             </div>
             <div class="col-sm-4 text-right">
                 
@@ -194,10 +193,10 @@ if(isset($_POST['submit'])){
             </div>
         </div>
     </div>
-    <div class="container" style="margin-top: 2%;">
+    <div class="container-fluid" style="margin-top: 2%;">
     <table class="table table-borderless border" id="tablex" style="border-collapse: separate; border-spacing: 0px;">
     <thead>
-                <tr class="bg-primary text-white">
+                <tr class="bg-light">
                     <!-- <th style="width: 50px;">Sl.no</th> -->
                     <th>Customer Name</th>
                     <th>Actions</th>

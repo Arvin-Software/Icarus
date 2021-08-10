@@ -33,28 +33,27 @@ include '../../classes/khatral.php';
                 background-color: #f6f6f6;
             }
 </style>
-<div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 container-fluid bg-white" style="">
+<div id="inc1" class="" style="height: 100vh;">
+    <div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
-                
+                <!-- <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp; -->
+                <a href="index.php" class="btn btn-light"><i class="far fa-arrow-alt-circle-left"></i>&nbsp;&nbsp;Back</a>&nbsp;&nbsp;
+                <a href="#" class="btn btn-light"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</a>
                 
                 
                 
             </div>
             <div class="col-sm-4 text-center">
-                <img src="../../images/settings.svg" alt="inventory" style="width: 48px;">
-                <h3 style="margin-top: 2%;">Settings</h3><br>
-                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
-                <a href="index.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
-                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>
+                
+                
             </div>
             <div class="col-sm-4 text-right">
                 
             </div>    
         </div>    
     </div>
-<div class="container">
+<div class="container-fluid" style="margin-top: 1%;">
     <?php
     if(isset($_POST['submit'])){
         if(isset($_FILES['fileToUpload1'])){

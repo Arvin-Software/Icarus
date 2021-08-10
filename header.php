@@ -147,13 +147,14 @@
     if(isset($inst) == FALSE){
 ?>
 <body class="" style="" >
-    <div class="bg-primary text-white p-2">
+    <!-- <div class="bg-primary text-white p-2">
         <h6 style="">👋 Welcome <?php echo $_SESSION['unme']; ?> to Icarus</h6>
-    </div>
+    </div> -->
     <?php
         include 'primarynav.php';
     ?>
-    <div class="container-fluid" style="padding: 0px;">
+    <div class="container-fluid">
+        
         <?php
         }
         ?>

@@ -1,6 +1,6 @@
 <?php
 $mainnav = 'components';
-$curr = 'dash';
+$curr = 'mod';
 include '../header.php';
 ?>
 <style>
@@ -33,7 +33,7 @@ include '../header.php';
             </div>
             <div class="col-lg-10 fade-in" id="" style="">
     <div class="container-fluid">
-    <iframe src="noticeboard/boards.php" frameborder="0" style="width: 100%; height:100vh;"></iframe>
+    <iframe src="website/index.php" frameborder="0" style="width: 100%; height:100vh;"></iframe>
         </div>
         </div>
         </div>

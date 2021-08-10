@@ -45,38 +45,38 @@ if(isset($_POST['submit1'])){
             }
 </style>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 shadow container-fluid bg-white" style="">
+<div class="bg-light p-2">
+        <h6 style=""><img src="../../images/signboard.svg" style="width: 28px;">&nbsp;&nbsp;Website - <?php echo $_GET['nm']; ?> - <?php echo $_GET['off']; ?></h6>
+    </div>
+    <div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
+            <a href="addpages.php?id=<?php echo $_GET['id']; ?>&hash=<?php echo $_GET['hash']; ?>&nm=<?php echo $_GET['nm']; ?>&off=<?php echo $_GET['off']; ?>&pagehash=<?php echo $_GET['pagehash']; ?>" class="btn btn-light"><i class="far fa-arrow-alt-circle-left"></i>&nbsp;&nbsp;Back</a>
+                <?php 
+                    if($_SESSION['typ'] != "2"){
+                        // echo '<button data-toggle="collapse" data-target="#demo" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button>';
+                    }
+                ?>
+                <a href="#" class="btn btn-light"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</a>
+                <div id="demo" class="collapse" style="margin-top: 2%;">
+                    <p><b>Create page ? please select home page or product page</b></p>
+                    <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-light">Home page</a>&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#myModal1" class="btn btn-light">Product page</a>
+                </div>
+                
                 
                 
                 
                 
             </div>
             <div class="col-sm-4 text-center">
-                <h3 style="margin-top: 2%;">Website - <?php echo $_GET['nm']; ?> - <?php echo $_GET['off']; ?></h3>
-                <div  style="margin-top: 5%;">
-                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
-                <a href="addpages.php?id=<?php echo $_GET['id']; ?>&hash=<?php echo $_GET['hash']; ?>&nm=<?php echo $_GET['nm']; ?>&off=<?php echo $_GET['off']; ?>&pagehash=<?php echo $_GET['pagehash']; ?>" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
-                <?php 
-                    if($_SESSION['typ'] != "2"){
-                        echo '<button data-toggle="collapse" data-target="#demo" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></button>&nbsp;&nbsp;';
-                    }
-                ?>
                 
-                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>&nbsp;&nbsp;
-                <div id="demo" class="collapse" style="margin-top: 2%;">
-                    <p>Create</p>
-                    <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary">Home page</a>&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#myModal1" class="btn btn-outline-primary">Product page</a>
-                </div>
-                </div>
             </div>
             <div class="col-sm-4 text-right">
                 
             </div>    
         </div>    
     </div>
-    <div class="container" style="margin-top: 5%;">
+    <div class="container-fluid" style="margin-top: 1%;">
         <?php 
         $ret = khatral::khquery('SELECT * FROM product_page WHERE page_hash=:hashc', array(
             ':hashc'=>$_GET['pagehash']

@@ -39,25 +39,17 @@ if(isset($_POST['submit'])){
             }
 </style>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 shadow container-fluid bg-white" style="">
+<div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
-                
-                
-                
-                
-            </div>
-            <div class="col-sm-4 text-center">
-                <h3 style="margin-top: 2%;">Website</h3>
-                <div  style="margin-top: 5%;">
-                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
                 <?php 
                     if($_SESSION['typ'] != "2"){
-                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></button>&nbsp;&nbsp;';
+                        echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button>&nbsp;&nbsp;';
                     }
                 ?>
-                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>&nbsp;&nbsp;
-                </div>
+                <a href="#" class="btn btn-light"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</a>
+            </div>
+            <div class="col-sm-4 text-center">
             </div>
             <div class="col-sm-4 text-right">
                 
@@ -100,9 +92,9 @@ if(isset($_POST['submit'])){
             </div>
         </div>
     </div>
-    <div class="container" style="margin-top: 2%;">
+    <div class="container-fluid" style="margin-top: 2%;">
         <table class="table border">
-            <tr class="border-bottom">
+            <tr class="border-bottom bg-light">
                 <th>Website name</th>
                 <th>Office name</th>
                 <th>Actions</th>

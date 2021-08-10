@@ -41,13 +41,13 @@ if(isset($_GET['id'])){
             }
 </style>
 <div id="inc1" class="" style="height: 100vh;">
-    <div class="bg-primary text-white p-2">
+    <div class="bg-light p-2">
         <h6 style=""><img src="../../images/signboard.svg" style="width: 28px;">&nbsp;&nbsp;Notice Board - <?php echo $_GET['board']; ?></h6>
     </div>
 <div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
-                <a href="../index.php" class="btn btn-light"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
+                <!-- <a href="../index.php" class="btn btn-light"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a> -->
                 <a href="boards.php" class="btn btn-light"><i class="far fa-arrow-alt-circle-left"></i>&nbsp;&nbsp;Back</a>
                 <?php 
                     if($_SESSION['typ'] != "2"){

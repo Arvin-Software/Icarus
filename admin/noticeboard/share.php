@@ -17,7 +17,7 @@ if(isset($_GET['id'])){
 <div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
-                <a href="../index.php" class="btn btn-light"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
+                <!-- <a href="../index.php" class="btn btn-light"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a> -->
                 <a href="boards.php" class="btn btn-light"><i class="far fa-arrow-alt-circle-left">&nbsp;&nbsp;Back</i></a>
                 <?php 
                     if($_SESSION['typ'] != "2"){
@@ -58,6 +58,7 @@ if(isset($_GET['id'])){
                                         echo '<option>' . $p['user_nm'] . '</option>';
                                     }
                                 }
+
                                 ?>
                             </select>
                         </div>

@@ -1,3 +1,9 @@
+/*
+Softview CSS v2.0-r65
+Softview CSS name is a property of Arvin Soft.
+However this file is a open source.
+released under GNU GPL v3.0
+*/
 .trd-blue{
     background-color: #33AFFF;
 }
@@ -12,4 +18,177 @@
 }
 .soft-bor-twen{
     border-radius: 20px 20px 20px 20px;
+}
+
+.bor-twen{
+    border-radius: 20px 20px 20px 20px;
+}
+.bor-ten{
+    border-radius: 8px 8px 8px 8px;
+}
+.bor-five{
+    margin-left: 12px;
+    border-radius: 5px 5px 5px 5px;
+}
+a{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    /* color: #FFFFFF; */
+}
+.btn-nav{
+    color: #fff;
+    transition: 0.3s;
+    outline: none;
+    box-shadow: none;
+    /* width: 90%; */
+    -webkit-box-shadow: none!important;
+    /* border-radius: 10px 10px 10px 10px; */
+}
+.btn-nav:hover{
+    background-color: #999999;
+    outline: none;
+    box-shadow: none;
+    -webkit-box-shadow: none!important;
+    /* border: solid 1px; */
+    color: #fff;
+    /* border-left: solid #fff 5px; */
+    /* border-left: solid #646464 5px; */
+}
+.btn-nav-sec{
+    color: #000000;
+    transition: 0.3s;
+    outline: none;
+    box-shadow: none;
+    /* border-radius: 0px 0px 0px 0px; */
+    /* width: 95%; */
+    /* margin: 5% 5% 5% 5%; */
+}
+.btn-nav-sec:hover{
+    background-color: rgba(172, 172, 172, 0.8);
+    outline: none;
+    box-shadow: none;
+    -webkit-box-shadow: none!important;
+    /* border: solid 1px; */
+    color: #fff;
+    /* border-left: solid #fff 5px; */
+    /* border-left: solid #646464 5px; */
+}
+input:focus, select:focus{
+    outline: none;
+}
+a:focus{
+    outline: none;
+    box-shadow: none;
+}
+.btn-col{
+    outline: none;
+    box-shadow: none;
+    -webkit-box-shadow: none!important;
+    /* background-color: #0062CC; */
+    /* background-color: rgba(255,255,255,1); */
+    background-color: #f2f2f2;
+    border-left: 7px solid #007AFF;
+    /* color: #0062CC; */
+    /* border-left: solid #0062CC 5px; */
+    /* color: #fff; */
+    /* border-right: solid rgb(2, 120, 255) 5px; */
+    /* border: solid 1px; */
+    /* border-radius: 0px 0px 0px 0px; */
+    /* width: 95%; */
+    /* margin: 5% 5% 5% 5%; */
+    /* color: #FFFFFF; */
+    border-right: none;
+}
+.btn-col-pink{
+    background-color: #8a008a;
+    color: #FFFFFF;
+}
+.bg-trdmrk{
+    background-color: #FFFFFF;
+    /* background-color: rgb(0, 153, 255); */
+}
+.bg-sec-trdmrk{
+    background-color: #0062CC;
+    color: #fff;
+}
+.bor-none{
+    border-radius: 0px 0px 0px 0px;
+}
+.navigator{
+    padding: 1% 1% 1% 1%;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+    color: #000000;
+    border-radius: 10px 10px 10px 10px;
+}
+.navigator:hover{
+    background-color: #007AFF;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.navigator:active{
+    background-color: #0062CC;
+    text-decoration: none;
+}
+.auth{
+    text-decoration: overline;
+    color: #999;
+    font-size: 2em;
+}
+.fade-in {
+    animation: fadeIn ease 0.5s;
+    -webkit-animation: fadeIn ease 0.5s;
+    -moz-animation: fadeIn ease 0.5s;
+    -o-animation: fadeIn ease 0.5s;
+    -ms-animation: fadeIn ease 0.5s;
+    }
+@keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+.bg-grad{
+    background: #56ccf2; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #56ccf2, #2f80ed); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #56ccf2, #2f80ed); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

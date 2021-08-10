@@ -1,6 +1,6 @@
 <?php
 $mainnav = 'components';
-$curr = 'dash';
+$curr = 'api';
 include '../header.php';
 ?>
 <style>
@@ -32,8 +32,9 @@ include '../header.php';
                 ?> 
             </div>
             <div class="col-lg-10 fade-in" id="" style="">
-    <div class="container-fluid">
-    <iframe src="noticeboard/boards.php" frameborder="0" style="width: 100%; height:100vh;"></iframe>
+    <div class="container-fluid text-center">
+    <img src="../images/construction.svg" alt="404" style="width: 512px;margin-top: 15%;" class="d-block mx-auto">
+    <h3 style="margin-top: 2%;">Sorry we are currently constructing this</h3>
         </div>
         </div>
         </div>

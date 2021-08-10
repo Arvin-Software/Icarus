@@ -35,26 +35,26 @@
 </style>
 </head>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 container-fluid border bg-white" style="">
+    <div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
-                
+            <a href="invoice.php?year=<?php echo $_GET['year']; ?>" class="btn btn-light"><i class="far fa-arrow-alt-circle-left"></i>&nbsp;&nbsp;Back</a>&nbsp;&nbsp;
+            <a href="#" class="btn btn-light"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</a>
                 
                 
                 
             </div>
             <div class="col-sm-4 text-center">
                 <!-- <img src="../../images/invoiceadd.svg" alt="inventory" style="width: 48px;"> -->
-                <h3 style="margin-top: 2%;">New invoice</h3><br>
-                <a href="invoice.php?year=<?php echo $_GET['year']; ?>" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
-                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>
+                <!-- <h3 style="margin-top: 2%;">New invoice</h3><br> -->
+                
             </div>
             <div class="col-sm-4 text-right">
                 
             </div>    
         </div>    
     </div>
-<div class="bg-light" style="overflow: auto; height: 80vh; padding-top: 2%; padding-bottom: 5%;">
+<div class="" style="overflow: auto; height: 80vh; padding-top: 2%; padding-bottom: 5%;">
 
 
     <?php
@@ -95,11 +95,11 @@
         //   header("Location: invoice.php");
         }
     ?>
-    <div class="container bor-ten p-4 border" style="padding-top: 2%; width: 97vw; background-color: #FFFFFF;">
+    <div class="container-fluid border" style="padding-top: 2%; width: 97vw; background-color: #FFFFFF;">
 
         <h2 class="float-right">Total : <input type="text" id="totl" name="totl" class="" disabled="" style="font-size: 32px; text-align: right; width: 10em;background-color: #fff; border:none;" value="0.0"></h2><br> <br>
         <form action="new.php?year=<?php echo $_GET['year']; ?>" method="post" class="bg-white bor-ten " style="" autocomplete="off">
-        <div class="container" style="padding: 2% 2% 2% 2%;">
+        <div class="container-fluid" style="">
             <div class="form-group row border">
                 <label for="unm" class="col-sm-4 col-form-label border-right">Date</label>
                 <div class="col-sm-4" style="padding-right: 0px; padding-left:0px; border-radius: 0px 0px 0px 0px;">

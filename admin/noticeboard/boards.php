@@ -55,14 +55,14 @@ if(isset($_POST['submit'])){
             }
         }
     ?>
-    <div class="bg-primary text-white p-2">
+    <div class="bg-light p-2">
         <h6 style=""><img src="../../images/signboard.svg" style="width: 28px;">&nbsp;&nbsp;Notice Board</h6>
     </div>
-    <div class="shadow container-fluid bg-light soft-bor-ten" style="">
+    <div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
                 <div  style="margin-top: 0%;">
-                    <a href="../index.php" class="btn btn-light"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a>
+                    <!-- <a href="../index.php" class="btn btn-light"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a> -->
                     <?php 
                         if($_SESSION['typ'] != "2"){
                             echo '<button data-toggle="modal" data-target="#myModal" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button>';
@@ -103,13 +103,19 @@ if(isset($_POST['submit'])){
     <?php
     if($_SESSION['typ'] != "2"){
     ?>
-    <div class="container-fluid border bg-white" style="margin-top: 0%; height: 70vh; overflow: auto;">
-    
-    <!-- <div style="margin-top: 2%;" class="container text-center">
-    <h3 class="text-center">My Noticeboards</h3>
-    
-    </div> -->
-        <div class="row" style="margin-top: 2%;">
+    <div class="container-fluid bg-white" style="margin-top: 1%; height: 50vh; overflow: auto;">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-bordered">
+                <tr class="bg-light">
+                    <th style="width: 28px;"></th>
+                    <th style="width: 10px;">SL.NO</th>
+                    <th>Name</th>
+                    <th style="width: 10px;">Share status</th>
+                    <th style="width: 50px;">Actions</th>
+                </tr>
+        <!-- <div class="row" style="margin-top: 2%;"> -->
+            
             <?php
                 if($_SESSION['typ'] != "1"){
                     $ret = khatral::khquery('SELECT * FROM n_boards WHERE board_unm=:unm', array(
@@ -118,6 +124,7 @@ if(isset($_POST['submit'])){
                 }else{
                     $ret = khatral::khquerypar('SELECT * FROM n_boards');
                 }
+                $count = 0;
                 foreach($ret as $p){
                     $name = $p['board_nm'];
                     $res = khatral::khquery('SELECT COUNT(share_id) AS totalshare FROM share_notice WHERE share_b_hash=:hashcode', array(
@@ -131,40 +138,50 @@ if(isset($_POST['submit'])){
                             $icon = '';
                         }
                     }
-                    echo '<div class="col-sm-3 folder" style="margin-bottom: 5%;">';
-                    echo '<a href="notice.php?noid=' . $p['board_hash'] . '&board=' . $p['board_nm'] . '" class="text-center text-dark" style="text-decoration: none;"><img class="mx-auto d-block" src="../../images/signboard.svg" style="width: 68px;">';
-                    echo '<h6 class="text-center" style="margin-top: 5%;">' . $name . '&nbsp;&nbsp'  . $icon . '</h6>';
-                    echo '<div class="text-center"><a href="notice.php?noid=' . $p['board_hash'] . '&board=' . $p['board_nm'] . '">View</a>&nbsp;&nbsp;<a href="share.php?board_nm=' . $p['board_nm'] . '&hash=' . $p['board_hash'] . '&unme=' . $p['board_unm'] . '">Share</a>&nbsp;&nbsp;<a href="boards.php?delid=' . $p['board_hash'] . '" class="text-danger">Delete</a></div>';
-                    echo '</a></div>';
+                    $count += 1;
+                    echo '<tr><td><img class="mx-auto d-block" src="../../images/signboard.svg" style="width: 28px;"></td><td>' . $count . '</td>';
+                    echo '<td><h6 class="" style="">' . $name . '</h6></td><td>' . $icon . '</td>';
+                    echo '<td><div class=""><a href="notice.php?noid=' . $p['board_hash'] . '&board=' . $p['board_nm'] . '">View</a>&nbsp;&nbsp;<a href="share.php?board_nm=' . $p['board_nm'] . '&hash=' . $p['board_hash'] . '&unme=' . $p['board_unm'] . '">Share</a>&nbsp;&nbsp;<a href="boards.php?delid=' . $p['board_hash'] . '" class="text-danger">Delete</a></div></td>';
+                    echo '</tr>';
                 }  
             ?>
-        </div>
+            </table>
     </div>
     <?php
     }
     if($_SESSION['typ'] != "1"){
     ?>
-    <div class="container-fluid bg-white shadow soft-bor-ten border" style="padding: 5% 5% 5% 5%; margin-top: 2%; height: 500px; overflow: auto;">
-        <h3 class="text-center"><i class="fas fa-user-friends"></i>&nbsp;&nbsp;Shared boards</h3>
-        <hr>
-        <div class="row" style="margin-top: 5%;">
+    <div class="col-sm-12">
+    <!-- <div class="container-fluid" style="margin-top: 2%; height: 500px; overflow: auto;"> -->
+        <h5 class=""><i class="fas fa-user-friends"></i>&nbsp;&nbsp;Shared boards</h5>
+        <table class="table table-bordered">
+                <tr class="bg-light">
+                    <th></th>
+                    <th>SL.NO</th>
+                    <th>Name</th>
+                    
+                    <th>Actions</th>
+                </tr>
                 <?php        
                     $ret = khatral::khquery('SELECT * FROM share_notice WHERE share_b_unm=:unm', array(
                         ':unm'=>$_SESSION['unme']
                     ));
+                    $count = 0;
                     foreach($ret as $p){
+                        $count += 1;
                         $name = $p['share_b_nm'];
-                        echo '<div class="col-sm-2 folder">';
-                        echo '<a href="notice.php?noid=' . $p['share_b_hash'] . '&board=' . $p['share_b_nm'] . '" class="text-center text-dark" style="text-decoration: none;"><img class="mx-auto d-block" src="../../images/signboard.svg" style="width: 108px;">';
-                        echo '<h6 class="text-center" style="margin-top: 5%;"><i class="fas fa-user-friends"></i>&nbsp;&nbsp;' . $name . '</h6>';
-                        echo '<div class="text-center"><a href="notice.php?noid=' . $p['share_b_hash'] . '&board=' . $p['share_b_nm'] . '">View</a></div>';
-                        echo '</a></div>';
+                        echo '<tr>';
+                        echo '<td><img class="mx-auto d-block" src="../../images/signboard.svg" style="width: 28px;"></td><td>' . $count . '</td>';
+                        echo '<td><h6 class="" style=""><i class="fas fa-user-friends"></i>&nbsp;&nbsp;' . $name . '</h6></td>';
+                        echo '<td><div class=""><a href="notice.php?noid=' . $p['share_b_hash'] . '&board=' . $p['share_b_nm'] . '">View</a></div></td>';
+                        echo '</tr>';
                     }
                 
                 ?>
-                </div>
-    </div>
+                </table>
+    </div>      
     <?php
     }
     ?>
+    </div>
 </div>

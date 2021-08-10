@@ -63,19 +63,19 @@ if(isset($_GET['id'])){
         </form>
     </div>
 </div>
-<div class="container-fluid bg-light border-bottom">
+<div class="container bg-light">
     <button data-toggle="modal" data-target="#myModal" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button><button data-toggle="modal" data-target="#myModal2" class="btn btn-light" style=""><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</button>
 </div>
-<div class="container-fluid" style="margin-top: 0%; padding-top: 1%;">
+<div class="container" style="margin-top: 0%; padding-top: 1%;">
         <table class="table table-bordered">
-            <tr class="border-bottom">
+            <tr class="bg-light">
                 <th>Office Name</th>
                 <th>Actions</th>
             </tr>
             <?php
                 $ret = icarus::GetOfficeWOTParm();
                 foreach($ret as $p){
-                        echo '<tr><td><img src="../images/enterprise.svg" style="width: 24px;">&nbsp;&nbsp;' . $p['office_nm'] . '</td><td><a href="office.php?id=' . $p['office_id'] . '" class="text-danger">Delete</a></td></tr>';
+                        echo '<tr><td><img src="../images/enterprise.svg" style="width: 18px;">&nbsp;&nbsp;' . $p['office_nm'] . '</td><td><a href="office.php?id=' . $p['office_id'] . '" class="text-danger">Delete</a></td></tr>';
                 }
             ?>
         </table>

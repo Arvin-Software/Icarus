@@ -40,31 +40,28 @@ if(isset($_POST['submit'])){
             }
 </style>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 shadow container-fluid bg-white" style="">
+<div class="bg-light p-2">
+        <h6 style=""><img src="../../images/signboard.svg" style="width: 28px;">&nbsp;&nbsp;Website - <?php echo $_GET['nm']; ?> - <?php echo $_GET['off']; ?></h6>
+    </div>
+    <div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
-                
-                
+            <a href="index.php" class="btn btn-light"><i class="far fa-arrow-alt-circle-left"></i>&nbsp;&nbsp;Back</a>
+                <?php 
+                    if($_SESSION['typ'] != "2"){
+                        echo '<button data-toggle="collapse" data-target="#demo" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button>';
+                    }
+                ?>
+                <a href="#" class="btn btn-light"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</a>
+                <div id="demo" class="collapse" style="margin-top: 2%;">
+                    <p><b>Create page ? please select home page or product page</b></p>
+                    <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-light">Home page</a>&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#myModal1" class="btn btn-light">Product page</a>
+                </div>
                 
                 
             </div>
             <div class="col-sm-4 text-center">
-                <h3 style="margin-top: 2%;">Website - <?php echo $_GET['nm']; ?> - <?php echo $_GET['off']; ?></h3>
-                <div  style="margin-top: 5%;">
-                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
-                <a href="index.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
-                <?php 
-                    if($_SESSION['typ'] != "2"){
-                        echo '<button data-toggle="collapse" data-target="#demo" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></button>&nbsp;&nbsp;';
-                    }
-                ?>
                 
-                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>&nbsp;&nbsp;
-                <div id="demo" class="collapse" style="margin-top: 2%;">
-                    <p>Create</p>
-                    <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary">Home page</a>&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#myModal1" class="btn btn-outline-primary">Product page</a>
-                </div>
-                </div>
             </div>
             <div class="col-sm-4 text-right">
                 
@@ -147,10 +144,10 @@ if(isset($_POST['submit'])){
             </div>
         </div>
     </div>
-    <div class="container" style="margin-top: 2%;">
+    <div class="container-fluid" style="margin-top: 2%;">
         <table class="table border table-borderless" id="table" style="">
             <thead>
-                <tr class="bg-primary text-white">
+                <tr class="bg-light">
                     <!-- <th style="width: 50px;">Sl.no</th> -->
                     <th>Page type</th>
                     <th>Page name</th>
@@ -164,11 +161,11 @@ if(isset($_POST['submit'])){
             <?php
                 $ret = icarus::GetPage("0");
                 foreach($ret as $p){
-                    echo '<tr><td>Home page</td><td>' . $p['page_nm'] . '</td><td>' . $p['page_hash'] . '</td><td>' . $p['page_web_hash'] . '</td><td>' . $p['page_path'] . '</td></tr>';
+                    echo '<tr class="border-bottom"><td>Home page</td><td>' . $p['page_nm'] . '</td><td>' . $p['page_hash'] . '</td><td>' . $p['page_web_hash'] . '</td><td>' . $p['page_path'] . '</td></tr>';
                 }
                 $ret = icarus::GetPage("1");
                 foreach($ret as $p){
-                    echo '<tr><td>Product page</td><td>' . $p['page_nm'] . '</td><td>' . $p['page_hash'] . '</td><td>' . $p['page_web_hash'] . '</td><td>' . $p['page_path'] . '</td><td><a href="editprod.php?id=' . $_GET['id'] . '&hash=' . $_GET['hash'] . '&nm=' . $_GET['nm'] . '&off=' . $_GET['off'] . '&pagehash=' . $p['page_hash'] . '" class="btn btn-outline-danger">Edit</a></tr>';
+                    echo '<tr class="border-bottom"><td>Product page</td><td>' . $p['page_nm'] . '</td><td>' . $p['page_hash'] . '</td><td>' . $p['page_web_hash'] . '</td><td>' . $p['page_path'] . '</td><td><a href="editprod.php?id=' . $_GET['id'] . '&hash=' . $_GET['hash'] . '&nm=' . $_GET['nm'] . '&off=' . $_GET['off'] . '&pagehash=' . $p['page_hash'] . '" class="btn btn-outline-primary">Edit</a></tr>';
                 }
             ?>
             </tbody>

@@ -16,7 +16,7 @@ if(isset($_GET['id'])){
     }
 }
 ?>
-<div class="container-fluid bg-light border-bottom">
+<div class="container bg-light">
     <button data-toggle="modal" data-target="#myModal" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button><button data-toggle="modal" data-target="#myModal2" class="btn btn-light" style=""><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</button>
 </div>
 <div class="modal" id="myModal">
@@ -76,9 +76,9 @@ if(isset($_GET['id'])){
     </div>
 </div>
 
-<div class="container-fluid" style="margin-top: 1%;">
+<div class="container" style="margin-top: 1%;">
     <table class="table table-bordered">
-        <tr class="border-bottom">
+        <tr class="bg-light">
             <th>Username</th>
             <th>Office</th>
             <th>Role</th>
@@ -99,9 +99,9 @@ if(isset($_GET['id'])){
                     $role_human = "Common person";
                 }
                 if($role != "1"){
-                    echo '<tr><td><img src="../images/userfair.svg" style="width: 28px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $p['user_office'] . '</td><td>' . $role_human . '</td><td><a href="accontrol.php?id=' . $p['user_id'] . '" class="text-danger">Delete</a></td></tr>';
+                    echo '<tr><td><img src="../images/userfair.svg" style="width: 18px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $p['user_office'] . '</td><td>' . $role_human . '</td><td><a href="accontrol.php?id=' . $p['user_id'] . '" class="text-danger">Delete</a></td></tr>';
                 }else{
-                    echo '<tr><td><img src="../images/userfair.svg" style="width: 28px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $p['user_office'] . '</td><td>' . $role_human . '</td></tr>';
+                    echo '<tr><td><img src="../images/userfair.svg" style="width: 18px;">&nbsp;&nbsp;' . $p['user_nm'] . '</td><td>' . $p['user_office'] . '</td><td>' . $role_human . '</td></tr>';
                 }
             }
         ?>

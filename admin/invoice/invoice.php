@@ -64,25 +64,23 @@ include '../headermodl.php';
             }
 </style>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 container-fluid bg-white" style="">
+    <div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
-                
+            <a href="finyear.php" class="btn btn-light"><i class="far fa-arrow-alt-circle-left"></i>&nbsp;&nbsp;Back</a>&nbsp;&nbsp;
+                <?php 
+                    if($_SESSION['typ'] != "2" && $_SESSION['typ'] != '1'){
+                        echo '<a href="new.php?year=' . $_GET['year'] . '" class="btn btn-light" style=""><i class="fas fa-plus"></i>&nbsp;&nbsp;New</button>&nbsp;&nbsp;';
+                    }
+                ?>
+                <a href="#" class="btn btn-light"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</a>
                 
                 
                 
             </div>
             <div class="col-sm-4 text-center">
-                <img src="../../images/invoiceadd.svg" alt="inventory" style="width: 48px;">
-                <h3 style="margin-top: 2%;">New Invoice</h3><br>
-                <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp;
-                <a href="finyear.php" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
-                <?php 
-                    if($_SESSION['typ'] != "2" && $_SESSION['typ'] != '1'){
-                        echo '<a href="new.php?year=' . $_GET['year'] . '" class="btn btn-outline-primary rounded-circle" style=""><i class="fas fa-plus"></i></a>&nbsp;&nbsp;';
-                    }
-                ?>
-                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>
+                <!-- <a href="../index.php" class="btn btn-outline-primary rounded-circle"><i class="fas fa-home"></i></a>&nbsp;&nbsp; -->
+               
             </div>
             <div class="col-sm-4 text-right">
                 
@@ -90,13 +88,13 @@ include '../headermodl.php';
         </div>    
     </div>
 <body class="bg-light">
-    <div class="container bor-none" style="padding-top: 2%; width: 98vw; background-color: #FFFFFF;">
+    <div class="container-fluid bor-none" style="padding-top: 2%; width: 98vw; background-color: #FFFFFF;">
         <!-- <h4><i class="fas fa-file-invoice"></i>&nbsp;Sales Order</h4> -->
         
         <div class="bg-white table-responsive" style="padding: 0% 0% 0% 0%;">
         
         <table class="table table-borderless border">
-            <tr class="bg-primary text-white" style="background-color: rgba(255, 247, 224, 1);">
+            <tr class="bg-light" style="background-color: rgba(255, 247, 224, 1);">
                 <th>SL.NO</th>
                 <th>Date</th>
                 <th>Customer Name</th>
