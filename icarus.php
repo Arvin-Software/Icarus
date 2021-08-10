@@ -258,12 +258,16 @@ class icarus{
         ));
     }
     public static function DisplayVersion(){
-        echo 'v0.1a2';
+        echo 'v0.1b1';
     }
     public static function DisplayVerBuild(){
-        echo 'v0.1a2 build29072021083640pm-r30';
+        // echo 'v0.1a2 build29072021083640pm-r30';
+        echo 'v0.1b1 build11082021033230am-r60';
+    }
+    public static function DisplayVerClerkBuild(){
+        echo 'v1.0b1 build 11082021033230am-r239';
     }
     public static function DisplayKhatralVersion(){
-        echo '0.0.6-r845';
+        echo '0.0.7-r962';
     }
 }

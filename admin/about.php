@@ -28,7 +28,8 @@ include '../header.php';
     </tr>
     <tr>
         <td>Clerkly books lite</td>
-        <td>v1.0 build 29042021034920am</td>
+        <!-- <td>v1.0 build 29042021034920am</td> -->
+        <td><?php icarus::DisplayVerClerkBuild(); ?></td>
     </tr>
     <tr>
         <td>Softview CSS</td>
