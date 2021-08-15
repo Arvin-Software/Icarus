@@ -119,9 +119,9 @@ include '../headermodl.php';
                     }
                     echo '<td><h4><span class="badge badge-warning">' . $p['stat'] . '</span></h4></td>';
                     if($p['stat'] == "Invoice"){
-                        echo '<td class=""><a href="edit.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="view.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '&year=' . $_GET['year'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-eye"></i></a></td>';
+                        echo '<td class=""><a href="edit.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '&fin=' . $p['fin_year_id'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="view.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '&year=' . $_GET['year'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-eye"></i></a></td>';
                     }else{
-                    echo '<td class=""><a href="edit.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="view.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '&year=' . $_GET['year'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-eye"></i></a></td>';
+                    echo '<td class=""><a href="edit.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '&fin=' . $p['fin_year_id'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-edit"></i></a>&nbsp;&nbsp;<a href="view.php?id=' . $p['entryid'] . '&stat=' . $p['stat'] . '&year=' . $_GET['year'] . '" style="" class="btn btn-outline-dark rounded-circle"><i class="far fa-eye"></i></a></td>';
                     }
                     echo '</tr>';
                 }

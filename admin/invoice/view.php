@@ -34,20 +34,19 @@ include '../../classes/khatral.php';
             }
 </style>
 <div id="inc1" class="" style="height: 90vh;">
-    <div class="p-4 container-fluid bg-white" style="">
+    <div class="container-fluid bg-light" style="">
         <div class="row">
             <div class="col-sm-4">
-                
-                
+            <a href="invoice.php?year=<?php echo $_GET['year']; ?>" class="btn btn-light"><i class="far fa-arrow-alt-circle-left"></i>&nbsp;&nbsp;Back</a>&nbsp;&nbsp;
+            <button type="button" onclick="PrintDiv();" class="btn btn-light"><i class="fas fa-print"></i>&nbsp;&nbsp;Print</button>
+            <a href="#" class="btn btn-light"><i class="far fa-question-circle"></i>&nbsp;&nbsp;Help</a>
                 
                 
             </div>
             <div class="col-sm-4 text-center">
-                <img src="../../images/invoice.svg" alt="inventory" style="width: 48px;">
-                <h3 style="margin-top: 2%;">View/Print</h3><br>
-                <a href="invoice.php?year=<?php echo $_GET['year']; ?>" class="btn btn-outline-primary rounded-circle"><i class="far fa-arrow-alt-circle-left"></i></a>&nbsp;&nbsp;
-                <button type="button" onclick="PrintDiv();" class="btn btn-outline-primary  rounded-circle"><i class="fas fa-print"></i></button>&nbsp;&nbsp;
-                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a>
+                
+                <!-- <button type="button" onclick="PrintDiv();" class="btn btn-outline-primary  rounded-circle"><i class="fas fa-print"></i></button>&nbsp;&nbsp;
+                <a href="#" class="btn btn-outline-primary rounded-circle"><i class="far fa-question-circle"></i></a> -->
             </div>
             <div class="col-sm-4 text-right">
                 
@@ -69,4 +68,4 @@ foreach($ret as $p){
     $filnm = $p['temp_file'];
 }
 ?>
-<iframe class="border-0" src="../../printtemp/<?php echo $filnm; ?>?id=<?php echo $_GET['id']; ?>&stat=<?php echo $_GET['stat']; ?>" id="printf" name="printf" style="height: 75vh; width: 100%; overflow: auto;"></iframe>
+<iframe class="border-0" src="../../printtemp/<?php echo $filnm; ?>?id=<?php echo $_GET['id']; ?>&stat=<?php echo $_GET['stat']; ?>" id="printf" name="printf" style="height: 90vh; width: 100%; overflow: auto;"></iframe>
