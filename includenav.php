@@ -14,7 +14,7 @@
             <?php
             }
             ?>
-            <a href="404.php" style="margin-bottom: 5%;" <?php if($curr == 'api'){ echo 'class=" btn-nav-sec nav-item nav-link btn text-left btn-bb btn-col  bor-five"';} else{ echo 'class=" btn-nav-sec nav-item nav-link btn text-left btn-bb bor-five"';} ?>  id="dash" name="dash"><img src="/icarus/images/notes.svg" class="" style="width: 28px;">&nbsp;&nbsp;modules</a>
+            <a href="modules.php" style="margin-bottom: 5%;" <?php if($curr == 'api'){ echo 'class=" btn-nav-sec nav-item nav-link btn text-left btn-bb btn-col  bor-five"';} else{ echo 'class=" btn-nav-sec nav-item nav-link btn text-left btn-bb bor-five"';} ?>  id="dash" name="dash"><img src="/icarus/images/notes.svg" class="" style="width: 28px;">&nbsp;&nbsp;modules</a>
         </div>
     </div>
 </nav>
