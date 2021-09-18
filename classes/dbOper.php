@@ -178,6 +178,20 @@ if($conn->query($query) == TRUE){
     }else{
     echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table print_temp_so ' . $conn->error;
     }
+$query = 'CREATE TABLE IF NOT EXISTS transport_sales(
+            trans_id        INTEGER         NOT NULL        AUTO_INCREMENT,
+            entry_po        INTEGER         NOT NULL,
+            veh_det         LONGTEXT        NOT NULL,
+            date_supp       VARCHAR(255)    NOT NULL,
+            place_supp      VARCHAR(255)    NOT NULL,
+            oth_det         LONGTEXT        NOT NULL,
+            PRIMARY KEY(trans_id),
+            FOREIGN KEY(entry_po) REFERENCES entryso(entryid))';
+if($conn->query($query) == TRUE){
+    echo '<br /><img src="../images/tick.svg" style="width: 22px;">&nbsp;&nbsp;Table transport_sales created successfully';
+}else{
+    echo '<br /><img src="../images/error.svg" style="width: 18px;">&nbsp;&nbsp;Error creating table transport_sales ' . $conn->error;
+}
 $query = 'CREATE TABLE IF NOT EXISTS mtrlsales(
     mtrl_id			INTEGER			NOT NULL			AUTO_INCREMENT,
     code            VARCHAR(255)    NOT NULL,

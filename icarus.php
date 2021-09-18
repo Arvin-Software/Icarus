@@ -194,6 +194,15 @@ class icarus{
             ':poid'=>$poid
         ));
     }
+    public static function insertTransport($entrypo, $vehdet, $dsupp, $psupp, $othdet){
+        khatral::khquery('INSERT INTO transport_sales VALUES(NULL, :entrypo, :vehdet, :dsupp, :psupp, :othdet)', array(
+            ':entrypo'=>$entrypo,
+            ':vehdet'=>$vehdet,
+            ':dsupp'=>$dsupp,
+            ':psupp'=>$psupp,
+            ':othdet'=>$othdet
+        ));
+    }
     public static function insertWebsite($webnm, $offnm){
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
